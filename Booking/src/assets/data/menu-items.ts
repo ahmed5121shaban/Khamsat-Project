@@ -1,30 +1,30 @@
 import type { MenuItemType } from 'src/app/core/models'
 
 export const bookingHomeMenuItems: MenuItemType[] = [
-  {
-    key: 'hotel-home',
-    label: 'Hotel',
-    url: '/hotels/home',
-    icon: 'fa-solid fa-hotel',
-  },
-  {
-    key: 'flight-home',
-    label: 'Flight',
-    url: '/flights/home',
-    icon: 'fa-solid fa-plane',
-  },
-  {
-    key: 'tour-home',
-    label: 'Tour',
-    url: '/tours/home',
-    icon: 'fa-solid fa-earth-americas',
-  },
-  {
-    key: 'cabs-home',
-    label: 'Cab',
-    url: '/cabs/home',
-    icon: 'fa-solid fa-car',
-  },
+  // {
+  //   key: 'hotel-home',
+  //   label: 'Hotel',
+  //   url: '/hotels/home',
+  //   icon: 'fa-solid fa-hotel',
+  // },
+  // {
+  //   key: 'flight-home',
+  //   label: 'Flight',
+  //   url: '/flights/home',
+  //   icon: 'fa-solid fa-plane',
+  // },
+  // {
+  //   key: 'tour-home',
+  //   label: 'Tour',
+  //   url: '/tours/home',
+  //   icon: 'fa-solid fa-earth-americas',
+  // },
+  // {
+  //   key: 'cabs-home',
+  //   label: 'Cab',
+  //   url: '/cabs/home',
+  //   icon: 'fa-solid fa-car',
+  // },
 ]
 
 export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
@@ -35,34 +35,34 @@ export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
     parentKey: 'acc-user',
     icon: 'bi bi-person',
   },
-  {
-    key: 'acc-user-bookings',
-    label: 'My Bookings',
-    url: '/user/bookings',
-    parentKey: 'acc-user',
-    icon: 'bi bi-ticket-perforated',
-  },
-  {
-    key: 'acc-user-travelers',
-    label: 'Travelers',
-    url: '/user/travelers',
-    parentKey: 'acc-user',
-    icon: 'bi bi-people',
-  },
-  {
-    key: 'acc-user-payment-details',
-    label: 'Payment Details',
-    url: '/user/payment-details',
-    parentKey: 'acc-user',
-    icon: 'bi bi-wallet',
-  },
-  {
-    key: 'acc-user-wishlist',
-    label: 'Wishlist',
-    url: '/user/wishlist',
-    parentKey: 'acc-user',
-    icon: 'bi bi-heart',
-  },
+  // {
+  //   key: 'acc-user-bookings',
+  //   label: 'My Bookings',
+  //   url: '/user/bookings',
+  //   parentKey: 'acc-user',
+  //   icon: 'bi bi-ticket-perforated',
+  // },
+  // {
+  //   key: 'acc-user-travelers',
+  //   label: 'Travelers',
+  //   url: '/user/travelers',
+  //   parentKey: 'acc-user',
+  //   icon: 'bi bi-people',
+  // },
+  // {
+  //   key: 'acc-user-payment-details',
+  //   label: 'Payment Details',
+  //   url: '/user/payment-details',
+  //   parentKey: 'acc-user',
+  //   icon: 'bi bi-wallet',
+  // },
+  // {
+  //   key: 'acc-user-wishlist',
+  //   label: 'Wishlist',
+  //   url: '/user/wishlist',
+  //   parentKey: 'acc-user',
+  //   icon: 'bi bi-heart',
+  // },
   {
     key: 'acc-user-settings',
     label: 'Settings',
@@ -70,13 +70,13 @@ export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
     parentKey: 'acc-user',
     icon: 'bi bi-gear',
   },
-  {
-    key: 'acc-user-delete',
-    label: 'Delete Profile',
-    url: '/user/delete-profile',
-    parentKey: 'acc-user',
-    icon: 'bi bi-trash',
-  },
+  // {
+  //   key: 'acc-user-delete',
+  //   label: 'Delete Profile',
+  //   url: '/user/delete-profile',
+  //   parentKey: 'acc-user',
+  //   icon: 'bi bi-trash',
+  // },
 ]
 
 export const AGENT_MENU_ITEMS: MenuItemType[] = [
@@ -289,417 +289,18 @@ export const APP_MENU_ITEMS: MenuItemType[] = [
     key: 'listings',
     label: 'Listings',
     isTitle: true,
-    children: [
-      {
-        key: 'hotels',
-        label: 'Hotel',
-        parentKey: 'listings',
-        children: [
-          {
-            key: 'hotel-home',
-            label: 'Hotel Home',
-            url: '/hotels/home',
-            parentKey: 'hotels',
-          },
-          {
-            key: 'hotel-chain',
-            label: 'Hotel Chain',
-            url: '/hotels/chain',
-            parentKey: 'hotels',
-          },
-          {
-            key: 'hotel-resort',
-            label: 'Hotel Resort',
-            url: '/hotels/resort',
-            parentKey: 'hotels',
-          },
-          {
-            key: 'hotel-grid',
-            label: 'Hotel Grid',
-            url: '/hotels/grid',
-            parentKey: 'hotels',
-          },
-          {
-            key: 'hotel-list',
-            label: 'Hotel List',
-            url: '/hotels/list',
-            parentKey: 'hotels',
-          },
-          {
-            key: 'hotel-detail',
-            label: 'Hotel Detail',
-            url: '/hotels/detail',
-            parentKey: 'hotels',
-          },
-          {
-            key: 'hotel-room-detail',
-            label: 'Room Detail',
-            url: '/hotels/room-detail',
-            parentKey: 'hotels',
-          },
-          {
-            key: 'hotel-booking',
-            label: 'Hotel Booking',
-            url: '/hotels/booking',
-            parentKey: 'hotels',
-          },
-        ],
-      },
-      {
-        key: 'flights',
-        label: 'Flight',
-        parentKey: 'listings',
-        children: [
-          {
-            key: 'flight-home',
-            label: 'Flight Home',
-            url: '/flights/home',
-            parentKey: 'flights',
-          },
-          {
-            key: 'flight-list',
-            label: 'Flight List',
-            url: '/flights/list',
-            parentKey: 'flights',
-          },
-          {
-            key: 'flight-detail',
-            label: 'Flight Detail',
-            url: '/flights/detail',
-            parentKey: 'flights',
-          },
-          {
-            key: 'flight-booking',
-            label: 'Flight Booking',
-            url: '/flights/booking',
-            parentKey: 'flights',
-          },
-        ],
-      },
-      {
-        key: 'tours',
-        label: 'Tour',
-        parentKey: 'listings',
-        children: [
-          {
-            key: 'tour-home',
-            label: 'Tour Home',
-            url: '/tours/home',
-            parentKey: 'tours',
-          },
-          {
-            key: 'tour-grid',
-            label: 'Tour Grid',
-            url: '/tours/grid',
-            parentKey: 'tours',
-          },
-          {
-            key: 'tour-detail',
-            label: 'Tour Detail',
-            url: '/tours/detail',
-            parentKey: 'tours',
-          },
-          {
-            key: 'tour-booking',
-            label: 'Tour Booking',
-            url: '/tours/booking',
-            parentKey: 'tours',
-          },
-        ],
-      },
-      {
-        key: 'cabs',
-        label: 'Cab',
-        parentKey: 'listings',
-        children: [
-          {
-            key: 'cabs-home',
-            label: 'Cab Home',
-            url: '/cabs/home',
-            parentKey: 'cabs',
-          },
-          {
-            key: 'cabs-list',
-            label: 'Cab List',
-            url: '/cabs/list',
-            parentKey: 'cabs',
-          },
-          {
-            key: 'cabs-detail',
-            label: 'Cab Detail',
-            url: '/cabs/detail',
-            parentKey: 'cabs',
-          },
-          {
-            key: 'cabs-booking',
-            label: 'Cab Booking',
-            url: '/cabs/booking',
-            parentKey: 'cabs',
-          },
-        ],
-      },
-      {
-        key: 'directories',
-        label: 'Directory',
-        parentKey: 'listings',
-        children: [
-          {
-            key: 'directory-home',
-            label: 'Directory Home',
-            url: '/directories/home',
-            parentKey: 'directories',
-          },
-          {
-            key: 'directory-detail',
-            label: 'Directory Detail',
-            url: '/directories/detail',
-            parentKey: 'directories',
-          },
-        ],
-      },
-      {
-        key: 'add-listing',
-        label: 'Add Listing',
-        parentKey: 'listings',
-        children: [
-          {
-            key: 'add-listing-join-us',
-            label: 'Join Us',
-            url: '/listings/join-us',
-            parentKey: 'add-listing',
-          },
-          {
-            key: 'add-listing-listing',
-            label: 'Add Listing',
-            url: '/listings/add',
-            parentKey: 'add-listing',
-          },
-          {
-            key: 'add-listing-listing-minimal',
-            label: 'Add Listing Minimal',
-            url: '/listings/add-minimal',
-            parentKey: 'add-listing',
-          },
-          {
-            key: 'add-listing-listing-added',
-            label: 'Listing Added',
-            url: '/listings/added',
-            parentKey: 'add-listing',
-          },
-        ],
-      },
-      {
-        key: 'heros',
-        label: 'Hero',
-        parentKey: 'listings',
-        children: [
-          {
-            key: 'heros-inline-form',
-            label: 'Hero Inline Form',
-            url: '/heroes/inline-form',
-            parentKey: 'heros',
-          },
-          {
-            key: 'heros-multiple-search',
-            label: 'Hero Multiple Search',
-            url: '/heroes/multiple-search',
-            parentKey: 'heros',
-          },
-          {
-            key: 'heros-image-gallery',
-            label: 'Hero Image Gallery',
-            url: '/heroes/image-gallery',
-            parentKey: 'heros',
-          },
-          {
-            key: 'heros-split',
-            label: 'Hero Split',
-            url: '/heroes/split',
-            parentKey: 'heros',
-          },
-        ],
-      },
-      {
-        key: 'booking-confirmed',
-        label: 'Booking Confirmed',
-        url: '/booking-confirmed',
-        parentKey: 'listings',
-      },
-      {
-        key: 'compare-listing',
-        label: 'Compare Listing',
-        url: '/compare-listing',
-        parentKey: 'listings',
-      },
-      {
-        key: 'offer-detail',
-        label: 'Offer Detail',
-        url: '/offer-detail',
-        parentKey: 'listings',
-      },
-    ],
+    
   },
   {
     key: 'pages',
     label: 'Pages',
     isTitle: true,
-    children: [
-      {
-        key: 'pages-about',
-        label: 'About',
-        url: '/pages/about',
-        parentKey: 'pages',
-      },
-      {
-        key: 'pages-contact',
-        label: 'Contact',
-        url: '/pages/contact',
-        parentKey: 'pages',
-      },
-      {
-        key: 'pages-contact-2',
-        label: 'Contact 2',
-        url: '/pages/contact-2',
-        parentKey: 'pages',
-      },
-      {
-        key: 'pages-our-team',
-        label: 'Our Team',
-        url: '/pages/our-team',
-        parentKey: 'pages',
-      },
-      {
-        key: 'authentication',
-        label: 'Authentication',
-        parentKey: 'pages',
-        children: [
-          {
-            key: 'authentication-sign-in',
-            label: 'Sign In',
-            url: '/auth/sign-in',
-            parentKey: 'authentication',
-          },
-          {
-            key: 'authentication-sign-up',
-            label: 'Sign Up',
-            url: '/auth/sign-up',
-            parentKey: 'authentication',
-          },
-          {
-            key: 'authentication-forgot-password',
-            label: 'Forgot Password',
-            url: '/auth/forgot-password',
-            parentKey: 'authentication',
-          },
-          {
-            key: 'authentication-two',
-            label: 'Two Factor Authentication',
-            url: '/auth/two-factor-auth',
-            parentKey: 'authentication',
-          },
-        ],
-      },
-      {
-        key: 'blogs',
-        label: 'Blog',
-        parentKey: 'pages',
-        children: [
-          {
-            key: 'blogs-blog',
-            label: 'Blog',
-            url: '/blogs/blog',
-            parentKey: 'blogs',
-          },
-          {
-            key: 'blogs-detail',
-            label: 'Blog Detail',
-            url: '/blogs/detail',
-            parentKey: 'blogs',
-          },
-        ],
-      },
-      {
-        key: 'helps',
-        label: 'Help',
-        parentKey: 'pages',
-        children: [
-          {
-            key: 'helps-center',
-            label: 'Help Center',
-            url: '/help/center',
-            parentKey: 'helps',
-          },
-          {
-            key: 'helps-detail',
-            label: 'Help Detail',
-            url: '/help/detail',
-            parentKey: 'helps',
-          },
-          {
-            key: 'helps-privacy-policy',
-            label: 'Privacy Policy',
-            url: '/help/privacy-policy',
-            parentKey: 'helps',
-          },
-          {
-            key: 'helps-services',
-            label: 'Terms Of Service',
-            url: '/help/service',
-            parentKey: 'helps',
-          },
-        ],
-      },
-      {
-        key: 'pricing',
-        label: 'Pricing',
-        url: '/pricing',
-        parentKey: 'pages',
-      },
-      {
-        key: 'faqs',
-        label: 'FAQs',
-        url: '/faqs',
-        parentKey: 'pages',
-      },
-      {
-        key: 'not-found',
-        label: 'Error 404',
-        url: '/not-found',
-        target: '_blank',
-        parentKey: 'pages',
-      },
-      {
-        key: 'coming-soon',
-        label: 'Coming Soon',
-        url: '/coming-soon',
-        target: '_blank',
-        parentKey: 'pages',
-      },
-    ],
+    
   },
   {
     key: 'accounts',
     label: 'Accounts',
     isTitle: true,
-    children: [
-      {
-        key: 'acc-user',
-        label: 'User Profile',
-        parentKey: 'accounts',
-        children: USER_PROFILE_MENU_ITEMS,
-      },
-      {
-        key: 'acc-agent',
-        label: 'Agent Dashboard',
-        parentKey: 'accounts',
-        children: AGENT_MENU_ITEMS,
-      },
-      {
-        key: 'acc-admin',
-        label: 'Master Admin',
-        parentKey: 'accounts',
-        url: '/admin/dashboard',
-      },
-    ],
+    
   },
 ]
