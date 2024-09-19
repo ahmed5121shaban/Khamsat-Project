@@ -4689,6 +4689,7 @@ textarea.form-control-lg {
 }
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
   color: var(--bs-navbar-active-color);
+
 }
 .navbar-nav .dropdown-menu {
   position: static;
@@ -4703,6 +4704,7 @@ textarea.form-control-lg {
 .navbar-text a:hover,
 .navbar-text a:focus {
   color: var(--bs-navbar-active-color);
+
 }
 
 .navbar-collapse {
@@ -22334,3 +22336,6 @@ html[dir=rtl] .choices__input {
 
 /*User CSS*/
 /*# sourceMappingURL=style.css.map */
+.navbar-nav-scroll li{
+  margin-right: 100px !important;
+}

@@ -289,18 +289,18 @@ export const APP_MENU_ITEMS: MenuItemType[] = [
     key: 'listings',
     label: 'Listings',
     isTitle: true,
-    
+
   },
   {
     key: 'pages',
     label: 'Pages',
     isTitle: true,
-    
+
   },
   {
     key: 'accounts',
     label: 'Accounts',
     isTitle: true,
-    
+
   },
 ]

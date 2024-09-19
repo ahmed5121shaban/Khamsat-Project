@@ -16,7 +16,7 @@ import type { MenuItemType } from 'src/app/core/models'
       [routerLink]="item.url ?? ''"
       [target]="item.target ?? '_self'"
       class="{{ linkClassName }}"
-    >
+      style="margin-right: 15px !important;">
       {{ item.label }}
     </a>
   `,

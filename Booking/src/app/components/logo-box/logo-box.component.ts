@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router'
   standalone: true,
   imports: [RouterModule],
   template: `
-    <a class="navbar-brand" routerLink="/">
+    <a class="navbar-brand" routerLink="/" style="margin-right: 100px !important;">
       @if (onlyDark) {
         <img
           [class]="'navbar-brand-item'"

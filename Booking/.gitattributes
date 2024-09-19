@@ -1,0 +1,5 @@
+# Handle all text files with automatic conversion
+* text=auto
+
+# Force LF endings for specific files (e.g., yarn.lock)
+*.lock text eol=lf
