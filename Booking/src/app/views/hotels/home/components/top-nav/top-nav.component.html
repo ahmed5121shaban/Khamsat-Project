@@ -5,7 +5,7 @@
 
       <vertical-menu-button className="ms-auto ms-sm-0"></vertical-menu-button>
 
-      <!-- <button
+       <button
         class="navbar-toggler ms-sm-auto mx-3 me-md-0 p-0 p-sm-2"
         type="button"
         data-bs-toggle="collapse"
@@ -17,13 +17,18 @@
       >
         <i class="bi bi-grid-3x3-gap-fill fa-fw"></i
         ><span class="d-none d-sm-inline-block small">Category</span>
-      </button> -->
+        </button>
 
       <app-menu
         [showExtraPages]="true"
         [menuClassName]="'me-auto'"
         class="navbar-collapse collapse d-contents"
       />
+
+
+
+
+
 
       <div
         #collapse="ngbCollapse"
@@ -47,6 +52,23 @@
           }
         </ul>
       </div>
+
+
+      <div
+      class=""
+    >
+      <ul
+        class="navbar-nav navbar-nav-scroll nav-pills-primary-soft text-center ms-auto p-2 p-xl-0"
+      >
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+            >
+              <span class="me-1">$</span>USD</a
+            >
+          </li>
+      </ul>
+    </div>
 
       <ul class="nav flex-row align-items-center list-unstyled ms-xl-auto">
         <app-notification-dropdown className="ms-0 ms-md-3" />

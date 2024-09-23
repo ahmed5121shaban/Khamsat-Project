@@ -28,19 +28,19 @@ const hotels: HotelsListType[] = [
     price: 750,
     features: ['Air Conditioning', 'Wifi', 'Kitchen', 'Pool'],
     rating: 4.5,
-    schemes: ['Free Cancellation till 7 Jan 2022', 'Free Breakfast'],
+    schemes: ['Deluxe Room', 'Free Breakfast'],
     sale: '30% Off',
   },
   {
     id: 2,
     name: 'Pride moon Village Resort & Spa',
     address: '31J W Spark Street, California - 24578',
-    images: [hotel10],
+    images: [hotel10,hotel3, hotel2, hotel1],
     price: 980,
     features: ['Air Conditioning', 'Wifi', 'Kitchen', 'Pool'],
-    rating: 4.5,
+    rating: 3.5,
   },
-  {
+/*   {
     id: 3,
     name: 'Royal Beach Resort',
     address: 'Manhattan street, London - 24578',
@@ -68,7 +68,7 @@ const hotels: HotelsListType[] = [
     price: 645,
     features: ['Air Conditioning', 'Wifi', 'Kitchen', 'Pool'],
     rating: 4.5,
-  },
+  }, */
 ]
 
 export { hotels }

@@ -70,7 +70,7 @@
             <label class="form-check-label" for="hotelType5">Villa</label>
           </div>
 
-          <div class="form-check">
+<!--           <div class="form-check">
             <input
               class="form-check-input"
               type="checkbox"
@@ -142,165 +142,45 @@
             See <span class="see-more ms-1">more</span
             ><span class="see-less ms-1">less</span
             ><i class="fa-solid fa-angle-down ms-2"></i>
-          </a>
+          </a> -->
+
         </div>
       </div>
 
       <hr class="my-0" />
 
-      <div class="card card-body rounded-0 p-4">
-        <h6 class="mb-2">Price range</h6>
 
+
+      <div class="card card-body rounded-0 p-4">
         <div class="col-12">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="priceRange1"
-            />
-            <label class="form-check-label" for="priceRange1"
-              >Up to {{ currencyType }}500</label
-            >
-          </div>
-
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="priceRange2"
-            />
-            <label class="form-check-label" for="priceRange2"
-              >{{ currencyType }}500 - {{ currencyType }}1000</label
-            >
-          </div>
-
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="priceRange3"
-            />
-            <label class="form-check-label" for="priceRange3"
-              >{{ currencyType }}1000 - {{ currencyType }}1500</label
-            >
-          </div>
-
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="priceRange4"
-            />
-            <label class="form-check-label" for="priceRange4"
-              >{{ currencyType }}1500 - {{ currencyType }}2000</label
-            >
-          </div>
-
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="priceRange5"
-            />
-            <label class="form-check-label" for="priceRange5"
-              >{{ currencyType }}2000+</label
-            >
+          <div class="form-control-borderless">
+            <label class="form-label">Price Range</label>
+            <div class="position-relative">
+              <div class="noui-wrapper">
+                <div class="d-flex justify-content-between">
+                  <input
+                    type="text"
+                    [value]="value.toFixed(2)"
+                    class="text-body input-with-range-min"
+                  />
+                  <input
+                    type="text"
+                    [value]="highValue.toFixed(2)"
+                    class="text-body input-with-range-max"
+                  />
+                </div>
+                <ngx-slider
+                  [(value)]="value"
+                  [options]="options"
+                  [(highValue)]="highValue"
+                  class="range-slider-ui"
+                ></ngx-slider>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <hr class="my-0" />
-
-      <div class="card card-body rounded-0 p-4">
-        <h6 class="mb-2">Popular Type</h6>
-
-        <div class="col-12">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="popolarType1"
-            />
-            <label class="form-check-label" for="popolarType1"
-              >Free Breakfast Included</label
-            >
-          </div>
-
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="popolarType2"
-            />
-            <label class="form-check-label" for="popolarType2"
-              >Pay At Hotel Available</label
-            >
-          </div>
-
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="popolarType3"
-            />
-            <label class="form-check-label" for="popolarType3"
-              >Free Cancellation Available</label
-            >
-          </div>
-        </div>
-      </div>
-
-      <hr class="my-0" />
-
-      <div class="card card-body rounded-0 p-4">
-        <h6 class="mb-2">Customer Rating</h6>
-
-        <ul class="list-inline mb-0 g-3">
-          <li class="list-inline-item mb-0">
-            <input type="checkbox" class="btn-check" id="btn-check-c1" />
-            <label
-              class="btn btn-sm btn-light btn-primary-soft-check"
-              for="btn-check-c1"
-              >3+</label
-            >
-          </li>
-
-          <li class="list-inline-item mb-0">
-            <input type="checkbox" class="btn-check" id="btn-check-c2" />
-            <label
-              class="btn btn-sm btn-light btn-primary-soft-check"
-              for="btn-check-c2"
-              >3.5+</label
-            >
-          </li>
-
-          <li class="list-inline-item mb-0">
-            <input type="checkbox" class="btn-check" id="btn-check-c3" />
-            <label
-              class="btn btn-sm btn-light btn-primary-soft-check"
-              for="btn-check-c3"
-              >4+</label
-            >
-          </li>
-
-          <li class="list-inline-item mb-0">
-            <input type="checkbox" class="btn-check" id="btn-check-c4" />
-            <label
-              class="btn btn-sm btn-light btn-primary-soft-check"
-              for="btn-check-c4"
-              >4.5+</label
-            >
-          </li>
-        </ul>
-      </div>
 
       <hr class="my-0" />
 
@@ -355,9 +235,121 @@
         </ul>
       </div>
 
+
       <hr class="my-0" />
 
-      <div class="card card-body rounded-0 rounded-bottom p-4">
+
+      <div class="card card-body rounded-0  p-4">
+        <h6 class="mb-2">Search By Hotel Name</h6>
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-hotel fs-5 me-2 mt-2"></i>
+
+          <div class="form-control-border form-control-transparent form-fs-md">
+            <label class="form-label"></label>
+            <input
+              type="text"
+              type="text"
+              class="form-control form-select-sm flatpickr"
+              placeholder="Hotel Name"
+            />
+          </div>
+        </div>
+      </div>
+
+
+
+      <hr class="my-0" />
+
+      <div class="card card-body rounded-0 p-4">
+        <h6 class="mb-2">Popular Type</h6>
+
+        <div class="col-12">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="popolarType1"
+            />
+            <label class="form-check-label" for="popolarType1"
+              >Free Breakfast Included</label
+            >
+          </div>
+
+<!--           <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="popolarType2"
+            />
+            <label class="form-check-label" for="popolarType2"
+              >Pay At Hotel Available</label
+            >
+          </div> -->
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="popolarType3"
+            />
+            <label class="form-check-label" for="popolarType3"
+              >Free Cancellation Available</label
+            >
+          </div>
+        </div>
+      </div>
+
+<!--       <hr class="my-0" />
+
+      <div class="card card-body rounded-0 p-4">
+        <h6 class="mb-2">Customer Rating</h6>
+
+        <ul class="list-inline mb-0 g-3">
+          <li class="list-inline-item mb-0">
+            <input type="checkbox" class="btn-check" id="btn-check-c1" />
+            <label
+              class="btn btn-sm btn-light btn-primary-soft-check"
+              for="btn-check-c1"
+              >3+</label
+            >
+          </li>
+
+          <li class="list-inline-item mb-0">
+            <input type="checkbox" class="btn-check" id="btn-check-c2" />
+            <label
+              class="btn btn-sm btn-light btn-primary-soft-check"
+              for="btn-check-c2"
+              >3.5+</label
+            >
+          </li>
+
+          <li class="list-inline-item mb-0">
+            <input type="checkbox" class="btn-check" id="btn-check-c3" />
+            <label
+              class="btn btn-sm btn-light btn-primary-soft-check"
+              for="btn-check-c3"
+              >4+</label
+            >
+          </li>
+
+          <li class="list-inline-item mb-0">
+            <input type="checkbox" class="btn-check" id="btn-check-c4" />
+            <label
+              class="btn btn-sm btn-light btn-primary-soft-check"
+              for="btn-check-c4"
+              >4.5+</label
+            >
+          </li>
+        </ul>
+      </div>
+ -->
+
+      <hr class="my-0" />
+
+<!--       <div class="card card-body rounded-0 rounded-bottom p-4">
         <h6 class="mb-2">Amenities</h6>
 
         <div class="col-12">
@@ -494,7 +486,8 @@
             ><i class="fa-solid fa-angle-down ms-2"></i>
           </a>
         </div>
-      </div>
+      </div> -->
+
     </form>
   </div>
 

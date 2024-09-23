@@ -1,13 +1,15 @@
-<div class="col-xl-10 position-relative mt-n3 mt-xl-n9">
-  <p class="d-none d-xl-block mb-3 fs-5 opacity-75 fw-semibold">For The Pest Price and More Availability</p>
 
+
+<div class="col-xl-10 position-relative mt-n3 mt-xl-n9">
+
+  <p class="fs-5" style="margin-bottom: -6px;">Check Availability</p>
   <form class="card shadow rounded-3 position-relative p-4 pe-md-5 pb-5 pb-md-4">
 
     <div class="row g-4 align-items-center">
       <div class="col-lg-4">
         <div
-          class="form-control-border form-control-transparent form-fs-md d-flex">
-          <i class="bi bi-geo-alt fs-3 me-2 mt-2"></i>
+          class="form-control-border form-control-transparent form-fs-md d-flex align-items-center">
+          <i class="bi bi-geo-alt fs-4 me-2 mt-2"></i>
 
           <div class="flex-grow-1">
             <label class="form-label">Location</label>
@@ -22,19 +24,18 @@
       </div>
 
       <div class="col-lg-4">
-        <div class="d-flex">
-          <i class="bi bi-calendar fs-3 me-2 mt-2"></i>
+        <div class="d-flex align-items-center">
+          <i class="bi bi-calendar fs-4 me-2 mt-2"></i>
 
           <div class="form-control-border form-control-transparent form-fs-md">
             <label class="form-label">Check in - out</label>
             <input
               type="text"
-              type="text"
               mwlFlatpickr
-              [flatpickrOptions]="{ mode: 'range', dateFormat: 'd M' }"
+              [flatpickrOptions]="{ mode: 'range', dateFormat: 'd M', onChange: updateNights }"
               class="form-control flatpickr"
               placeholder="Select date"
-              value="19 Sep to 28 Sep"
+              id="datePicker"
             />
           </div>
         </div>
@@ -42,13 +43,13 @@
 
       <div class="col-lg-4">
         <div
-          class="form-control-border form-control-transparent form-fs-md d-flex"
+          class="form-control-border form-control-transparent form-fs-md d-flex align-items-center"
         >
-          <i class="bi bi-person fs-3 me-2 mt-2"></i>
+          <i class="bi bi-person fs-4 me-2 mt-2"></i>
 
           <div class="w-100">
             <label class="form-label">Guests & Rooms</label>
-            <div ngbDropdown class="dropdown guest-selector position-relative" >
+            <div ngbDropdown #dropdown="ngbDropdown" class="dropdown guest-selector position-relative" >
               <input
                 ngbDropdownToggle
                 type="text"
@@ -62,7 +63,7 @@
               <ul
                 ngbDropdownMenu
                 class="dropdown-menu guest-selector-dropdown p-3 shadow rounded-3"
-                style="width: 150%; max-width: 450px;"
+                style="width: 100%; max-width: 450px;"
               >
                 <!-- Loop for each room -->
                  @for (room of formValue.rooms; track $index; let i = $index) {
@@ -78,62 +79,88 @@
 
                   <!-- Adults Section -->
                   <div class="d-flex justify-content-between my-2">
-                    <span>Adults</span>
-                    <div class="d-flex align-items-center">
-                        <i class="bi bi-dash-circle" style="cursor: pointer;" (click)="updateRoomGuests(i, 'adults', false)"></i>
-                      <span class="px-2">{{ formValue.rooms[i].adults }}</span>
-                        <i class="bi bi-plus-circle" style="cursor: pointer;" (click)="updateRoomGuests(i, 'adults', true)"></i>
+                    <div class="d-flex justify-content-between my-2">
+                      <span>Adults</span>
+                      <div class="d-flex align-items-center ms-1">
+                          <i class="bi bi-dash-circle" style="cursor: pointer;" (click)="updateRoomGuests(i, 'adults', false)"></i>
+                        <span class="px-1">{{ formValue.rooms[i].adults }}</span>
+                          <i class="bi bi-plus-circle" style="cursor: pointer;" (click)="updateRoomGuests(i, 'adults', true)"></i>
+                      </div>
+                    </div>
+
+                     <!-- Children Section -->
+                     <div class="d-flex justify-content-center my-2">
+                      @if (formValue.rooms[i].children.length < 2) {
+                      <span class="text-primary" style="cursor: pointer;" (click)="updateRoomGuests(i, 'children', true)">+ add child</span>
+                    }
                     </div>
                   </div>
+
 
                   <!-- Child age input fields -->
                   @if (formValue.rooms[i].children.length > 0) {
                     <div class="mt-2">
                       @for (childAge of formValue.rooms[i].children; track $index;let j = $index) {
-                      <div class="d-flex align-items-center mb-2 justify-content-between">
-                        <span>Child {{ j + 1 }} Age: </span>
-                        <div class="d-flex align-items-center">
-                        <input
-                          type="number"
-                          min="1"
-                          max="12"
-                          class="form-control form-control-sm mx-2"
-                          [(ngModel)]="formValue.rooms[i].children[j]"
-                          placeholder="Age"
-                          style="width: 80px;"
-                        />
-                          <i class="bi bi-x-circle" (click)="removeChild(i, j)" style="cursor: pointer;"></i>
+                        <div class="d-flex align-items-center mb-2 justify-content-between">
+                          <span>Child {{ j + 1 }} Age: </span>
+                          <div class="d-flex align-items-center">
+                            <select
+                              class="form-control form-control-sm mx-1"
+                              [(ngModel)]="formValue.rooms[i].children[j]"
+                              style="width: 50px;height: 30px;"
+                            >
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                              <option value="9">9</option>
+                              <option value="10">10</option>
+                              <option value="11">11</option>
+                              <option value="12">12</option>
+                            </select>
+                            <i class="bi bi-x-circle" (click)="removeChild(i, j)" style="cursor: pointer;"></i>
+                          </div>
                         </div>
-                      </div>
+
                     }
                     </div>
                   }
 
-                  <!-- Children Section -->
-                  <div class="d-flex justify-content-center my-2">
-                    @if (formValue.rooms[i].children.length < 2) {
-                    <span style="cursor: pointer;" (click)="updateRoomGuests(i, 'children', true)">+ add child</span>
-                  }
-                  </div>
+
 
 
                 </li>
               }
 
+              <div class="d-flex justify-content-between align-items-center mt-3">
                 <!-- Add Room Button -->
                  @if (formValue.rooms.length<5) {
-                  <li class="d-flex justify-content-center mt-3">
+                  <div class="d-flex justify-content-center">
                     <button
                       type="button"
-                      class="btn btn-outline-primary btn-sm px-4 rounded-pill"
+                      class="btn btn-outline-primary btn-sm rounded-pill"
                       (click)="addRoom()"
                       [disabled]="formValue.rooms.length >= 5"
                     >
                       <i class="bi bi-plus-circle me-1"></i> Add a Room
                     </button>
-                  </li>
+                  </div>
                  }
 
+                 <div class="d-flex justify-content-center">
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-sm rounded-pill"
+                  >
+                    Apply
+                  </button>
+                </div>
+
+              </div>
               </ul>
             </div>
           </div>
@@ -147,12 +174,12 @@
     <div class="row g-4 align-items-center mt-1">
       <div class="col-lg-4">
         <div
-          class="form-control-border form-control-transparent form-fs-md d-flex"
+          class="form-control-border form-control-transparent form-fs-md d-flex align-items-center"
         >
-          <i class="fa-solid fa-earth-asia fs-3 me-2 mt-2"></i>
+          <i class="fa-solid fa-earth-asia fs-5 me-2 mt-2"></i>
           <div class="flex-grow-1">
             <label class="form-label">Nationality</label>
-            <select selectFormInput data-search-enabled="true">
+            <select selectFormInput data-search-enabled="true" >
               <option value="-1" disabled selected>Select Your Country</option>
               <option>San Jacinto, USA</option>
               <option>North Dakota, Canada</option>
@@ -163,73 +190,35 @@
       </div>
 
       <div class="col-lg-4">
-        <div class="d-flex">
-          <i class="fa-solid fa-hotel fs-3 me-2 mt-2"></i>
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-hotel fs-5 me-2 mt-2"></i>
 
           <div class="form-control-border form-control-transparent form-fs-md">
             <label class="form-label">Hotel Name</label>
             <input
               type="text"
               type="text"
-              class="form-control flatpickr"
+              class="form-control form-select-sm flatpickr"
               placeholder="Hotel Name"
             />
           </div>
         </div>
       </div>
 
+      <div class="col-lg-4 ">
+        <a class="btn btn-primary float-end mt-3" style="width: 90%;" href="/hotels/list">
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="fs-6">Search</span>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        </a>
+      </div>
+
     </div>
 
-    <div class="btn-position-md-middle">
-      <a class="btn btn-primary " href="javascript:void()">
-        <span class="fs-6 pt-2">Search</span>
-      </a>
-    </div>
 
   </form>
 
 
-  <div class="pt-1 mb-3 d-flex flex-column justify-content-evenly rounded-2 " style="height: 100px;width: 60%;"
-        >
-        <div>
-        <div class="mt-4 d-flex justify-content-between align-items-center text-center" style="background-color: #fff !important;">
-
-            <div class="shadow p-3 rounded-2" style="width: 32%;">
-              <div><i class="fa-solid fa-wallet"></i></div>
-              <div style="color: #6c60df;"><span>Balance Available</span></div>
-              <div><span>1458<span class="ms-1">USD</span></span></div>
-            </div>
-            <div class="shadow p-3 rounded-2" style="width: 32%;">
-              <div><i class="fa-solid fa-sack-dollar"></i></div>
-              <div style="color: #6c60df;"><span>Total Paid</span></div>
-              <div><span>0<span class="ms-1">USD</span></span></div>
-            </div>
-            <div class="shadow p-3 rounded-2" style="width: 32%;">
-              <div><i class="fa-solid fa-clock"></i></div>
-              <div style="color: #6c60df;"><span>UnPaid Orders</span></div>
-              <div><span>0<span class="ms-1">USD</span></span></div>
-
-            </div>
-          </div>
-        </div>
-          <div class="text-center mt-4">
-         <div  class="d-flex justify-content-between align-items-center" style="background-color: #fff !important;">
-            <div class="shadow p-3 rounded-2" style="width: 32%;">
-              <i class="fa-regular fa-clock"></i>
-              <div style="color: #6c60df;"><span>UnPaid Order</span></div>
-              <div><span>0</span></div>
-            </div>
-            <div class="shadow p-3 rounded-2" style="width: 32%;">
-              <i class="fa-solid fa-check"></i>
-              <div style="color: #6c60df;"><span>Completed Order</span></div>
-              <div><span>0</span></div>
-            </div>
-            <div class="shadow p-3 rounded-2" style="width: 32%;">
-              <i class="fa-solid fa-xmark"></i>
-              <div style="color: #6c60df;"><span>Canceled Order</span></div>
-              <div><span>0</span></div>
-            </div>
-          </div>
-          </div>
-        </div>
 </div>
+

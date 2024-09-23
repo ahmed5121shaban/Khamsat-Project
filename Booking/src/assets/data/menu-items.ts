@@ -1,12 +1,12 @@
 import type { MenuItemType } from 'src/app/core/models'
 
 export const bookingHomeMenuItems: MenuItemType[] = [
-  // {
-  //   key: 'hotel-home',
-  //   label: 'Hotel',
-  //   url: '/hotels/home',
-  //   icon: 'fa-solid fa-hotel',
-  // },
+   {
+  key: 'hotel-home',
+   label: 'Hotel',
+    url: '/hotels/home',
+    icon: 'fa-solid fa-hotel',
+   },
   // {
   //   key: 'flight-home',
   //   label: 'Flight',
@@ -286,20 +286,21 @@ export const HELP_MENU_ITEMS: MenuItemType[] = [
 
 export const APP_MENU_ITEMS: MenuItemType[] = [
   {
-    key: 'listings',
-    label: 'Listings',
+    key: 'Search',
+    label: 'Search',
+    url: '/hotels/list',
+    parentKey: 'hotels',
+
+  },
+  {
+    key: 'Manage Order',
+    label: 'Manage Order',
     isTitle: true,
 
   },
   {
-    key: 'pages',
-    label: 'Pages',
-    isTitle: true,
-
-  },
-  {
-    key: 'accounts',
-    label: 'Accounts',
+    key: 'Reporting',
+    label: 'Reporting',
     isTitle: true,
 
   },

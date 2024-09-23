@@ -1,0 +1,19 @@
+@media (max-width: 1399px) and (min-width: 992px) {
+  .mt-4.d-flex > div {
+    width: 15% !important;
+    padding: 10px 5px !important;
+    margin: 0 5px !important;
+    height: 200px !important;
+  }
+
+  .mt-4.d-flex > div i {
+    font-size: 1rem !important;
+    color: black;
+  }
+
+  .mt-4.d-flex > div span {
+    font-size: 15px !important;
+  }
+
+}
+

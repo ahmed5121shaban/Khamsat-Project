@@ -1,190 +1,334 @@
+
+
+
 <section class="pt-0">
   <div class="container">
     <div
       class="rounded-3 p-3 p-sm-5"
       style="
-        background-image: url(assets/images/bg/05.jpg);
+
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
       "
     >
-      <div class="row my-2 my-xl-5">
-        <div class="col-md-8 mx-auto">
-          <h1 class="text-center text-white">150 Hotels in New York</h1>
+
+
+    <form class="card shadow rounded-3 position-relative p-4 pe-md-5 pb-5 pb-md-4">
+
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-4">
+          <div
+            class="form-control-border form-control-transparent form-fs-md d-flex align-items-center">
+            <i class="bi bi-geo-alt fs-4 me-2 mt-2"></i>
+
+            <div class="flex-grow-1">
+              <label class="form-label">Location</label>
+              <select selectFormInput data-search-enabled="true">
+                <option value="-1" disabled selected>Select location</option>
+                <option>San Jacinto, USA</option>
+                <option>North Dakota, Canada</option>
+                <option>West Virginia, Paris</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-calendar fs-4 me-2 mt-2"></i>
+
+            <div class="form-control-border form-control-transparent form-fs-md">
+              <label class="form-label">Check in - out</label>
+              <input
+                type="text"
+                mwlFlatpickr
+                [flatpickrOptions]="{ mode: 'range', dateFormat: 'd M', onChange: updateNights }"
+                class="form-control flatpickr"
+                placeholder="Select date"
+                id="datePicker"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div
+            class="form-control-border form-control-transparent form-fs-md d-flex align-items-center"
+          >
+            <i class="bi bi-person fs-4 me-2 mt-2"></i>
+
+            <div class="w-100">
+              <label class="form-label">Guests & Rooms</label>
+              <div ngbDropdown #dropdown="ngbDropdown" class="dropdown guest-selector position-relative" >
+                <input
+                  ngbDropdownToggle
+                  type="text"
+                  class="form-guest-selector form-control selection-result py-2 px-3 rounded shadow-sm"
+                  [value]="getGuestsValue()"
+                  data-bs-auto-close="outside"
+                  data-bs-toggle="dropdown"
+                  readonly
+                />
+
+                <ul
+                  ngbDropdownMenu
+                  class="dropdown-menu guest-selector-dropdown p-3 shadow rounded-3"
+                  style="width: 100%; max-width: 450px;"
+                >
+                  <!-- Loop for each room -->
+                   @for (room of formValue.rooms; track $index; let i = $index) {
+                  <li class="d-flex flex-column mb-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h6 class="mb-1 fs-6 fw-bold">Room {{ i + 1 }} of {{ formValue.rooms.length }}</h6>
+
+                      <!-- Remove Room Button -->
+                       @if (formValue.rooms.length > 1) {
+                        <i class="bi bi-trash" (click)="removeRoom(i)" style="cursor: pointer;"></i>
+                    }
+                    </div>
+
+                    <!-- Adults Section -->
+                    <div class="d-flex justify-content-between my-2">
+                      <div class="d-flex justify-content-between my-2">
+                        <span>Adults</span>
+                        <div class="d-flex align-items-center ms-1">
+                            <i class="bi bi-dash-circle" style="cursor: pointer;" (click)="updateRoomGuests(i, 'adults', false)"></i>
+                          <span class="px-1">{{ formValue.rooms[i].adults }}</span>
+                            <i class="bi bi-plus-circle" style="cursor: pointer;" (click)="updateRoomGuests(i, 'adults', true)"></i>
+                        </div>
+                      </div>
+
+                       <!-- Children Section -->
+                       <div class="d-flex justify-content-center my-2">
+                        @if (formValue.rooms[i].children.length < 2) {
+                        <span class="text-primary" style="cursor: pointer;" (click)="updateRoomGuests(i, 'children', true)">+ add child</span>
+                      }
+                      </div>
+                    </div>
+
+
+                    <!-- Child age input fields -->
+                    @if (formValue.rooms[i].children.length > 0) {
+                      <div class="mt-2">
+                        @for (childAge of formValue.rooms[i].children; track $index;let j = $index) {
+                          <div class="d-flex align-items-center mb-2 justify-content-between">
+                            <span>Child {{ j + 1 }} Age: </span>
+                            <div class="d-flex align-items-center">
+                              <select
+                                class="form-control form-control-sm mx-1"
+                                [(ngModel)]="formValue.rooms[i].children[j]"
+                                style="width: 50px;height: 30px;"
+                              >
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                              </select>
+                              <i class="bi bi-x-circle" (click)="removeChild(i, j)" style="cursor: pointer;"></i>
+                            </div>
+                          </div>
+
+                      }
+                      </div>
+                    }
+
+
+
+
+                  </li>
+                }
+
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                  <!-- Add Room Button -->
+                   @if (formValue.rooms.length<5) {
+                    <div class="d-flex justify-content-center">
+                      <button
+                        type="button"
+                        class="btn btn-outline-primary btn-sm rounded-pill"
+                        (click)="addRoom()"
+                        [disabled]="formValue.rooms.length >= 5"
+                      >
+                        <i class="bi bi-plus-circle me-1"></i> Add a Room
+                      </button>
+                    </div>
+                   }
+
+                   <div class="d-flex justify-content-center">
+                    <button
+                      type="button"
+                      class="btn btn-primary btn-sm rounded-pill"
+                    >
+                      Apply
+                    </button>
+                  </div>
+
+                </div>
+                </ul>
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>
+      </div>
+      <div class="row g-4 align-items-center mt-1">
+        <div class="col-lg-4">
+          <div
+            class="form-control-border form-control-transparent form-fs-md d-flex align-items-center"
+          >
+            <i class="fa-solid fa-earth-asia fs-5 me-2 mt-2"></i>
+            <div class="flex-grow-1">
+              <label class="form-label">Nationality</label>
+              <select selectFormInput data-search-enabled="true" >
+                <option value="-1" disabled selected>Select Your Country</option>
+                <option>San Jacinto, USA</option>
+                <option>North Dakota, Canada</option>
+                <option>West Virginia, Paris</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center">
+            <i class="fa-solid fa-hotel fs-5 me-2 mt-2"></i>
+
+            <div class="form-control-border form-control-transparent form-fs-md">
+              <label class="form-label">Hotel Name</label>
+              <input
+                type="text"
+                type="text"
+                class="form-control form-select-sm flatpickr"
+                placeholder="Hotel Name"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <button type="button" class="btn btn-primary float-end mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 90%;">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="fs-6">Search</span>
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+          </button>
         </div>
       </div>
 
-      <form
-        class="bg-mode shadow rounded-3 position-relative p-4 pe-md-5 pb-5 pb-md-4 mb-4"
-      >
-        <div class="row g-4 align-items-center">
-          <div class="col-lg-4">
-            <div
-              class="form-control-border form-control-transparent form-fs-md d-flex"
-            >
-              <i class="bi bi-geo-alt fs-3 me-2 mt-2"></i>
 
-              <div class="flex-grow-1">
-                <label class="form-label">Location</label>
-                <select
-                  selectFormInput
-                  class="form-select js-choice"
-                  data-search-enabled="true"
-                >
-                  <option value="">Select location</option>
-                  <option selected>San Jacinto, USA</option>
-                  <option>North Dakota, Canada</option>
-                  <option>West Virginia, Paris</option>
-                </select>
-              </div>
-            </div>
+    </form>
+
+
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <form>
+                <div class="row g-4 align-items-center">
+                  <!-- Location Select -->
+                  <div class="col-lg-4">
+                    <label class="form-label">Location</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
+                      <select class="form-select">
+                        <option value="-1" disabled selected>Select location</option>
+                        <option>San Jacinto, USA</option>
+                        <option>North Dakota, Canada</option>
+                        <option>West Virginia, Paris</option>
+                      </select>
+                    </div>
+                  </div>
 
-          <div class="col-lg-4">
-            <div class="d-flex">
-              <i class="bi bi-calendar fs-3 me-2 mt-2"></i>
+                  <!-- Date Picker -->
+                  <div class="col-lg-4">
+                    <label class="form-label">Check in - out</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                      <input type="text" class="form-control" placeholder="Select date" id="datePicker">
+                    </div>
+                  </div>
 
-              <div
-                class="form-control-border form-control-transparent form-fs-md"
-              >
-                <label class="form-label">Check in - out</label>
-                <input
-                  type="text"
-                  mwlFlatpickr
-                  [flatpickrOptions]="{ mode: 'range', dateFormat: 'd M' }"
-                  class="form-control flatpickr"
-                  data-mode="range"
-                  placeholder="Select date"
-                  value="19 Sep to 28 Sep"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div
-              class="form-control-border form-control-transparent form-fs-md d-flex"
-            >
-              <i class="bi bi-person fs-3 me-2 mt-2"></i>
-
-              <div class="w-100">
-                <label class="form-label">Guests & rooms</label>
-                <div ngbDropdown class="dropdown guest-selector me-2">
-                  <input
-                    ngbDropdownToggle
-                    type="text"
-                    class="form-guest-selector form-control selection-result"
-                    [value]="getGuestsValue()"
-                    id="dropdownShare"
-                    data-bs-auto-close="outside"
-                    data-bs-toggle="dropdown"
-                  />
-
-                  <ul
-                    ngbDropdownMenu
-                    class="dropdown-menu guest-selector-dropdown"
-                    aria-labelledby="dropdownShare"
-                  >
-                    <li class="d-flex justify-content-between">
-                      <div>
-                        <h6 class="mb-0">Adults</h6>
-                        <small>Ages 13 or above</small>
-                      </div>
-
-                      <div class="hstack gap-1 align-items-center">
-                        <button
-                          type="button"
-                          class="btn btn-link adult-remove p-0 mb-0"
-                          (click)="updateGuests('adults', false)"
-                        >
-                          <i class="bi bi-dash-circle fs-5 fa-fw"></i>
-                        </button>
-                        <h6 class="guest-selector-count mb-0 adults">
-                          {{ formValue.guests.adults }}
-                        </h6>
-                        <button
-                          type="button"
-                          class="btn btn-link adult-add p-0 mb-0"
-                          (click)="updateGuests('adults')"
-                        >
-                          <i class="bi bi-plus-circle fs-5 fa-fw"></i>
-                        </button>
-                      </div>
-                    </li>
-
-                    <li class="dropdown-divider"></li>
-
-                    <li class="d-flex justify-content-between">
-                      <div>
-                        <h6 class="mb-0">Child</h6>
-                        <small>Ages 13 below</small>
-                      </div>
-
-                      <div class="hstack gap-1 align-items-center">
-                        <button
-                          type="button"
-                          class="btn btn-link child-remove p-0 mb-0"
-                          (click)="updateGuests('children', false)"
-                        >
-                          <i class="bi bi-dash-circle fs-5 fa-fw"></i>
-                        </button>
-                        <h6 class="guest-selector-count mb-0 child">
-                          {{ formValue.guests.children }}
-                        </h6>
-                        <button
-                          type="button"
-                          class="btn btn-link child-add p-0 mb-0"
-                          (click)="updateGuests('children')"
-                        >
-                          <i class="bi bi-plus-circle fs-5 fa-fw"></i>
-                        </button>
-                      </div>
-                    </li>
-
-                    <li class="dropdown-divider"></li>
-
-                    <li class="d-flex justify-content-between">
-                      <div>
-                        <h6 class="mb-0">Rooms</h6>
-                        <small>Max room 8</small>
-                      </div>
-
-                      <div class="hstack gap-1 align-items-center">
-                        <button
-                          type="button"
-                          class="btn btn-link room-remove p-0 mb-0"
-                          (click)="updateGuests('rooms', false)"
-                        >
-                          <i class="bi bi-dash-circle fs-5 fa-fw"></i>
-                        </button>
-                        <h6 class="guest-selector-count mb-0 rooms">
-                          {{ formValue.guests.rooms }}
-                        </h6>
-                        <button
-                          type="button"
-                          class="btn btn-link room-add p-0 mb-0"
-                          (click)="updateGuests('rooms')"
-                        >
-                          <i class="bi bi-plus-circle fs-5 fa-fw"></i>
-                        </button>
-                      </div>
-                    </li>
-                  </ul>
+                  <!-- Guests & Rooms -->
+                  <div class="col-lg-4">
+                    <label class="form-label">Guests & Rooms</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-person"></i></span>
+                      <input type="text" class="form-control" placeholder="Guests & Rooms" readonly>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="btn-position-md-middle">
-          <a
-            class="icon-lg btn btn-round btn-primary mb-0"
-            href="javascript:void(0);"
-            ><i class="bi bi-search fa-fw"></i
-          ></a>
+                <div class="row g-4 align-items-center mt-3">
+                  <!-- Nationality Select -->
+                  <div class="col-lg-4">
+                    <label class="form-label">Nationality</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="fa-solid fa-earth-asia"></i></span>
+                      <select class="form-select">
+                        <option value="-1" disabled selected>Select Your Country</option>
+                        <option>San Jacinto, USA</option>
+                        <option>North Dakota, Canada</option>
+                        <option>West Virginia, Paris</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Hotel Name -->
+                  <div class="col-lg-4">
+                    <label class="form-label">Hotel Name</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="fa-solid fa-hotel"></i></span>
+                      <input type="text" class="form-control" placeholder="Hotel Name">
+                    </div>
+                  </div>
+
+                  <!-- Search Button Inside Modal -->
+                  <div class="col-lg-4">
+                    <button type="submit" class="btn btn-primary float-end" data-bs-dismiss="modal" style="width: 90%;margin-top: 37px;">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <span class="fs-6" >Search</span>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div> <!-- End container-fluid -->
+          </div> <!-- End modal-body -->
+        </div> <!-- End modal-content -->
+      </div> <!-- End modal-dialog -->
+    </div> <!-- End modal -->
+
+
+
+
+
+
+
+
+      <div class="row my-2 my-xl-5">
+        <div class="col-md-8 mx-auto">
+          <h1 class="text-center text-primary ">150 Hotels in New York</h1>
         </div>
-      </form>
+      </div>
+
     </div>
   </div>
 </section>

@@ -82,4 +82,18 @@ export class AvailabilityFilterComponent {
       .join(', ');
   }
 
+   updateNights(selectedDates: Date[], dateStr: string, instance: any) {
+    const checkIn = selectedDates[0];
+    const checkOut = selectedDates[1];
+
+    if (checkIn && checkOut) {
+      const diffTime = Math.abs(checkOut.getTime() - checkIn.getTime());
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // Calculate difference in days
+
+      const formattedDate = `${checkIn.getDate()} ${checkIn.toLocaleString('default', { month: 'short' })} to ${checkOut.getDate()} ${checkOut.toLocaleString('default', { month: 'short' })}   |   ${diffDays} nights`;
+      instance.input.value = formattedDate; // Update the input value
+    }
+  }
+
+
 }
