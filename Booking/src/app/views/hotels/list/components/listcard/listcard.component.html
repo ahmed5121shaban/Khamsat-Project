@@ -38,12 +38,12 @@
                   <i
                     class="fa-solid fa-star text-warning me-1"
                     [style.width.%]="fill"
-                    style="font-size: small"
+                    style="font-size: medium"
                   ></i>
                 } @else {
                   <i
                     class="fa-solid fa-star-half-alt text-warning me-1"
-                    style="font-size: small"
+                    style="font-size: medium"
                   >
                   </i>
                 }
@@ -57,61 +57,16 @@
               />
 
 
-         <ul class="list-inline mb-0 z-index-2">
-                <li class="btn list-inline-item" type="button" data-bs-toggle="modal" data-bs-target="#miniMap">
-                  <i class="bi bi-geo-alt fa-fw"></i>
-                </li>
 
-
-
-
-<!--                 <li ngbDropdown class="list-inline-item dropdown">
-                  <a
-                    ngbDropdownToggle
-                    href="javascript:void(0);"
-                    class="btn btn-sm btn-round btn-light arrow-none"
-                    role="button"
-                    id="dropdownShare"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <i class="fa-solid fa-fw fa-share-alt"></i>
-                  </a>
-
-                  <ul
-                    ngbDropdownMenu
-                    class="dropdown-menu dropdown-menu-end min-w-auto shadow rounded"
-                    aria-labelledby="dropdownShare"
-                  >
-                    <li>
-                      <a class="dropdown-item" href="javascript:void(0);"
-                        ><i class="fab fa-twitter-square me-2"></i>Twitter</a
-                      >
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="javascript:void(0);"
-                        ><i class="fab fa-facebook-square me-2"></i>Facebook</a
-                      >
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="javascript:void(0);"
-                        ><i class="fab fa-linkedin me-2"></i>LinkedIn</a
-                      >
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="javascript:void(0);"
-                        ><i class="fa-solid fa-copy me-2"></i>Copy link</a
-                      >
-                    </li>
-                  </ul>
-                </li> -->
-              </ul>
             </div>
 
             <h5 class="mb-1">
-              <a routerLink="/hotels/detail" class="text-primary mb-1 fs-6">{{ item.name }} </a>
+              <a routerLink="/hotels/detail" class="text-primary mb-1 fs-5">{{ item.name }} </a>
             </h5>
             <small><i class="bi bi-geo-alt me-2"></i>{{ item.address }}</small>
+            <p class="text-decoration-underline" type="button" data-bs-toggle="modal" data-bs-target="#miniMap">
+              <i class="fa-solid fa-eye me-1"></i>View On Map
+            </p>
 
 <!--             <ul class="nav nav-divider mt-3">
               @for (feature of item.features; track $index) {
@@ -127,16 +82,22 @@
               }
             </ul> -->
 
-            <ul class="list-group list-group-borderless small mb-0 mt-2">
+            <ul class="list-group list-group-borderless small mb-0 mt-1">
               @if (item.schemes) {
                 @for (scheme of item.schemes; track $index) {
-                  <li class="list-group-item d-flex text-success p-0">
+                  <li class="list-group-item d-flex text-success p-0 pb-1">
                     <i class="bi bi-patch-check-fill me-2"></i>{{ scheme }}
                   </li>
                 }
               } @else {
-                <li class="list-group-item d-flex text-danger p-0">
+                <li class="list-group-item d-flex text-success p-0 pb-1">
+                  <i class="bi bi-patch-check-fill me-2"></i>Deluxe Room
+                </li>
+                <li class="list-group-item d-flex text-danger p-0 pb-1">
                   <i class="bi bi-patch-check-fill me-2"></i>Non Refundable
+                </li>
+                <li class="list-group-item d-flex text-success p-0">
+                  <i class="bi bi-patch-check-fill me-2"></i>Pay Later
                 </li>
               }
             </ul>
@@ -149,11 +110,6 @@
                   {{ currencyType }}{{ item.price }}
                 </h5>
                 <span class="mb-0 me-2">/Total Price</span>
-                @if (item.sale) {
-                  <span class="text-decoration-line-through mb-0"
-                    >{{ currencyType }}1000</span
-                  >
-                }
               </div>
 
               <div class="mt-3 mt-sm-0">
@@ -196,12 +152,11 @@
     <div class="modal-content rounded-2">
       <div class="modal-body p-0 rounded-2">
         <!-- Embed OpenStreetMap using an iframe -->
-        <iframe
-          width="100%"
-          height="400"
-          src="https://www.openstreetmap.org/export/embed.html?bbox=31.2257,30.0344,31.2457,30.0544&amp;layer=mapnik"
-          style="border: 1px solid black;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6045.868797210194!2d-74.00338700000002!3d40.741469!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bf5c1654f3%3A0xc80f9cfce5383d5d!2sGoogle%20NYC%20-%209th%20Avenue!5e0!3m2!1sen!2sin!4v1727110804969!5m2!1sen!2sin"
+         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+
         </iframe>
+
       </div>
     </div>
   </div>

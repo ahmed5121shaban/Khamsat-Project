@@ -74,22 +74,22 @@ export class ListComponent implements AfterViewInit {
         .addTo(this.map)
         .bindPopup(hotel.name);
     });
-    
+
 
 }
   }
   constructor() { }
 
-ngAfterViewInit(): void {
+/* ngAfterViewInit(): void {
     const fullMapModal = document.getElementById('fullMapModal');
     fullMapModal?.addEventListener('shown.bs.modal', () => {
       this.initMap();
     });
   }
-
-/*   ngAfterViewInit(): void {
+ */
+  ngAfterViewInit(): void {
     this.initMap();
-  } */
+  }
 
 
 }

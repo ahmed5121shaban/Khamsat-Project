@@ -16,6 +16,29 @@
   </div>
   <div class="offcanvas-body flex-column p-3 p-xl-0">
     <form class="rounded-3 shadow">
+
+
+
+
+
+
+
+      <div class="card card-body rounded-0  p-4">
+        <h6 class="mb-1">Search By Hotel Name</h6>
+            <label class="form-label"></label>
+            <input
+              type="text"
+              type="text"
+              class="form-control form-select-sm"
+              placeholder="Hotel Name"
+            />
+      </div>
+
+
+
+      <hr class="my-0" />
+
+
       <div class="card card-body rounded-0 rounded-top p-4">
         <h6 class="mb-2">Hotel Type</h6>
 
@@ -160,12 +183,12 @@
                 <div class="d-flex justify-content-between">
                   <input
                     type="text"
-                    [value]="value.toFixed(2)"
+                    [value]="value.toFixed()"
                     class="text-body input-with-range-min"
                   />
                   <input
                     type="text"
-                    [value]="highValue.toFixed(2)"
+                    [value]="highValue.toFixed()"
                     class="text-body input-with-range-max"
                   />
                 </div>
@@ -235,26 +258,6 @@
         </ul>
       </div>
 
-
-      <hr class="my-0" />
-
-
-      <div class="card card-body rounded-0  p-4">
-        <h6 class="mb-2">Search By Hotel Name</h6>
-        <div class="d-flex align-items-center">
-          <i class="fa-solid fa-hotel fs-5 me-2 mt-2"></i>
-
-          <div class="form-control-border form-control-transparent form-fs-md">
-            <label class="form-label"></label>
-            <input
-              type="text"
-              type="text"
-              class="form-control form-select-sm flatpickr"
-              placeholder="Hotel Name"
-            />
-          </div>
-        </div>
-      </div>
 
 
 
