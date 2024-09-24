@@ -136,13 +136,13 @@
                 </li>
               }
 
-              <div class="d-flex justify-content-between align-items-center mt-3">
+              <div class="d-flex justify-content-evenly align-items-center mt-3">
                 <!-- Add Room Button -->
                  @if (formValue.rooms.length<5) {
                   <div class="d-flex justify-content-center">
                     <button
                       type="button"
-                      class="btn btn-outline-primary btn-sm rounded-pill"
+                      class="btn btn-outline-primary btn-sm"
                       (click)="addRoom()"
                       [disabled]="formValue.rooms.length >= 5"
                     >
@@ -154,7 +154,7 @@
                  <div class="d-flex justify-content-center">
                   <button
                     type="button"
-                    class="btn btn-primary btn-sm rounded-pill"
+                    class="btn btn-primary btn-sm"
                   >
                     Apply
                   </button>
