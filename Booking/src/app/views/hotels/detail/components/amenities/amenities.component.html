@@ -5,37 +5,103 @@
 
   <div class="card-body pt-4 p-0">
     <div class="row g-4">
-      @for (item of amenitiesList.slice(0, 3); track $index) {
-        <div class="col-sm-6">
-          <h6><i class="fa-solid {{ item.icon }} me-2"></i>{{ item.label }}</h6>
 
+        <div class="col-sm-6">
           <ul class="list-group list-group-borderless mt-2 mb-0">
-            @for (name of item.name; track $index) {
+
               <li class="list-group-item pb-0">
                 <i class="fa-solid fa-check-circle text-success me-2"></i
-                >{{ name }}
+                >Swimming pool
               </li>
-            }
+              <li class="list-group-item pb-0">
+                <i class="fa-solid fa-check-circle text-success me-2"></i
+                >Spa
+              </li>
+              <li class="list-group-item pb-0">
+                <i class="fa-solid fa-check-circle text-success me-2"></i
+                >Ironing Service
+              </li>
+              <li class="list-group-item pb-0">
+                <i class="fa-solid fa-check-circle text-success me-2"></i
+                >Swimming pool
+              </li>
+              <div
+              class="collapse" id="collapseExample"
+            >
+            <li class="list-group-item pb-0">
+              <i class="fa-solid fa-check-circle text-success me-2"></i
+              >Swimming pool
+            </li>
+            <li class="list-group-item pb-0">
+              <i class="fa-solid fa-check-circle text-success me-2"></i
+              >Spa
+            </li>
+            <li class="list-group-item pb-0">
+              <i class="fa-solid fa-check-circle text-success me-2"></i
+              >Kids' play area
+            </li>
+            <li class="list-group-item pb-0">
+              <i class="fa-solid fa-check-circle text-success me-2"></i
+              >Gym
+            </li>
+            </div>
+
           </ul>
         </div>
-      }
-      <div class="col-sm-6">
-        @for (
-          item of amenitiesList.slice(3, amenitiesList.length);
-          track $index
-        ) {
-          <h6><i class="fa-solid {{ item.icon }} me-2"></i>{{ item.label }}</h6>
+        <div class="col-sm-6">
+          <ul class="list-group list-group-borderless mt-2 mb-0">
 
-          <ul class="list-group list-group-borderless mt-2 mb-4 mb-sm-5">
-            @for (name of item.name; track $index) {
+
               <li class="list-group-item pb-0">
                 <i class="fa-solid fa-check-circle text-success me-2"></i
-                >{{ name }}
+                >Special service
               </li>
-            }
+              <li class="list-group-item pb-0">
+                <i class="fa-solid fa-check-circle text-success me-2"></i
+                >Ironing Service
+              </li>
+              <li class="list-group-item pb-0">
+                <i class="fa-solid fa-check-circle text-success me-2"></i
+                >Swimming pool
+              </li>
+              <div
+              class="collapse" id="collapseExample"
+            >
+            <li class="list-group-item pb-0">
+              <i class="fa-solid fa-check-circle text-success me-2"></i
+              >Swimming pool
+            </li>
+            <li class="list-group-item pb-0">
+              <i class="fa-solid fa-check-circle text-success me-2"></i
+              >Spa
+            </li>
+            <li class="list-group-item pb-0">
+              <i class="fa-solid fa-check-circle text-success me-2"></i
+              >Kids' play area
+            </li>
+            <li class="list-group-item pb-0">
+              <i class="fa-solid fa-check-circle text-success me-2"></i
+              >Gym
+            </li>
+            </div>
+
           </ul>
-        }
-      </div>
+        </div>
+
+
+        <hr class="mb-0">
+        <a
+        class="p-0 mb-4 mt-2 btn-more d-flex align-items-center collapsed"
+        data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"
+        role="button"
+        aria-controls="collapseContent"
+      >
+        See <span class="see-more ms-1">more</span
+        ><span class="see-less ms-1">less</span
+        ><i class="fa-solid fa-angle-down ms-2"></i>
+      </a>
+
     </div>
   </div>
+  
 </div>

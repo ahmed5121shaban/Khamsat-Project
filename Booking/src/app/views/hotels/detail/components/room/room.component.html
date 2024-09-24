@@ -1,105 +1,75 @@
 <div class="card bg-transparent" id="room-options">
   <div class="card-header border-bottom bg-transparent px-0 pt-0">
-    <div class="d-sm-flex justify-content-sm-between align-items-center">
-      <h3 class="mb-2 mb-sm-0">Room Options</h3>
-
-      <div class="col-sm-4">
-        <form class="form-control-bg-light">
-          <select
-            selectFormInput
-            [options]="{ searchEnabled: false }"
-            class="form-select form-select-sm js-choice border-0"
+    <div class="d-sm-flex flex-column justify-content-sm-between align-items-center">
+      <div class="col-sm-12 mb-3">
+        <h3 class="mb-2 mb-sm-0 ">Room Available</h3>
+      </div>
+      <div class="d-sm-flex justify-content-sm-between justify-content-between align-items-center col-sm-12">
+      <div class="col-sm-4 me-5">
+        <form class="">
+          <input
+            class="form-control border border-2"
+            id="roombytype"
+            placeholder="Search By Room Type"
           >
-            <option value="">Select Option</option>
-            <option>Recently search</option>
-            <option>Most popular</option>
-            <option>Top rated</option>
-          </select>
         </form>
       </div>
+      <div class="col-sm-4">
+        <form class="form-control-bg-light d-flex">
+          <label for="Breakfast-included" class="me-2 fw-semibold">Breakfast included</label>
+          <input type="checkbox" name="Breakfast" id="Breakfast-included">
+        </form>
+      </div>
+      <div class="col-sm-4">
+        <form class="form-control-bg-light d-flex">
+          <label for="Free-cancellation" class="me-2 fw-semibold">Free cancellation</label>
+          <input type="checkbox" name="cancellation" id="Free-cancellation">
+        </form>
+      </div>
+    </div>
     </div>
   </div>
 
   <div class="card-body pt-4 p-0">
     <div class="vstack gap-4">
-      @for (data of roomList; track $index) {
+
         <div class="card shadow p-3">
           <div class="row g-4">
-            <div class="col-md-5 position-relative">
-              <div class="position-absolute top-0 start-0 z-index-1 mt-3 ms-4">
-                <div class="badge text-bg-danger">{{ data.sale }}</div>
-              </div>
 
-              <div
-                class="tiny-slider arrow-round arrow-xs arrow-dark overflow-hidden rounded-2"
-              >
-                <div class="tiny-slider-inner">
-                  <ng-tiny-slider [config]="roomSliderStting" #roomSlider>
-                    @for (img of data.images; track $index) {
-                      <div><img [src]="img" alt="Card image" /></div>
-                    }
-                  </ng-tiny-slider>
-                </div>
-              </div>
-
-              <a
-                class="btn btn-link text-decoration-underline p-0 mb-0 mt-1"
-                (click)="openDetail(roomDetail, data)"
-                ><i class="bi bi-eye-fill me-1"></i>View more details</a
-              >
-            </div>
-
-            <div class="col-md-7">
+            <div class="col-md-12">
               <div class="card-body d-flex flex-column h-100 p-0">
                 <h5 class="card-title">
-                  <a href="javascript:void(0);">{{ data.name }}</a>
+                  <a href="javascript:void(0);">Luxury Room with Balcony</a>
                 </h5>
-
-                <ul class="nav nav-divider mb-2">
-                  @for (feature of data.features; track $index) {
-                    @if ($index < 3) {
-                      <li class="nav-item">{{ feature }}</li>
-                    } @else {
-                      <li class="nav-item">
-                        <a href="javascript:void(0);" class="mb-0 text-primary"
-                          >More+</a
-                        >
-                      </li>
-                    }
-                  }
-                </ul>
-
-                <p
-                  class="mb-0"
-                  [ngClass]="
-                    data.schemes == 'Non Refundable'
-                      ? 'text-danger'
-                      : 'text-success'
-                  "
-                >
-                  {{ data.schemes }}
+                <div class="d-flex mb-2">
+                <p class="mb-0 text-success me-3" >
+                  <i class="fa-regular fa-circle-check"></i>
+                  Chalet with garden view.
                 </p>
-
+                <p class="mb-0 text-success me-3">
+                  <i class="fa-regular fa-circle-check"></i>
+                  full-board.
+                </p>
+                <p class="mb-0 text-success">
+                  <i class="fa-regular fa-circle-check"></i>
+                  Free Cancellation till 7 Jan 2022.
+                </p>
+              </div>
                 <div
                   class="d-sm-flex justify-content-sm-between align-items-center mt-auto"
                 >
                   <div class="d-flex align-items-center">
                     <h5 class="fw-bold mb-0 me-1">
-                      {{ currencyType }}{{ data.price }}
+                      $750
                     </h5>
-                    <span class="mb-0 me-2">/day</span>
-                    @if (data.sale) {
-                      <span class="text-decoration-line-through mb-0"
-                        >{{ currencyType }}1000</span
-                      >
-                    }
+                    <span class="mb-0 me-2">/Total Price</span>
                   </div>
 
                   <div class="mt-3 mt-sm-0">
                     <a
                       href="javascript:void(0);"
                       class="btn btn-sm btn-primary mb-0"
-                      >Select Room</a
+                      >Book Now</a
                     >
                   </div>
                 </div>
@@ -107,7 +77,51 @@
             </div>
           </div>
         </div>
-      }
+        <div class="card shadow p-3">
+          <div class="row g-4">
+
+            <div class="col-md-12">
+              <div class="card-body d-flex flex-column h-100 p-0">
+                <h5 class="card-title">
+                  <a href="javascript:void(0);">Luxury Room with Balcony</a>
+                </h5>
+                <div class="d-flex mb-2">
+                <p class="mb-0 text-success me-3" >
+                  <i class="fa-regular fa-circle-check"></i>
+                  Nile view room.
+                </p>
+                <p class="mb-0 text-success me-3">
+                  <i class="fa-regular fa-circle-check"></i>
+                  breakfast.
+                </p>
+                <p class="mb-0 text-danger">
+                  <i class="fa-regular fa-circle-xmark"></i>
+                  Non-Refunded.
+                </p>
+              </div>
+                <div
+                  class="d-sm-flex justify-content-sm-between align-items-center mt-auto"
+                >
+                  <div class="d-flex align-items-center">
+                    <h5 class="fw-bold mb-0 me-1">
+                      $750
+                    </h5>
+                    <span class="mb-0 me-2">/Total Price</span>
+                  </div>
+
+                  <div class="mt-3 mt-sm-0">
+                    <a
+                      href="javascript:void(0);"
+                      class="btn btn-sm btn-primary mb-0"
+                      >Book Now</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
     </div>
   </div>
 </div>

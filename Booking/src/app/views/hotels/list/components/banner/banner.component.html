@@ -17,188 +17,162 @@
     <form class="card shadow rounded-3 position-relative p-4 pe-md-5 pb-5 pb-md-4">
 
       <div class="row g-1 align-items-center justify-content-between">
-        <div class="col-lg-2">
-          <i class="bi bi-geo-alt fs-5 me-2 mt-2"></i>Location
-<!--           <div
-            class="form-control-border form-control-transparent form-fs-md d-flex align-items-center">
-            <i class="bi bi-geo-alt fs-4 me-2 mt-2"></i>Location
 
-            <div class="flex-grow-1">
-              <label class="form-label">Location</label>
-              <select selectFormInput data-search-enabled="true">
-                <option value="-1" disabled selected>Select location</option>
-                <option>San Jacinto, USA</option>
-                <option>North Dakota, Canada</option>
-                <option>West Virginia, Paris</option>
-              </select>
-            </div>
-          </div> -->
-        </div>
-
-        <div class="col-lg-2"><i class="bi bi-calendar fs-5 me-2 mt-2"></i>Check in - out
-<!--           <div class="d-flex align-items-center">
-
-
-            <div class="form-control-border form-control-transparent form-fs-md">
-              <label class="form-label">Check in - out</label>
-              <input
-                type="text"
-                mwlFlatpickr
-                [flatpickrOptions]="{ mode: 'range', dateFormat: 'd M', onChange: updateNights }"
-                class="form-control flatpickr"
-                placeholder="Select date"
-                id="datePicker"
-              />
-            </div>
-          </div> -->
-        </div>
-
-        <div class="col-lg-2"><i class="bi bi-person fs-4 me-2 mt-2"></i>Guests & Rooms
-<!--           <div
-            class="form-control-border form-control-transparent form-fs-md d-flex align-items-center"
+      <div class="col-md-6 col-lg-3">
+        <div class="form-size-lg form-fs-md">
+          <label class="form-label">Location</label>
+          <select
+            selectFormInput
+            class="form-select js-choice"
+            data-search-enabled="true"
           >
+            <option value="">Select location</option>
+            <option selected>San Jacinto, USA</option>
+            <option>North Dakota, Canada</option>
+            <option>West Virginia, Paris</option>
+          </select>
+        </div>
+      </div>
 
+      <div class="col-md-6 col-lg-2">
+        <div class="form-fs-md">
+          <label class="form-label">Check in - out</label>
+          <input
+            type="text"
+            mwlFlatpickr
+            [flatpickrOptions]="{ mode: 'range', dateFormat: 'd M' }"
+            class="form-control form-control-lg flatpickr"
+            data-mode="range"
+            placeholder="Select date"
+            value="19 Sep to 28 Sep"
+          />
+        </div>
+      </div>
 
-            <div class="w-100">
-              <label class="form-label"></label>
-              <div ngbDropdown #dropdown="ngbDropdown" class="dropdown guest-selector position-relative" >
-                <input
-                  ngbDropdownToggle
-                  type="text"
-                  class="form-guest-selector form-control selection-result py-2 px-3 rounded shadow-sm"
-                  [value]="getGuestsValue()"
-                  data-bs-auto-close="outside"
-                  data-bs-toggle="dropdown"
-                  readonly
-                />
+      <div class="col-md-6 col-lg-2">
+        <div class="form-fs-md">
+          <div class="w-100">
+            <label class="form-label">Guests & rooms</label>
+            <div ngbDropdown class="dropdown guest-selector me-2">
+              <input
+                ngbDropdownToggle
+                type="text"
+                class="form-guest-selector form-control form-control-lg selection-result"
+                [value]="getGuestsValue()"
+                id="dropdownguest"
+                data-bs-auto-close="outside"
+                data-bs-toggle="dropdown"
+              />
 
-                <ul
-                  ngbDropdownMenu
-                  class="dropdown-menu guest-selector-dropdown p-3 shadow rounded-3"
-                  style="width: 100%; max-width: 450px;"
-                >
-
-                   @for (room of formValue.rooms; track $index; let i = $index) {
-                  <li class="d-flex flex-column mb-3">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <h6 class="mb-1 fs-6 fw-bold">Room {{ i + 1 }} of {{ formValue.rooms.length }}</h6>
-
-
-                       @if (formValue.rooms.length > 1) {
-                        <i class="bi bi-trash" (click)="removeRoom(i)" style="cursor: pointer;"></i>
-                    }
-                    </div>
-
-
-                    <div class="d-flex justify-content-between my-2">
-                      <div class="d-flex justify-content-between my-2">
-                        <span>Adults</span>
-                        <div class="d-flex align-items-center ms-1">
-                            <i class="bi bi-dash-circle" style="cursor: pointer;" (click)="updateRoomGuests(i, 'adults', false)"></i>
-                          <span class="px-1">{{ formValue.rooms[i].adults }}</span>
-                            <i class="bi bi-plus-circle" style="cursor: pointer;" (click)="updateRoomGuests(i, 'adults', true)"></i>
-                        </div>
-                      </div>
-
-
-                       <div class="d-flex justify-content-center my-2">
-                        @if (formValue.rooms[i].children.length < 2) {
-                        <span class="text-primary" style="cursor: pointer;" (click)="updateRoomGuests(i, 'children', true)">+ add child</span>
-                      }
-                      </div>
-                    </div>
-
-
-
-                    @if (formValue.rooms[i].children.length > 0) {
-                      <div class="mt-2">
-                        @for (childAge of formValue.rooms[i].children; track $index;let j = $index) {
-                          <div class="d-flex align-items-center mb-2 justify-content-between">
-                            <span>Child {{ j + 1 }} Age: </span>
-                            <div class="d-flex align-items-center">
-                              <select
-                                class="form-control form-control-sm mx-1"
-                                [(ngModel)]="formValue.rooms[i].children[j]"
-                                style="width: 50px;height: 30px;"
-                              >
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                              </select>
-                              <i class="bi bi-x-circle" (click)="removeChild(i, j)" style="cursor: pointer;"></i>
-                            </div>
-                          </div>
-
-                      }
-                      </div>
-                    }
-
-
-
-
-                  </li>
-                }
-
-                <div class="d-flex justify-content-between align-items-center mt-3">
-
-                   @if (formValue.rooms.length<5) {
-                    <div class="d-flex justify-content-center">
-                      <button
-                        type="button"
-                        class="btn btn-outline-primary btn-sm rounded-pill"
-                        (click)="addRoom()"
-                        [disabled]="formValue.rooms.length >= 5"
-                      >
-                        <i class="bi bi-plus-circle me-1"></i> Add a Room
-                      </button>
-                    </div>
-                   }
-
-                   <div class="d-flex justify-content-center">
-                    <button
-                      type="button"
-                      class="btn btn-primary btn-sm rounded-pill"
-                    >
-                      Apply
-                    </button>
+              <ul
+                ngbDropdownMenu
+                class="dropdown-menu guest-selector-dropdown"
+                aria-labelledby="dropdownguest"
+              >
+                <li class="d-flex justify-content-between">
+                  <div>
+                    <h6 class="mb-0">Adults</h6>
+                    <small>Ages 13 or above</small>
                   </div>
 
-                </div>
-                </ul>
-              </div>
-            </div>
+                  <div class="hstack gap-1 align-items-center">
+                    <button
+                      type="button"
+                      class="btn btn-link adult-remove p-0 mb-0"
+                    >
+                      <i class="bi bi-dash-circle fs-5 fa-fw"></i>
+                    </button>
+                    <h6 class="guest-selector-count mb-0 adults">
 
-          </div> -->
+                    </h6>
+                    <button
+                      type="button"
+                      class="btn btn-link adult-add p-0 mb-0"
+
+                    >
+                      <i class="bi bi-plus-circle fs-5 fa-fw"></i>
+                    </button>
+                  </div>
+                </li>
+
+                <li class="dropdown-divider"></li>
+
+                <li class="d-flex justify-content-between">
+                  <div>
+                    <h6 class="mb-0">Child</h6>
+                    <small>Ages 13 below</small>
+                  </div>
+
+                  <div class="hstack gap-1 align-items-center">
+                    <button
+                      type="button"
+                      class="btn btn-link child-remove p-0 mb-0"
+                    >
+                      <i class="bi bi-dash-circle fs-5 fa-fw"></i>
+                    </button>
+                    <h6 class="guest-selector-count mb-0 child">
+                    </h6>
+                    <button
+                      type="button"
+                      class="btn btn-link child-add p-0 mb-0"
+                    >
+                      <i class="bi bi-plus-circle fs-5 fa-fw"></i>
+                    </button>
+                  </div>
+                </li>
+
+                <li class="dropdown-divider"></li>
+
+                <li class="d-flex justify-content-between">
+                  <div>
+                    <h6 class="mb-0">Rooms</h6>
+                    <small>Max room 8</small>
+                  </div>
+
+                  <div class="hstack gap-1 align-items-center">
+                    <button
+                      type="button"
+                      class="btn btn-link room-remove p-0 mb-0"
+                    >
+                      <i class="bi bi-dash-circle fs-5 fa-fw"></i>
+                    </button>
+                    <h6 class="guest-selector-count mb-0 rooms">
+                    </h6>
+                    <button
+                      type="button"
+                      class="btn btn-link room-add p-0 mb-0"
+                    >
+                      <i class="bi bi-plus-circle fs-5 fa-fw"></i>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-
-        <div class="col-lg-2"><i class="fa-solid fa-earth-asia fs-5 me-2 mt-2"></i>Nationality
-<!--           <div
-            class="form-control-border form-control-transparent form-fs-md d-flex align-items-center"
-          >
-
-            <div class="flex-grow-1">
-              <label class="form-label"></label>
-              <select selectFormInput data-search-enabled="true" >
-                <option value="-1" disabled selected>Select Your Country</option>
-                <option>San Jacinto, USA</option>
-                <option>North Dakota, Canada</option>
-                <option>West Virginia, Paris</option>
-              </select>
-            </div>
-          </div> -->
-
       </div>
-        <div class="col-lg-2">
-          <button type="button" class="btn btn-primary float-end mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+
+
+
+
+
+        <div class="col-md-6 col-lg-2">
+          <div class="form-fs-md">
+            <label class="form-label">Nationality</label>
+            <input
+              type="text"
+              mwlFlatpickr
+              class="form-control form-control-lg flatpickr"
+              data-mode="range"
+              placeholder="Select date"
+              value="19 Sep to 28 Sep"
+            />
+          </div>
+      </div>
+
+
+        <div class="col-md-6 col-lg-2">
+          <button type="button" class="btn btn-primary float-end mt-lg-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <div class="d-flex justify-content-between align-items-center">
               <span class="fs-6">Edit Search</span>
             </div>
