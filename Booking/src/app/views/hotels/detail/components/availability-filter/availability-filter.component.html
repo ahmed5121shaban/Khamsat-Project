@@ -39,105 +39,11 @@
             <label class="form-label">Guests & rooms</label>
             <div ngbDropdown class="dropdown guest-selector me-2">
               <input
-                ngbDropdownToggle
                 type="text"
                 class="form-guest-selector form-control form-control-lg selection-result"
-                [value]="getGuestsValue()"
-                id="dropdownguest"
-                data-bs-auto-close="outside"
-                data-bs-toggle="dropdown"
+                value="1 room, 2 adult, 0 child"
               />
 
-              <ul
-                ngbDropdownMenu
-                class="dropdown-menu guest-selector-dropdown"
-                aria-labelledby="dropdownguest"
-              >
-                <li class="d-flex justify-content-between">
-                  <div>
-                    <h6 class="mb-0">Adults</h6>
-                    <small>Ages 13 or above</small>
-                  </div>
-
-                  <div class="hstack gap-1 align-items-center">
-                    <button
-                      type="button"
-                      class="btn btn-link adult-remove p-0 mb-0"
-                      (click)="updateGuests('adults', false)"
-                    >
-                      <i class="bi bi-dash-circle fs-5 fa-fw"></i>
-                    </button>
-                    <h6 class="guest-selector-count mb-0 adults">
-                      {{ formValue.guests.adults }}
-                    </h6>
-                    <button
-                      type="button"
-                      class="btn btn-link adult-add p-0 mb-0"
-                      (click)="updateGuests('adults')"
-                    >
-                      <i class="bi bi-plus-circle fs-5 fa-fw"></i>
-                    </button>
-                  </div>
-                </li>
-
-                <li class="dropdown-divider"></li>
-
-                <li class="d-flex justify-content-between">
-                  <div>
-                    <h6 class="mb-0">Child</h6>
-                    <small>Ages 13 below</small>
-                  </div>
-
-                  <div class="hstack gap-1 align-items-center">
-                    <button
-                      type="button"
-                      class="btn btn-link child-remove p-0 mb-0"
-                      (click)="updateGuests('children', false)"
-                    >
-                      <i class="bi bi-dash-circle fs-5 fa-fw"></i>
-                    </button>
-                    <h6 class="guest-selector-count mb-0 child">
-                      {{ formValue.guests.children }}
-                    </h6>
-                    <button
-                      type="button"
-                      class="btn btn-link child-add p-0 mb-0"
-                      (click)="updateGuests('children')"
-                    >
-                      <i class="bi bi-plus-circle fs-5 fa-fw"></i>
-                    </button>
-                  </div>
-                </li>
-
-                <li class="dropdown-divider"></li>
-
-                <li class="d-flex justify-content-between">
-                  <div>
-                    <h6 class="mb-0">Rooms</h6>
-                    <small>Max room 8</small>
-                  </div>
-
-                  <div class="hstack gap-1 align-items-center">
-                    <button
-                      type="button"
-                      class="btn btn-link room-remove p-0 mb-0"
-                      (click)="updateGuests('rooms', false)"
-                    >
-                      <i class="bi bi-dash-circle fs-5 fa-fw"></i>
-                    </button>
-                    <h6 class="guest-selector-count mb-0 rooms">
-                      {{ formValue.guests.rooms }}
-                    </h6>
-                    <button
-                      type="button"
-                      class="btn btn-link room-add p-0 mb-0"
-                      (click)="updateGuests('rooms')"
-                    >
-                      <i class="bi bi-plus-circle fs-5 fa-fw"></i>
-                    </button>
-                  </div>
-                </li>
-              </ul>
             </div>
           </div>
         </div>

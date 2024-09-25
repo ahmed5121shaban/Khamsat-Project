@@ -15,6 +15,7 @@ import { LightgalleryModule } from 'lightgallery/angular'
     NgbAlertModule,
     LightgalleryModule,
     NgbModalModule,
+    
   ],
   templateUrl: './hotel-gallery.component.html',
   styleUrl: './hotel-gallery.component.scss',

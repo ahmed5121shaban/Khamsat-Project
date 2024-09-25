@@ -4,35 +4,10 @@
   data-margin-bottom="100"
   class="sticky-element"
 >
-  <div class="card card-body border">
-    <div class="d-sm-flex justify-content-sm-between align-items-center mb-3">
-      <div>
-        <span>Total Price Start at</span>
-        <h4 class="card-title mb-0">{{ currencyType }}3,500</h4>
-      </div>
-      <div>
-        <h6 class="fw-normal mb-0">1 room, 2 adult, 0 child</h6>
-        <small>22 sep</small>
-      </div>
-    </div>
 
-
-
-<!--     <p class="h6 fw-light mb-4">
-      <i class="bi bi-arrow-right me-2"></i>Free breakfast available
-    </p> -->
-
-    <div class="d-grid">
-      <a
-        [ngxScrollTo]="'#room-options'"
-        class="btn btn-lg btn-primary-soft mb-0"
-        >View Rooms Availability</a
-      >
-    </div>
-  </div>
 
   <div class="my-3">
-    <h4 class=" mb-2">Advantages</h4>
+    <h5 class=" mb-2">Advantages</h5>
     <ul class="list-group list-group-borderless mb-0 ps-2">
       <li class="list-group-item h6 fw-light d-flex mb-0">
         <i class="bi bi-patch-check-fill text-success me-2"></i>Every hotel
@@ -53,8 +28,121 @@
     </ul>
   </div>
 
+<hr class="mb-0">
+
+  <div class="my-3">
+    <div class="px-0 pt-0">
+      <h5 class="mb-0">Amenities</h5>
+    </div>
+
+    <div class="pt-2 p-0 ps-2">
+      <div class="row g-4">
+
+          <div class="col-sm-6">
+            <ul class="list-group list-group-borderless mt-2 mb-0">
+
+                <li class="list-group-item pb-0">
+                  <i class="fa-solid fa-check-circle text-success me-2"></i
+                  >Swimming pool
+                </li>
+                <li class="list-group-item pb-0">
+                  <i class="fa-solid fa-check-circle text-success me-2"></i
+                  >Spa
+                </li>
+                <li class="list-group-item pb-0">
+                  <i class="fa-solid fa-check-circle text-success me-2"></i
+                  >Ironing Service
+                </li>
+                <li class="list-group-item pb-0">
+                  <i class="fa-solid fa-check-circle text-success me-2"></i
+                  >Swimming pool
+                </li>
+                <div
+                class="collapse" id="collapseExample"
+              >
+              <li class="list-group-item pb-0">
+                <i class="fa-solid fa-check-circle text-success me-2"></i
+                >Swimming pool
+              </li>
+              <li class="list-group-item pb-0">
+                <i class="fa-solid fa-check-circle text-success me-2"></i
+                >Spa
+              </li>
+              <li class="list-group-item pb-0">
+                <i class="fa-solid fa-check-circle text-success me-2"></i
+                >Kids' play area
+              </li>
+              <li class="list-group-item pb-0">
+                <i class="fa-solid fa-check-circle text-success me-2"></i
+                >Gym
+              </li>
+              </div>
+
+            </ul>
+          </div>
+
+
+          <div class="col-sm-6">
+            <ul class="list-group list-group-borderless mt-2 mb-0">
+
+
+                <li class="list-group-item pb-0">
+                  <i class="fa-solid fa-check-circle text-success me-2"></i
+                  >Special service
+                </li>
+                <li class="list-group-item pb-0">
+                  <i class="fa-solid fa-check-circle text-success me-2"></i
+                  >Ironing Service
+                </li>
+                <li class="list-group-item pb-0">
+                  <i class="fa-solid fa-check-circle text-success me-2"></i
+                  >Swimming pool
+                </li>
+                <div
+                class="collapse" id="collapseExample"
+              >
+              <li class="list-group-item pb-0">
+                <i class="fa-solid fa-check-circle text-success me-2"></i
+                >Swimming pool
+              </li>
+              <li class="list-group-item pb-0">
+                <i class="fa-solid fa-check-circle text-success me-2"></i
+                >Spa
+              </li>
+              <li class="list-group-item pb-0">
+                <i class="fa-solid fa-check-circle text-success me-2"></i
+                >Kids' play area
+              </li>
+              <li class="list-group-item pb-0">
+                <i class="fa-solid fa-check-circle text-success me-2"></i
+                >Gym
+              </li>
+              </div>
+
+            </ul>
+          </div>
+
+
+
+          <a
+          class="p-0 ps-2 mb-4 mt-4 btn-more d-flex align-items-center collapsed"
+          data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"
+          role="button"
+          aria-controls="collapseContent"
+        >
+          See <span class="see-more ms-1">more</span
+          ><span class="see-less ms-1">less</span
+          ><i class="fa-solid fa-angle-down ms-2"></i>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <hr class="mb-0">
+
   <div class="mt-4 d-none d-xl-block">
-    <h4>Today's Best Deal</h4>
+    <h5>Today's Best Deal</h5>
 
     <div class="card shadow rounded-3 overflow-hidden">
       <div class="row g-0 align-items-center">

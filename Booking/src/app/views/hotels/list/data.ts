@@ -28,7 +28,7 @@ const hotels: HotelsListType[] = [
     price: 750,
     features: ['Air Conditioning', 'Wifi', 'Kitchen', 'Pool'],
     rating: 4.5,
-    schemes: ['Deluxe Double room', 'Free Breakfast','Free Cancellation till 7 Jan 2022','Pay Later'],
+    schemes: [ 'Free Breakfast','Free Cancellation till 7 Jan 2022','Pay Later'],
     sale: '30% Off',
   },
   {

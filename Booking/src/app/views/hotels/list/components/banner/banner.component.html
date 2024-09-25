@@ -2,9 +2,9 @@
 
 
 <section class="pt-0">
-  <div class="container">
+
     <div
-      class="rounded-3 p-3 p-sm-5"
+      class="rounded-0 pt-4"
       style="
 
         background-position: center center;
@@ -16,14 +16,13 @@
 
     <form class="card shadow rounded-3 position-relative p-4 pe-md-5 pb-5 pb-md-4">
 
-      <div class="row g-1 align-items-center justify-content-between">
+      <div class="d-flex align-items-center justify-content-between">
 
-      <div class="col-md-6 col-lg-3">
+      <div class="col-md-6 col-lg-2">
         <div class="form-size-lg form-fs-md">
           <label class="form-label">Location</label>
           <select
-            selectFormInput
-            class="form-select js-choice"
+            class="form-control form-control-lg rounded-0"
             data-search-enabled="true"
           >
             <option value="">Select location</option>
@@ -34,14 +33,14 @@
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-2">
+      <div class="col-md-6 col-lg-3">
         <div class="form-fs-md">
           <label class="form-label">Check in - out</label>
           <input
             type="text"
             mwlFlatpickr
             [flatpickrOptions]="{ mode: 'range', dateFormat: 'd M' }"
-            class="form-control form-control-lg flatpickr"
+            class="form-control form-control-lg flatpickr rounded-0"
             data-mode="range"
             placeholder="Select date"
             value="19 Sep to 28 Sep"
@@ -49,15 +48,15 @@
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-2">
+      <div class="col-md-6 col-lg-3">
         <div class="form-fs-md">
           <div class="w-100">
             <label class="form-label">Guests & rooms</label>
-            <div ngbDropdown class="dropdown guest-selector me-2">
+            <div ngbDropdown class="dropdown guest-selector">
               <input
                 ngbDropdownToggle
                 type="text"
-                class="form-guest-selector form-control form-control-lg selection-result"
+                class="form-guest-selector form-control form-control-lg selection-result rounded-0"
                 [value]="getGuestsValue()"
                 id="dropdownguest"
                 data-bs-auto-close="outside"
@@ -152,30 +151,23 @@
         </div>
       </div>
 
-
-
-
-
         <div class="col-md-6 col-lg-2">
           <div class="form-fs-md">
             <label class="form-label">Nationality</label>
             <input
               type="text"
-              mwlFlatpickr
-              class="form-control form-control-lg flatpickr"
+              class="form-control form-control-lg rounded-0"
               data-mode="range"
               placeholder="Select date"
-              value="19 Sep to 28 Sep"
+              value="Nationality"
             />
           </div>
       </div>
 
 
-        <div class="col-md-6 col-lg-2">
-          <button type="button" class="btn btn-primary float-end mt-lg-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <div class="d-flex justify-content-between align-items-center">
-              <span class="fs-6">Edit Search</span>
-            </div>
+        <div class="col-md-6 col-lg-1" style="width: 12%;">
+          <button type="button" class="btn btn-primary mt-5  rounded-0 w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Edit Search
           </button>
         </div>
 
@@ -188,23 +180,16 @@
     </div> <!-- End modal -->
 
 
-
-
-
-
-
-
-
-
-    </div>
-
 </section>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  data-bs-keyboard="false">
   <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content">
+
       <div class="modal-body">
         <div class="container-fluid">
+          <button type="button" class="btn-close fs-5" style="float: right !important;" data-bs-dismiss="modal" aria-label="Close"></button>
+
           <form class=" shadow rounded-3 p-4 pe-md-5 pb-5 pb-md-4">
 
             <div class="row g-4 align-items-center">
@@ -408,7 +393,7 @@
               </div>
 
               <div class="col-lg-4 ">
-                <button class="btn btn-primary float-end mt-3" style="width: 90%;" data-bs-dismiss="modal">
+                <button class="btn btn-primary float-end mt-3" style="width: 90%;">
                 <div class="d-flex justify-content-between align-items-center">
                   <span class="fs-6">Search</span>
                   <i class="fa-solid fa-magnifying-glass"></i>
