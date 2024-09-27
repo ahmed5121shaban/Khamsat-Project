@@ -82,49 +82,57 @@ export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
 export const AGENT_MENU_ITEMS: MenuItemType[] = [
   {
     key: 'acc--dashboard',
-    label: 'Dashboard',
+    label: 'Overview',
     url: '/agent/dashboard',
     parentKey: 'acc-agent',
     icon: 'bi bi-house-door',
   },
   {
-    key: 'acc-agent-listings',
-    label: 'Listings',
-    url: '/agent/listings',
-    parentKey: 'acc-agent',
-    icon: 'bi bi-journals',
-  },
-  {
     key: 'acc-agent-bookings',
-    label: 'Bookings',
+    label: 'Booking List',
     url: '/agent/bookings',
     parentKey: 'acc-agent',
     icon: 'bi bi-bookmark-heart',
   },
   {
+    key: 'acc-agent-listings',
+    label: 'Trance Action',
+    url: '/agent/listings',
+    parentKey: 'acc-agent',
+    icon: 'bi bi-journals',
+  },
+
+  {
     key: 'acc-agent-activities',
-    label: 'Activities',
+    label: 'Reports',
     url: '/agent/activities',
     parentKey: 'acc-agent',
     icon: 'bi bi-bell',
   },
   {
     key: 'acc-agent-earnings',
-    label: 'Earnings',
+    label: 'Reward',
     url: '/agent/earnings',
     parentKey: 'acc-agent',
     icon: 'bi bi-graph-up-arrow',
   },
   {
     key: 'acc-agent-reviews',
-    label: 'Reviews',
+    label: 'Manage Stuff',
     url: '/agent/reviews',
     parentKey: 'acc-agent',
     icon: 'bi bi-star',
   },
   {
     key: 'acc-agent-settings',
-    label: 'Settings',
+    label: 'Edit Profile',
+    url: '/agent/settings',
+    parentKey: 'acc-agent',
+    icon: 'bi bi-gear',
+  },
+  {
+    key: 'acc-agent-settings',
+    label: 'Messages',
     url: '/agent/settings',
     parentKey: 'acc-agent',
     icon: 'bi bi-gear',
@@ -295,13 +303,14 @@ export const APP_MENU_ITEMS: MenuItemType[] = [
   {
     key: 'Manage Order',
     label: 'Manage Order',
-    isTitle: true,
-
+    url: '/agent/dashboard',
+    parentKey: 'hotels',
   },
   {
     key: 'Reporting',
     label: 'Reporting',
-    isTitle: true,
+    url: '/agent/activities',
+    parentKey: 'hotels',
 
   },
 ]

@@ -15,8 +15,8 @@ export class BookingStatsComponent {
     colors: ['#2163e8'],
     series: [
       {
-        name: 'Users',
-        data: [100, 401, 305, 501, 409, 602, 609, 901, 848, 602, 809, 901],
+        name: 'Completed',
+        data: [5000, 10000, 25000, 50000, 100000],
       },
     ],
     chart: {
@@ -46,6 +46,15 @@ export class BookingStatsComponent {
         height: 8,
       },
     },
+    markers: {
+      size: 5, // Size of the marker points
+      colors: ['#28a745'], // Green color for the marker points
+      strokeColors: '#fff', // Optional: stroke around the points
+      strokeWidth: 2, // Optional: stroke width
+      hover: {
+        size: 7, // Marker size when hovered
+      },
+    },
     xaxis: {
       labels: {
         show: true,
@@ -68,10 +77,27 @@ export class BookingStatsComponent {
         'Dec',
       ],
     },
+    yaxis: {
+      min: 5000,  // Minimum Y-axis value
+      max: 100000,  // Maximum Y-axis value
+      tickAmount: 5,  // Number of ticks between min and max
+      labels: {
+        style: {
+          colors: ['#28a745'], // Green color for the Y-axis labels
+        },
+        formatter: function (value) {
+          const thresholds = [5000, 10000, 25000, 50000, 100000];
+          if (thresholds.includes(value)) {
+            return value.toLocaleString();  // Convert to string with commas (e.g., 5,000)
+          }
+          return ''; // Return empty string for other values
+        },
+      },
+    },
     tooltip: {
       x: {
         format: 'dd/MM/yy HH:mm',
       },
     },
-  }
+  };
 }

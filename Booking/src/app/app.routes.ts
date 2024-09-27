@@ -89,7 +89,7 @@ export const routes: Routes = [
   },
   {
     path: 'agent',
-    canActivate: [AuthGuard],
+    /* canActivate: [AuthGuard], */
     component: AgentLayoutComponent,
     loadChildren: () =>
       import('./views/agent/agent.route').then((mod) => mod.AGENT_ROUTES),

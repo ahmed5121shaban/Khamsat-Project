@@ -10,8 +10,9 @@ import { RouterModule } from '@angular/router'
       @if (onlyDark) {
         <img
           [class]="'navbar-brand-item'"
-          src="assets/images/logo-light.svg"
+          src="assets/images/logo.jpg"
           alt="logo"
+          style="width: 80px !important;height:80px !important"
         />
       } @else {
         <img
@@ -20,13 +21,15 @@ import { RouterModule } from '@angular/router'
             (!onlyDark && 'light-mode-item ') +
             imgClassName
           "
-          src="assets/images/logo.svg"
+          src="assets/images/logo.jpg"
           alt="logo"
+        style="width: 80px !important;height:80px !important"
         />
         <img
           [class]="'dark-mode-item navbar-brand-item ' + imgClassName"
-          src="assets/images/logo-light.svg"
+          src="assets/images/logo.jpg"
           alt="logo"
+         style="width: 80px !important;height:80px !important"
         />
       }
     </a>

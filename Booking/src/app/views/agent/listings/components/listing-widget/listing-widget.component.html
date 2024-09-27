@@ -20,26 +20,19 @@
           }
         </h6>
         <h2 class="{{ item.variant }}">{{ item.state }}</h2>
-        @if (item.tag) {
-          <p class="mb-2">
-            <span class="text-primary"
-              >{{ item.change }} <i class="bi bi-arrow-up ms-n1"></i
-            ></span>
-            {{ item.changeLabel }}
-          </p>
-        } @else {
+
           <p class="mb-2">
             <span class="text-danger me-1">{{ item.change }}</span
             >{{ item.changeLabel }}
           </p>
-        }
-        <div class="mt-auto text-primary-hover">
+        
+<!--         <div class="mt-auto text-primary-hover">
           <a
             href="javascript:void(0);"
             class="text-decoration-underline p-0 mb-0"
             >{{ item.link }}</a
           >
-        </div>
+        </div> -->
       </div>
     </div>
   }

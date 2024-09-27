@@ -1,92 +1,54 @@
 export type Booking = {
-  id: number
+  id: string
   name: string
-  type: string
+  city: string
   date: string
   status: string
-  payment: string
+  booking: string
+  Cancellation:string
+  Total:string
 }
 
 const bookings: Booking[] = [
   {
-    id: 1,
-    name: 'Deluxe Pool View',
-    type: 'With Breakfast',
+    id: 'HXM0016',
+    name: 'Guest Name',
+    city: 'Zell am See-Kaprun',
     date: 'Nov 22 - 25',
     status: 'Booked',
-    payment: 'Full Payment',
+    booking: 'Completed',
+    Cancellation:'Non Refundable',
+    Total:'89 USD',
   },
   {
-    id: 2,
-    name: 'Deluxe Pool View with Breakfast',
-    type: 'Free Cancellation | Breakfast only',
+    id: 'HXM0015',
+    name: 'Guest Name',
+    city: '	Gavle',
     date: 'Nov 24 - 28',
     status: 'Booked',
-    payment: 'On Property',
+    booking: 'Canceled',
+    Cancellation:'free cancle, 27-09-2024',
+    Total:'66 USD',
   },
   {
-    id: 3,
-    name: 'Luxury Room with Balcony',
-    type: 'Free Cancellation | Breakfast + Lunch/Dinner',
+    id: 'HXM0010',
+    name: 'Guest Name',
+    city: 'Kuala Lumpur',
     date: 'Nov 24 - 28',
     status: 'Reserved',
-    payment: 'Half Payment',
+    booking: 'Confirmed',
+    Cancellation:'free cancle, 17-09-2024',
+    Total:'100 USD',
   },
   {
-    id: 4,
-    name: 'Deluxe Room Twin Bed With Balcony',
-    type: 'Free Cancellation',
+    id: 'HXM0007',
+    name: 'Guest Name',
+    city: 'Dubai',
     date: 'Nov 28 - 30',
     status: 'Booked',
-    payment: 'Full Payment',
-  },
-  {
-    id: 5,
-    name: 'Deluxe Room Twin Bed With Balcony',
-    type: 'Free Cancellation | Breakfast only',
-    date: 'Nov 28 - 30',
-    status: 'Available',
-    payment: 'On Property',
-  },
-  {
-    id: 6,
-    name: 'Premium Room With Balcony',
-    type: 'Free Cancellation | Breakfast only',
-    date: 'Nov 14 - 18',
-    status: 'Cancel',
-    payment: 'Half Payment',
-  },
-  {
-    id: 7,
-    name: 'Deluxe Room King Bed with Balcony',
-    type: 'Free Cancellation',
-    date: 'Nov 28 - 30',
-    status: 'Reserved',
-    payment: 'Full Payment',
-  },
-  {
-    id: 8,
-    name: 'Superior Room',
-    type: 'With Breakfast',
-    date: 'Nov 22 - 25',
-    status: 'Booked',
-    payment: 'Full Payment',
-  },
-  {
-    id: 9,
-    name: 'Studio Suite King',
-    type: 'Free Cancellation | Breakfast only',
-    date: 'Nov 21 - 24',
-    status: 'Reserved',
-    payment: 'Half Payment',
-  },
-  {
-    id: 10,
-    name: 'Rock Family Suite',
-    type: 'Free Cancellation | Breakfast + Lunch/Dinner',
-    date: 'Dec 02 - 06',
-    status: 'Booked',
-    payment: 'Full Payment',
+    booking: 'Confirmed',
+    Cancellation:'Non Refundable',
+    Total:'89 USD',
   },
 ]
 

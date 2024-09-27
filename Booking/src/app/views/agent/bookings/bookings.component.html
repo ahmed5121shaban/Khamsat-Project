@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12">
         <h1 class="fs-4 mb-0">
-          <i class="bi bi-bookmark-heart fa-fw me-1"></i>Bookings
+          <i class="bi bi-bookmark-heart fa-fw me-1"></i>My Bookings - Manage your booking with advance filters!
         </h1>
       </div>
     </div>
@@ -13,23 +13,23 @@
         <div class="card border">
           <div class="card-header border-bottom">
             <h5 class="card-header-title">
-              Bookings<span
+              <span
                 class="badge bg-primary bg-opacity-10 text-primary ms-2"
-                >20 Rooms</span
+                >20 Booking</span
               >
             </h5>
           </div>
 
           <div class="card-body">
-            <div
-              class="row g-3 align-items-center justify-content-between mb-3"
-            >
-              <div class="col-md-8">
+            <div class="row g-1 align-items-center mb-3">
+
+              <!-- Booking ID Input -->
+              <div class="col-md-3 col-12">
                 <form class="rounded position-relative">
                   <input
                     class="form-control pe-5"
                     type="search"
-                    placeholder="Search"
+                    placeholder="Booking ID"
                     aria-label="Search"
                   />
                   <button
@@ -41,21 +41,60 @@
                 </form>
               </div>
 
-              <div class="col-md-3">
-                <form>
-                  <select
-                    selectFormInput
-                    [options]="{ searchEnabled: false }"
-                    class="form-select js-choice"
-                    aria-label=".form-select-sm"
+              <!-- Guest Name Input -->
+              <div class="col-md-3 col-12">
+                <form class="rounded position-relative">
+                  <input
+                    class="form-control pe-5"
+                    type="search"
+                    placeholder="Guest Name"
+                    aria-label="Search"
+                  />
+                  <button
+                    class="btn border-0 px-3 py-0 position-absolute top-50 end-0 translate-middle-y"
+                    type="submit"
                   >
-                    <option value="">Sort by</option>
-                    <option>Free</option>
-                    <option>Newest</option>
-                    <option>Oldest</option>
+                    <i class="fas fa-search fs-6"></i>
+                  </button>
+                </form>
+              </div>
+
+              <!-- Booking Status Select -->
+              <div class="col-md-2 col-12">
+                <form>
+                  <select class="form-select js-choice" aria-label="Booking Status">
+                    <option value="">Booking Status</option>
+                    <option>Complete/Paid</option>
+                    <option>Confirm/Unpaid</option>
+                    <option>Cancelled</option>
                   </select>
                 </form>
               </div>
+
+              <!-- Check In Status Select -->
+              <div class="col-md-2 col-12">
+                <form>
+                  <select class="form-select js-choice" aria-label="Check In Status">
+                    <option value="">Check In Status</option>
+                    <option>Past Check Ins</option>
+                    <option>Future Check Ins</option>
+                    <option>Active Stay</option>
+                  </select>
+                </form>
+              </div>
+
+              <!-- Reset Button -->
+              <div class="col-md-1 col-12">
+                <button class="btn btn-warning">Reset</button>
+              </div>
+
+              <!-- Search Button -->
+              <div class="col-md-1 col-12">
+                <button class="btn btn-primary">Search</button>
+              </div>
+            </div>
+          </div>
+
             </div>
 
             <div class="table-responsive border-0">
@@ -64,13 +103,16 @@
               >
                 <thead class="table-light">
                   <tr>
-                    <th scope="col" class="border-0 rounded-start">#</th>
-                    <th scope="col" class="border-0">Name</th>
-                    <th scope="col" class="border-0">Type</th>
-                    <th scope="col" class="border-0">Date</th>
+                    <th scope="col" class="border-0 rounded-start">Booking Id</th>
+                    <th scope="col" class="border-0">Guest Name</th>
+                    <th scope="col" class="border-0">City</th>
+                    <th scope="col" class="border-0">Check in date</th>
                     <th scope="col" class="border-0">Status</th>
                     <th scope="col" class="border-0">Payment</th>
-                    <th scope="col" class="border-0 rounded-end">Action</th>
+                    <th scope="col" class="border-0">Cancellation Deadline</th>
+                    <th scope="col" class="border-0">Total Cost</th>
+<!--                     <th scope="col" class="border-0 rounded-end">Action</th>
+ -->
                   </tr>
                 </thead>
 
@@ -78,16 +120,16 @@
                   @for (item of bookingsData; track $index) {
                     <tr>
                       <td>
-                        <h6 class="mb-0">
-                          {{ item.id < 10 ? '0' + item.id : item.id }}
-                        </h6>
+                        <p class="mb-0 text-primary text-decoration-underline">
+                          {{item.id}}
+                        </p>
                       </td>
                       <td>
-                        <h6 class="mb-0">
-                          <a href="javascript:void(0);">{{ item.name }}</a>
-                        </h6>
+                        <p class="mb-0">
+                          {{ item.name }}
+                        </p>
                       </td>
-                      <td>{{ item.type }}</td>
+                      <td>{{ item.city }}</td>
                       <td>
                         <h6 class="mb-0 fw-light">{{ item.date }}</h6>
                       </td>
@@ -108,22 +150,27 @@
                         <div
                           class="badge bg-opacity-10"
                           [ngClass]="{
-                            'text-success bg-success':
-                              item.payment === 'Full Payment',
-                            'text-info bg-info':
-                              item.payment === 'Half Payment',
-                            'text-orange bg-orange':
-                              item.payment === 'On Property'
+                            'text-success':
+                              item.booking === 'Completed',
+                            'text-info':
+                              item.booking === 'Canceled',
+                            'text-orange':
+                              item.booking === 'Confirmed'
                           }"
                         >
-                          {{ item.payment }}
+                          {{ item.booking }}
                         </div>
                       </td>
                       <td>
-                        <a
-                          href="javascript:void(0);"
-                          class="btn btn-sm btn-light mb-0"
-                          >View</a
+                        <p
+                          class="mb-0"
+                          >{{item.Cancellation}}</p
+                        >
+                      </td>
+                      <td>
+                        <p
+                          class="mb-0"
+                          >{{item.Total}}</p
                         >
                       </td>
                     </tr>
@@ -160,6 +207,4 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
 </section>

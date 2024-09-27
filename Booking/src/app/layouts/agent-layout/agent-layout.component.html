@@ -2,23 +2,73 @@
   <nav class="navbar navbar-expand-xl">
     <div class="container">
       <app-logo-box />
-      <vertical-menu-button [showText]="false" className="ms-auto me-3" />
+
+      <vertical-menu-button className="ms-auto ms-sm-0"></vertical-menu-button>
+
+       <button
+        class="navbar-toggler ms-sm-auto mx-3 me-md-0 p-0 p-sm-2"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCategoryCollapse"
+        aria-controls="navbarCategoryCollapse"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="bi bi-grid-3x3-gap-fill fa-fw"></i
+        ><span class="d-none d-sm-inline-block small">Category</span>
+        </button>
+
       <app-menu
-        [showExtraPages]="false"
-        [showContactPages]="true"
-        class="navbar-collapse collapse"
+        [showExtraPages]="true"
+        [menuClassName]="'me-auto'"
+        class="navbar-collapse collapse d-contents"
       />
 
+
+
+
+
+
+      <div
+        class="navbar-collapse collapse"
+        id="navbarCategoryCollapse"
+      >
+        <ul
+          class="navbar-nav navbar-nav-scroll nav-pills-primary-soft text-center ms-auto p-2 p-xl-0"
+        >
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                routerLink="/hotels/home"
+                [class.active]="'Hotel'"
+              >
+              <i class="fa-solid fa-hotel me-2"></i>Hotel</a
+              >
+            </li>
+        </ul>
+      </div>
+
+
+      <div
+      class=""
+    >
+      <ul
+        class="navbar-nav navbar-nav-scroll nav-pills-primary-soft text-center ms-auto p-2 p-xl-0"
+      >
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+            >
+              <span class="me-1">$</span>USD</a
+            >
+          </li>
+      </ul>
+    </div>
+
       <ul class="nav flex-row align-items-center list-unstyled ms-xl-auto">
-        <app-notification-dropdown />
+        <app-notification-dropdown className="ms-0 ms-md-3" />
 
         <app-profile-dropdown className="ms-3" />
-
-        <li class="nav-item ms-3 d-none d-sm-block">
-          <a class="btn btn-sm btn-primary-soft mb-0" href="javascript:void(0);"
-            ><i class="bi bi-lightning-charge"></i> Upgrade now</a
-          >
-        </li>
       </ul>
     </div>
   </nav>
@@ -31,19 +81,15 @@
         <div class="d-sm-flex align-items-center">
           <div class="avatar avatar-xl mb-2 mb-sm-0">
             <img
-              class="avatar-img rounded-circle"
+              class="avatar-img rounded-1"
               src="assets/images/avatar/01.jpg"
               alt=""
             />
           </div>
-          <h4 class="mb-2 mb-sm-0 ms-sm-3">
-            <span class="fw-light">Hi</span> Jacqueline Miller
-          </h4>
-          <a
-            routerLink="/listings/add"
-            class="btn btn-sm btn-primary-soft mb-0 ms-auto flex-shrink-0"
-            ><i class="bi bi-plus-lg fa-fw me-2"></i>Add New Listing</a
-          >
+          <h5 class="mb-2 mb-sm-0 ms-sm-3">
+            <span class="fw-light">Welcome</span> ,<span class="fs-5">Company Name</span>
+          </h5>
+
         </div>
         <agent-vertical-menu-button />
         <div
@@ -58,5 +104,7 @@
   </section>
   <router-outlet />
 </main>
+<div class=" mt-5">
+  <agent-footer />
+</div>
 
-<agent-footer />

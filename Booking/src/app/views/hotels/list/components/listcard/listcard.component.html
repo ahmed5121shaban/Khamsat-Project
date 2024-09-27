@@ -85,8 +85,12 @@
             <ul class="list-group list-group-borderless small mb-0 mt-1">
               @if (item.schemes) {
                 <li class="list-group-item d-flex text-dark p-0 pb-1">
-                  <i class="bi bi-patch-check-fill me-2"></i>Deluxe Room
+                  <i class="fa-solid fa-bed me-2"></i>Deluxe Room
                 </li>
+                <li class="list-group-item d-flex text-dark p-0 pb-1">
+                  <i class="fa-solid fa-utensils me-2"></i>Free Breakfast
+                </li>
+
                 @for (scheme of item.schemes; track $index) {
                   <li class="list-group-item d-flex text-success p-0 pb-1">
                     <i class="bi bi-patch-check-fill me-2"></i>{{ scheme }}
@@ -94,10 +98,10 @@
                 }
               } @else {
                 <li class="list-group-item d-flex text-dark p-0 pb-1">
-                  <i class="bi bi-patch-check-fill me-2"></i>Deluxe Room
+                  <i class="fa-solid fa-bed me-2"></i>Deluxe Room
                 </li>
                 <li class="list-group-item d-flex text-dark p-0 pb-1">
-                  <i class="bi bi-patch-check-fill me-2"></i>Room Only
+                  <i class="fa-solid fa-utensils me-2"></i>Room Only
                 </li>
                 <li class="list-group-item d-flex text-danger p-0 pb-1">
                   <i class="bi bi-patch-check-fill me-2"></i>Non Refundable
@@ -121,6 +125,7 @@
               <div class="mt-3 mt-sm-0">
                 <a
                   routerLink="/hotels/detail"
+                  target="_blank"
                   class="btn btn-sm btn-primary mb-0 w-100"
                   >All Rooms</a
                 >

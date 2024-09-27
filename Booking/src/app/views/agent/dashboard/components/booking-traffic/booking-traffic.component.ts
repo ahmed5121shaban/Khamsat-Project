@@ -18,8 +18,8 @@ export class BookingTrafficComponent {
   }
 
   trafficChart: Partial<ChartOptions> = {
-    series: [70, 15, 10, 5],
-    labels: ['Organic', 'Google', 'Social media', 'Referral'],
+    series: [70, 20, 10],
+    labels: [ 'Completed Booking', 'Confirmed Booking', 'Canceled Booking'],
     chart: {
       height: 200,
       width: 200,
@@ -30,7 +30,6 @@ export class BookingTrafficComponent {
       },
     },
     colors: [
-      this.getRootColor('--bs-primary'),
       this.getRootColor('--bs-success'),
       this.getRootColor('--bs-warning'),
       this.getRootColor('--bs-danger'),

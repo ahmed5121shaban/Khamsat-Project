@@ -25,31 +25,6 @@ import { filter } from 'rxjs'
               >
             </li>
           }
-
-          <li ngbDropdown class="nav-item dropdown">
-            <a
-              ngbDropdownToggle
-              class="nav-link dropdown-toggle"
-              id="dropdoanMenu"
-              data-bs-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <i class="bi bi-list-ul fa-fw me-1"></i>Dropdown
-            </a>
-            <ul
-              ngbDropdownMenu
-              class="dropdown-menu"
-              aria-labelledby="dropdoanMenu"
-            >
-              <li>
-                <a class="dropdown-item" href="javascript:void(0);">Item 1</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="javascript:void(0);">Item 2</a>
-              </li>
-            </ul>
-          </li>
         </ul>
       </div>
     </div>

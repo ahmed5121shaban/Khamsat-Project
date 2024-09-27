@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-12">
     <div class="card border rounded-3">
-      <div class="card-header border-bottom">
+<!--       <div class="card-header border-bottom">
         <h5 class="card-header-title">Invoice history</h5>
-      </div>
+      </div> -->
 
       <div class="card-body">
         <div class="row g-3 align-items-center justify-content-between mb-3">
@@ -31,10 +31,10 @@
                 selectFormInput
                 aria-label=".form-select-sm"
               >
-                <option value="">Sort by</option>
-                <option>Free</option>
-                <option>Newest</option>
-                <option>Oldest</option>
+                <option value="">Shaw: </option>
+                <option>10</option>
+                <option>25</option>
+                <option>50</option>
               </select>
             </form>
           </div>
@@ -44,11 +44,12 @@
           <table class="table align-middle p-4 mb-0 table-hover table-shrink">
             <thead class="table-light">
               <tr>
-                <th scope="col" class="border-0 rounded-start">Invoice ID</th>
-                <th scope="col" class="border-0">Date</th>
+                <th scope="col" class="border-0 rounded-start">Reference</th>
                 <th scope="col" class="border-0">Amount</th>
-                <th scope="col" class="border-0">Status</th>
-                <th scope="col" class="border-0 rounded-end">Action</th>
+                <th scope="col" class="border-0">Currency</th>
+                <th scope="col" class="border-0">Type</th>
+                <th scope="col" class="border-0 rounded-end">Date</th>
+                <th scope="col" class="border-0 rounded-end">InVoice</th>
               </tr>
             </thead>
 
@@ -56,11 +57,11 @@
               @for (item of invoiceHistoryData; track $index) {
                 <tr>
                   <td>#{{ item.id }}</td>
-                  <td>{{ item.date }}</td>
+                  <td>{{ item.amount }}</td>
                   <td ngbDropdown>
-                    {{ currencyType }}{{ item.amount }}
+                    {{ item.currency}} {{currencyType}}
 
-                    <a
+<!--                     <a
                       href="javascript:void(0);"
                       ngbDropdownToggle
                       class="h6 mb-0 arrow-none"
@@ -105,28 +106,21 @@
                           >
                         </div>
                       </li>
-                    </ul>
+                    </ul> -->
                   </td>
                   <td>
                     <div
-                      class="badge bg-opacity-10 bg-success text-success"
-                      [ngClass]="{
-                        'bg-success text-success': item.status === 'Paid',
-                        'bg-orange text-orange': item.status === 'Pending',
-                        'bg-danger text-danger': item.status === 'Cancelled'
-                      }"
+                      class="badge bg-opacity-10 bg-danger text-danger"
+
                     >
-                      {{ item.status }}
+                      {{ item.type }}
                     </div>
                   </td>
                   <td>
-                    <a
-                      href="javascript:void(0);"
-                      class="btn btn-light btn-round mb-0"
-                      placement="top"
-                      ngbTooltip="Download"
-                      ><i class="bi bi-cloud-download"></i
-                    ></a>
+                   {{item.date}}
+                  </td>
+                  <td>
+                   {{item.invoice}}
                   </td>
                 </tr>
               }

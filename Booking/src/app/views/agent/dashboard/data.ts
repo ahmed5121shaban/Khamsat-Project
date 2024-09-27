@@ -18,25 +18,25 @@ export type UpcomingBookingType = {
 
 const statistics: StatisticType[] = [
   {
-    title: 'Total Listings',
+    title: 'Available Balance',
     state: '56',
     icon: 'bi-journals',
     variant: 'bg-success',
   },
   {
-    title: 'Earning',
+    title: 'Total Sales',
     state: currency + '2,55,365',
     icon: 'bi-graph-up-arrow',
     variant: 'bg-info',
   },
   {
-    title: 'Visitors',
+    title: 'Amount UnPaid',
     state: '15K',
     icon: 'bi-bar-chart-line-fill',
     variant: 'bg-warning',
   },
   {
-    title: 'Total Reviews',
+    title: 'Total Booking',
     state: '12K',
     icon: 'bi-star',
     variant: 'bg-primary',
