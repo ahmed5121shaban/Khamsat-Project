@@ -1,6 +1,6 @@
 <section class="pt-0">
-  <div class="container vstack gap-4">
-    <div class="row">
+  <div class="container-fluid vstack gap-4">
+    <div class="row m-auto" style="width:90%">
       <div class="col-12">
         <h1 class="fs-4 mb-0">
           <i class="bi bi-bookmark-heart fa-fw me-1"></i>My Bookings - Manage your booking with advance filters!
@@ -10,7 +10,7 @@
 
     <div class="row">
       <div class="col-12">
-        <div class="card border">
+        <div class="card border  m-auto mb-5" style="width:90%">
           <div class="card-header border-bottom">
             <h5 class="card-header-title">
               <span
@@ -95,9 +95,9 @@
             </div>
           </div>
 
-            </div>
+        </div>
 
-            <div class="table-responsive border-0">
+            <div class="table-responsive border-0 m-auto" style="width:95%">
               <table
                 class="table align-middle p-4 mb-0 table-hover table-shrink"
               >
@@ -105,14 +105,14 @@
                   <tr>
                     <th scope="col" class="border-0 rounded-start">Booking Id</th>
                     <th scope="col" class="border-0">Guest Name</th>
-                    <th scope="col" class="border-0">City</th>
                     <th scope="col" class="border-0">Check in date</th>
-                    <th scope="col" class="border-0">Status</th>
-                    <th scope="col" class="border-0">Payment</th>
+                    <th scope="col" class="border-0">City</th>
                     <th scope="col" class="border-0">Cancellation Deadline</th>
+                    <th scope="col" class="border-0">Payment</th>
+                    <th scope="col" class="border-0">Status</th>
                     <th scope="col" class="border-0">Total Cost</th>
-<!--                     <th scope="col" class="border-0 rounded-end">Action</th>
- -->
+                    <th scope="col" class="border-0 rounded-end">Action</th>
+
                   </tr>
                 </thead>
 
@@ -120,27 +120,37 @@
                   @for (item of bookingsData; track $index) {
                     <tr>
                       <td>
-                        <p class="mb-0 text-primary text-decoration-underline">
-                          {{item.id}}
-                        </p>
+                        <div class="d-flex flex-column">
+                          <p class="mb-0">
+                            {{item.id}}
+                          </p>
+                          <span class="opacity-75" style="font-size: 13px;">
+                              {{item.registerDate}}
+                          </span>
+                        </div>
                       </td>
                       <td>
-                        <p class="mb-0">
-                          {{ item.name }}
-                        </p>
+                          <p class="mb-0">
+                            {{ item.name }}
+                          </p>
+                      </td>
+                      <td>
+                        <h6 class="mb-0 fw-light">{{ item.date }}</h6>
                       </td>
                       <td>{{ item.city }}</td>
                       <td>
-                        <h6 class="mb-0 fw-light">{{ item.date }}</h6>
+                        <p
+                          class="mb-0"
+                          >{{item.Cancellation}}</p
+                        >
                       </td>
                       <td>
                         <div
                           class="badge text-bg-success"
                           [ngClass]="{
-                            'text-bg-info': item.status === 'Reserved',
-                            'text-bg-warning text-white':
-                              item.status === 'Available',
-                            'text-bg-danger': item.status === 'Cancel'
+                            'text-bg-success ':
+                              item.status === 'Paid',
+                            'text-bg-danger ': item.status === 'UnPaid'
                           }"
                         >
                           {{ item.status }}
@@ -150,11 +160,11 @@
                         <div
                           class="badge bg-opacity-10"
                           [ngClass]="{
-                            'text-success':
+                            'text-success text-bg-success':
                               item.booking === 'Completed',
-                            'text-info':
+                            'text-danger text-bg-danger':
                               item.booking === 'Canceled',
-                            'text-orange':
+                            'text-orange text-bg-orange':
                               item.booking === 'Confirmed'
                           }"
                         >
@@ -164,14 +174,25 @@
                       <td>
                         <p
                           class="mb-0"
-                          >{{item.Cancellation}}</p
+                          >{{item.Total}}</p
                         >
                       </td>
                       <td>
-                        <p
-                          class="mb-0"
-                          >{{item.Total}}</p
-                        >
+                        <div class="d-flex">
+                          <a type="button" data-bs-toggle="modal" data-bs-target="#eye">
+                            <i class="fa-regular fa-eye me-1"></i>
+                          </a>
+                          <a type="button" data-bs-toggle="modal" data-bs-target="#headset"
+                          ><i class="fa-solid fa-headset me-1"></i>
+                        </a>
+                          @if (item.visaPay)
+                          {
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#creditcard">
+                            <i class="fa-regular fa-credit-card"></i>
+                            </a>
+                        }
+                        </div>
+
                       </td>
                     </tr>
                   }
@@ -180,7 +201,7 @@
             </div>
           </div>
 
-          <div class="card-footer pt-0">
+          <div class="card-footer pt-0 m-auto" style="width:90%">
             <div
               class="d-sm-flex justify-content-sm-between align-items-sm-center"
             >
@@ -208,3 +229,62 @@
         </div>
       </div>
 </section>
+
+<!--Eye icon modal-->
+<div class="modal fade" id="eye" tabindex="-1" aria-labelledby="eye" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Headset icon modal-->
+  <div class="modal fade" id="headset" tabindex="-1" aria-labelledby="headset" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">headset</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--Credit Card icon modal-->
+<div class="modal fade" id="creditcard" tabindex="-1" aria-labelledby="creditcard" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">creditcard</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+

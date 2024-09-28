@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12">
         <h1 class="fs-4 mb-0">
-          <i class="bi bi-bell fa-fw me-1"></i>Activities
+          <i class="bi bi-bell fa-fw me-1"></i>Reporting
         </h1>
       </div>
     </div>
@@ -11,56 +11,155 @@
       <div class="col-12">
         <div class="card border">
           <div class="card-header border-bottom">
-            <h5 class="card-header-title">Recent Activities</h5>
+            <h5 class="card-header-title">Download Reporting Statements</h5>
           </div>
 
           <div class="card-body">
-            @for (item of recentActivities; track $index; let last = $last) {
-              <div class="d-sm-flex justify-content-between align-items-center">
-                <div class="d-flex align-items-sm-center me-4 ms-sm-0">
-                  @if (item.image) {
-                    <div class="avatar flex-shrink-0">
-                      <img
-                        class="avatar-img rounded-circle"
-                        [src]="item.image"
-                        alt=""
-                      />
-                    </div>
-                  } @else {
-                    <div class="avatar flex-shrink-0">
-                      <div class="avatar-img rounded-circle {{ item.variant }}">
-                        <span
-                          class="position-absolute top-50 start-50 translate-middle fw-bold"
-                          ><i class="bi {{ item.icon }} fs-5"></i
-                        ></span>
-                      </div>
-                    </div>
-                  }
 
-                  <div class="ms-3">
-                    <h6 class="fw-light m-0" [innerHTML]="item.title"></h6>
-                    <small>{{ item.date }}</small>
-                  </div>
-                </div>
 
-                <div class="d-flex gap-2 mt-2 mt-sm-0">
-                  <a
-                    href="javascript:void(0);"
-                    class="btn btn-sm btn-primary-soft"
-                    >View</a
-                  >
-                  <a
-                    href="javascript:void(0);"
-                    class="btn btn-sm btn-danger-soft"
-                    ><i class="bi bi-trash"></i
-                  ></a>
-                </div>
+            <form class="row g-1">
+              <!-- Order Select -->
+              <div class="col-md-6 me-2">
+                <label for="order" class="form-label">Order</label>
+                <select class="form-select" id="order" [(ngModel)]="selectedOrder" name="order" placeholder="Select Order">
+                  <option value="booking">Booking</option>
+                  <option value="transaction">Transaction</option>
+                  <option value="sales">Sales</option>
+                </select>
               </div>
 
-              @if (!last) {
-                <hr />
-              }
+              <!-- Conditionally Display Type Input -->
+              @if (selectedOrder=='booking') {
+              <div class="col-md-5">
+                <label for="type" class="form-label">Type</label>
+                <select type="text" class="form-control" id="type" placeholder="Enter type">
+                  <option value="All">All</option>
+                  <option value="Confirm/UnPaid">Confirm/UnPaid</option>
+                  <option value="Complete/Paid">Complete/Paid</option>
+                  <option value="Canceled">Canceled</option>
+                </select>
+              </div>
             }
+            @if (selectedOrder=='transaction') {
+              <div class="col-md-5">
+                <label for="type" class="form-label">Type</label>
+                <select type="text" class="form-control" id="type" placeholder="Enter type">
+                  <option value="All">All</option>
+                  <option value="Debit">Debit</option>
+                  <option value="Credit">Credit</option>
+                </select>
+              </div>
+            }
+            @if (selectedOrder=='sales') {
+              <div class="col-md-5">
+                <label for="type" class="form-label">Type</label>
+                <select type="text" class="form-control" id="type" placeholder="Enter type">
+                  <option value="Complete-Paid">Complete - Paid</option>
+                </select>
+              </div>
+            }
+              <!-- Date Type Select -->
+              <div class="col-md-6 mt-3 me-2">
+                <label for="dateType" class="form-label">Date Type</label>
+                <select class="form-select" id="dateType" [(ngModel)]="selectedDateType" name="dateType" placeholder="Select Date Type">
+                  <option value="specific">Specific Date</option>
+                  <option value="range">Date Range</option>
+                </select>
+              </div>
+
+              <!-- Conditionally Display Date Inputs -->
+              <!-- Specific Date Input -->
+               @if (selectedDateType === 'specific') {
+              <div class="col-md-5 mt-3">
+                <label class="form-label" for="specific-date">Place Specific Date</label>
+                <input
+                  type="text"
+                  mwlFlatpickr
+                  [flatpickrOptions]="{ dateFormat: 'Y-m-d' }"
+                  class="form-control"
+                  placeholder="Select specific date"
+                  id="specific-date"
+                />
+              </div>
+            }
+
+              <!-- Date Range Input -->
+               @if (selectedDateType === 'range') {
+              <div class="col-md-5 mt-3">
+                <label class="form-label" for="date-range">Date Range (From - To)</label>
+                <input
+                  type="text"
+                  mwlFlatpickr
+                  [flatpickrOptions]="{ mode: 'range', dateFormat: 'd M', onChange: updateNights }"
+                  class="form-control"
+                  placeholder="Select date range"
+                  id="date-range"
+                />
+              </div>
+            }
+            <div class="col-md-12 row mt-3 justify-content-center">
+              <button type="button" class="btn btn-success col-md-2 me-2"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Fetch Statement
+              </button>
+              <button class="btn btn-danger col-md-2">Canceled</button>
+            </div>
+
+            </form>
+
+            <!--modal-->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Total Bookings From 29/09/2024 To 30/09/2024</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <table class="table table-striped overflow-scroll">
+                      <thead class="mb-3">
+                      <th>
+                        Booking Reference Id
+                      </th>
+                      <th>
+                        Booking Status
+                      </th>
+                      <th>
+                        Guests Names
+                      </th>
+                      <th>
+                        Total Price
+                      </th>
+                      <th>
+                        Date
+                      </th>
+                    </thead>
+                    <tbody class="mt-3">
+                      <tr>
+                        <td>#dfbb4565</td>
+                        <td>Paid</td>
+                        <td>Guest Name</td>
+                        <td>100 $/td>
+                        <td>29/09/2024</td>
+                      </tr>
+                      <tr>
+                        <td>#dfbb4565</td>
+                        <td>Paid</td>
+                        <td>Guest Name</td>
+                        <td>100 $/td>
+                        <td>29/09/2024</td>
+                      </tr>
+                    </tbody>
+                    </table>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-success">Print</button>
+                    <button type="button" class="btn btn-primary">EXCEL</button>
+                    <button type="button" class="btn btn-danger">PDF</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

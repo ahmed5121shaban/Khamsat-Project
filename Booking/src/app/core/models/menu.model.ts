@@ -10,5 +10,5 @@ export type MenuItemType = {
   target?: any
   children?: MenuItemType[]
   parentKey?: string
-  icon?: IconType
+  icon?: IconType|string
 }

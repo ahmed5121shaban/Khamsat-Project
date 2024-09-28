@@ -96,7 +96,7 @@ export const AGENT_MENU_ITEMS: MenuItemType[] = [
   },
   {
     key: 'acc-agent-listings',
-    label: 'Trance Action',
+    label: 'Transaction',
     url: '/agent/listings',
     parentKey: 'acc-agent',
     icon: 'bi bi-journals',
@@ -107,7 +107,7 @@ export const AGENT_MENU_ITEMS: MenuItemType[] = [
     label: 'Reports',
     url: '/agent/activities',
     parentKey: 'acc-agent',
-    icon: 'bi bi-bell',
+    icon: 'fa-regular fa-file-lines',
   },
   {
     key: 'acc-agent-earnings',
@@ -121,7 +121,7 @@ export const AGENT_MENU_ITEMS: MenuItemType[] = [
     label: 'Manage Stuff',
     url: '/agent/reviews',
     parentKey: 'acc-agent',
-    icon: 'bi bi-star',
+    icon: 'fa-solid fa-clipboard-user',
   },
   {
     key: 'acc-agent-settings',
@@ -135,7 +135,7 @@ export const AGENT_MENU_ITEMS: MenuItemType[] = [
     label: 'Messages',
     url: '/agent/settings',
     parentKey: 'acc-agent',
-    icon: 'bi bi-gear',
+    icon: 'fa-regular fa-envelope',
   },
 ]
 

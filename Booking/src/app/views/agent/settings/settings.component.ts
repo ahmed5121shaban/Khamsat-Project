@@ -8,13 +8,13 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms'
-import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap'
+import { NgbNavModule, NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap'
 import { activeLogs } from './data'
 
 @Component({
   selector: 'agent-settings',
   standalone: true,
-  imports: [NgbNavModule, FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [NgbNavModule, FormsModule, ReactiveFormsModule, CommonModule,NgbProgressbarModule],
   templateUrl: './settings.component.html',
   styles: ``,
 })

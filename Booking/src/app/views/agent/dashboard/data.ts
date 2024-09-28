@@ -19,8 +19,8 @@ export type UpcomingBookingType = {
 const statistics: StatisticType[] = [
   {
     title: 'Available Balance',
-    state: '56',
-    icon: 'bi-journals',
+    state: '$56',
+    icon: 'fa-solid fa-hand-holding-dollar',
     variant: 'bg-success',
   },
   {
@@ -31,7 +31,7 @@ const statistics: StatisticType[] = [
   },
   {
     title: 'Amount UnPaid',
-    state: '15K',
+    state: '$15K',
     icon: 'bi-bar-chart-line-fill',
     variant: 'bg-warning',
   },

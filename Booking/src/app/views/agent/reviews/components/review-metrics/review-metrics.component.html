@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-12">
     <div class="card border h-100">
       <div class="card-header border-bottom">
@@ -23,4 +23,291 @@
       </div>
     </div>
   </div>
+</div> -->
+
+<style>
+  /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 55px;
+  height: 25px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 26px;
+  left: 1px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+
+
+
+
+<!--Tow Sections-->
+<div class="row g-4">
+  <div class="col-12">
+    <div class="bg-light pb-0 px-2 px-lg-0 rounded-top">
+      <ul ngbNav #nav="ngbNav" class="nav nav-tabs nav-bottom-line nav-responsive border-0 nav-justified" role="tablist">
+        <li class="nav-item" ngbNavItem>
+          <a class="nav-link mb-0" ngbNavLink data-bs-toggle="tab" href="#tab-1"><i class="fas fa-cog fa-fw me-2"></i>Add OPeration Staff</a>
+          <ng-template ngbNavContent>
+            <div class="tab-pane show active" id="tab-1">
+              <div class="row g-4 mt-5">
+                <div class="col-12 row g-2">
+                  <div class="row col-md-12 mt-3">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="User Name" aria-label="User Name">
+                    </div>
+                    <div class="col">
+                      <input type="password" class="form-control" placeholder="Password" aria-label="Password">
+                    </div>
+                    <div class="col">
+                      <select type="text" class="form-control" placeholder="Status" aria-label="Status">
+                        <option value="active">Active</option>
+                        <option value="deactive">Deactive</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row col-md-12 mt-3">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                    </div>
+                    <div class="col">
+                      <input type="email" class="form-control" placeholder="Email" aria-label="Email">
+                    </div>
+                  </div>
+                  <div class="row col-md-12 mt-3">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="City" aria-label="City">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Country" aria-label="Country">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Phone Number" aria-label="Phone Number">
+                    </div>
+                  </div>
+                  <div class="row col-md-12 mt-3">
+                    <div class="col">
+                      <input type="checkbox" class="form-check-input" id="Book">
+                      <label class="ms-2" for="Book">Book</label>
+                    </div>
+                    <div class="col">
+                      <input type="checkbox" class="form-check-input" id="cancellation">
+                      <label class="ms-2" for="cancellation">cancellation</label>
+                    </div>
+                    <div class="col">
+                      <input type="checkbox" class="form-check-input" id="PayBooking">
+                      <label class="ms-2" for="PayBooking">Pay Booking</label>
+                    </div>
+
+                  </div>
+                  <div class="mt-3">
+                    <button class="btn btn-primary text-light float-end me-5">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
+        <li class="nav-item" ngbNavItem>
+          <a class="nav-link mb-0" ngbNavLink data-bs-toggle="tab" href="#tab-2"><i class="fas fa-bell fa-fw me-2"></i>Manage Sub User</a>
+          <ng-template ngbNavContent>
+            <div class="tab-pane" id="tab-2">
+              <div class="card border mb-4">
+<!--Table-->
+<div class="row mt-5">
+  <div class="col-12">
+    <div class="card border rounded-3">
+<!--       <div class="card-header border-bottom">
+        <h5 class="card-header-title">Invoice history</h5>
+      </div> -->
+
+      <div class="card-body">
+        <div class="row g-3 align-items-center justify-content-between mb-3">
+          <div class="col-md-8">
+            <form class="rounded position-relative">
+              <input
+                class="form-control pe-5"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button
+                class="btn border-0 px-3 py-0 position-absolute top-50 end-0 translate-middle-y"
+                type="submit"
+              >
+                <i class="fas fa-search fs-6"></i>
+              </button>
+            </form>
+          </div>
+
+          <div class="col-md-3">
+            <form>
+              <select
+                class="form-select js-choice"
+                selectFormInput
+                aria-label=".form-select-sm"
+              >
+                <option value="">Select By Type: </option>
+                <option>Credit</option>
+                <option>Debit</option>
+              </select>
+            </form>
+          </div>
+        </div>
+
+        <div class="table-responsive border-0">
+          <table class="table align-middle p-4 mb-0 table-hover table-shrink">
+            <thead class="table-light">
+              <tr>
+                <th scope="col" class="border-0 rounded-start">User Name</th>
+                <th scope="col" class="border-0">Email</th>
+                <th scope="col" class="border-0">Phone Number</th>
+                <th scope="col" class="border-0 rounded-end">Permeation</th>
+                <th scope="col" class="border-0 rounded-end">Action</th>
+              </tr>
+            </thead>
+
+            <tbody class="border-top-0">
+              @for (item of invoiceHistoryData; track $index;let i = $index) {
+                <tr>
+                  <td>User Name</td>
+                  <td>Email</td>
+                  <td>
+                    <div
+                      class="badge bg-opacity-10 bg-danger text-danger"
+                    >
+                    Phone Number
+                    </div>
+                  </td>
+                  <td>
+                    Permeation
+                  </td>
+                  <td>
+                    <!-- Rounded switch -->
+                    <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card-footer pt-0">
+        <div class="d-sm-flex justify-content-sm-between align-items-sm-center">
+          <p class="mb-sm-0 text-center text-sm-start">
+            Showing 1 to 8 of 20 entries
+          </p>
+
+          <nav
+            class="mb-sm-0 d-flex justify-content-center mb-0"
+            aria-label="navigation"
+          >
+            <ngb-pagination
+              [collectionSize]="150"
+              [page]="page"
+              [maxSize]="2"
+              size="sm"
+              class="pagination pagination-sm pagination-primary-soft"
+            >
+              <ng-template ngbPaginationPrevious> Prev </ng-template>
+              <ng-template ngbPaginationNext> Next </ng-template>
+            </ngb-pagination>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="invoice" tabindex="-1" aria-labelledby="invoice" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+              </div>
+            </div>
+          </ng-template>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="row g-4">
+  <div class="col-12">
+    <div class="tab-content" [ngbNavOutlet]="nav">
+  </div>
+</div>
 </div>
