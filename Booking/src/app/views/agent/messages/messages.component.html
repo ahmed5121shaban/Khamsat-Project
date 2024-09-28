@@ -1,0 +1,195 @@
+<div class="container row m-auto">
+  <div class="col-12">
+    <div class="card border rounded-3">
+<!--       <div class="card-header border-bottom">
+        <h5 class="card-header-title">Invoice history</h5>
+      </div> -->
+
+      <div class="card-body">
+        <div class="row g-3 align-items-center justify-content-between mb-3">
+          <div class="col-md-5 mt-3">
+            <button
+            class="btn px-3 py-2 btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#ticket"
+            type="button"
+          >
+          <i class="fa-solid fa-check"></i> Add new Tickets
+          </button>
+          </div>
+        </div>
+
+        <div class="table-responsive border-0">
+          <table class="table align-middle p-4 mb-0 table-hover table-shrink">
+            <thead class="table-light">
+              <tr>
+                <th scope="col" class="border-0 rounded-start">Reference</th>
+                <th scope="col" class="border-0">Amount</th>
+                <th scope="col" class="border-0">Currency</th>
+                <th scope="col" class="border-0">Type</th>
+                <th scope="col" class="border-0 rounded-end">Date</th>
+                <th scope="col" class="border-0 rounded-end">Invoice</th>
+              </tr>
+            </thead>
+
+            <tbody class="border-top-0">
+              @for (item of invoiceHistoryData; track $index) {
+                <tr>
+                  <td>{{ item.id }}</td>
+                  <td>{{ item.amount }}</td>
+                  <td ngbDropdown>
+                    {{ item.currency}}
+
+<!--                     <a
+                      href="javascript:void(0);"
+                      ngbDropdownToggle
+                      class="h6 mb-0 arrow-none"
+                      role="button"
+                      id="dropdownShare1"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="bi bi-info-circle-fill"></i>
+                    </a>
+
+                    <ul
+                      ngbDropdownMenu
+                      class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded"
+                      aria-labelledby="dropdownShare1"
+                    >
+                      <li>
+                        <div class="d-flex justify-content-between">
+                          <span class="small">Commission</span>
+                          <span class="h6 mb-0 small"
+                            >{{ currencyType }}86</span
+                          >
+                        </div>
+                        <hr class="my-1" />
+                      </li>
+
+                      <li>
+                        <div class="d-flex justify-content-between">
+                          <span class="me-4 small">Us royalty withholding</span>
+                          <span class="text-danger small"
+                            >-{{ currencyType }}0.00</span
+                          >
+                        </div>
+                        <hr class="my-1" />
+                      </li>
+
+                      <li>
+                        <div class="d-flex justify-content-between">
+                          <span class="small">Earning</span>
+                          <span class="h6 mb-0 small"
+                            >{{ currencyType }}86</span
+                          >
+                        </div>
+                      </li>
+                    </ul> -->
+                  </td>
+                  <td>
+                    <div
+                      class="badge bg-opacity-10 bg-danger text-danger"
+
+                    >
+                      {{ item.type }}
+                    </div>
+                  </td>
+                  <td>
+                   {{item.date}}
+                  </td>
+                  <td>
+                    <a type="button" data-bs-toggle="modal" data-bs-target="#invoice"><i class="{{item.invoice}}"></i></a>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card-footer pt-0">
+        <div class="d-sm-flex justify-content-sm-between align-items-sm-center">
+          <p class="mb-sm-0 text-center text-sm-start">
+            Showing 1 to 8 of 20 entries
+          </p>
+
+          <nav
+            class="mb-sm-0 d-flex justify-content-center mb-0"
+            aria-label="navigation"
+          >
+            <ngb-pagination
+              [collectionSize]="150"
+              [page]="page"
+              [maxSize]="2"
+              size="sm"
+              class="pagination pagination-sm pagination-primary-soft"
+            >
+              <ng-template ngbPaginationPrevious> Prev </ng-template>
+              <ng-template ngbPaginationNext> Next </ng-template>
+            </ngb-pagination>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="invoice" tabindex="-1" aria-labelledby="invoice" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="ticket" tabindex="-1" aria-labelledby="ticket" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">ticket</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row mt-3">
+          <div class="col-6">
+            <label for="Category">Category</label>
+            <select type="text" class="form-control" id="Category" placeholder="Category" aria-label="Category">
+              <option value="">Select Category</option>
+              <option value="special">Special Request</option>
+              <option value="send">Send Into To Hotel</option>
+              <option value="clients">Clients To Hotel Support</option>
+              <option value="others">Others</option>
+            </select>
+          </div>
+          <div class="col-6">
+            <label for="Subject">Subject</label>
+            <input type="text" class="form-control" id="Subject" placeholder="Subject" aria-label="Subject">
+          </div>
+          <div class="col-12 mt-3">
+            <label for="Message">Message</label>
+            <textarea type="" class="form-control" placeholder="Message" id="Message" aria-label="Last name"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send</button>
+      </div>
+    </div>
+  </div>
+</div>

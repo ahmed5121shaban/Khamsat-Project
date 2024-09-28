@@ -6,12 +6,18 @@ import { ActivitiesComponent } from './activities/activities.component'
 import { EarningsComponent } from './earnings/earnings.component'
 import { ReviewsComponent } from './reviews/reviews.component'
 import { SettingsComponent } from './settings/settings.component'
+import { MessagesComponent } from './messages/messages.component'
 
 export const AGENT_ROUTES: Route[] = [
   {
     path: 'dashboard',
     component: DashboardComponent,
     data: { title: 'Agent - Dashboard' },
+  },
+  {
+    path: 'message',
+    component: MessagesComponent,
+    data: { title: 'Agent - Message' },
   },
   {
     path: 'listings',

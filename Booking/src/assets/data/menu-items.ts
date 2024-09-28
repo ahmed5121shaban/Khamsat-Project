@@ -131,9 +131,9 @@ export const AGENT_MENU_ITEMS: MenuItemType[] = [
     icon: 'bi bi-gear',
   },
   {
-    key: 'acc-agent-settings',
+    key: 'acc-agent-message',
     label: 'Messages',
-    url: '/agent/settings',
+    url: '/agent/message',
     parentKey: 'acc-agent',
     icon: 'fa-regular fa-envelope',
   },
