@@ -23,81 +23,37 @@
           <table class="table align-middle p-4 mb-0 table-hover table-shrink">
             <thead class="table-light">
               <tr>
-                <th scope="col" class="border-0 rounded-start">Reference</th>
-                <th scope="col" class="border-0">Amount</th>
-                <th scope="col" class="border-0">Currency</th>
-                <th scope="col" class="border-0">Type</th>
-                <th scope="col" class="border-0 rounded-end">Date</th>
-                <th scope="col" class="border-0 rounded-end">Invoice</th>
+                <th scope="col" class="border-0 rounded-start">Ticket Id</th>
+                <th scope="col" class="border-0">Subject</th>
+                <th scope="col" class="border-0">Created</th>
+                <th scope="col" class="border-0">Status</th>
+                <th scope="col" class="border-0 rounded-end">Action</th>
               </tr>
             </thead>
 
             <tbody class="border-top-0">
-              @for (item of invoiceHistoryData; track $index) {
+              @for (item of invoiceHistoryData; track $index;let i = $index) {
                 <tr>
-                  <td>{{ item.id }}</td>
-                  <td>{{ item.amount }}</td>
+                  <td># 1012</td>
+                  <td>HCN PLEASE</td>
                   <td ngbDropdown>
-                    {{ item.currency}}
-
-<!--                     <a
-                      href="javascript:void(0);"
-                      ngbDropdownToggle
-                      class="h6 mb-0 arrow-none"
-                      role="button"
-                      id="dropdownShare1"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      <i class="bi bi-info-circle-fill"></i>
-                    </a>
-
-                    <ul
-                      ngbDropdownMenu
-                      class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded"
-                      aria-labelledby="dropdownShare1"
-                    >
-                      <li>
-                        <div class="d-flex justify-content-between">
-                          <span class="small">Commission</span>
-                          <span class="h6 mb-0 small"
-                            >{{ currencyType }}86</span
-                          >
-                        </div>
-                        <hr class="my-1" />
-                      </li>
-
-                      <li>
-                        <div class="d-flex justify-content-between">
-                          <span class="me-4 small">Us royalty withholding</span>
-                          <span class="text-danger small"
-                            >-{{ currencyType }}0.00</span
-                          >
-                        </div>
-                        <hr class="my-1" />
-                      </li>
-
-                      <li>
-                        <div class="d-flex justify-content-between">
-                          <span class="small">Earning</span>
-                          <span class="h6 mb-0 small"
-                            >{{ currencyType }}86</span
-                          >
-                        </div>
-                      </li>
-                    </ul> -->
+                    <div class="d-flex flex-column">
+                      <span>
+                        27/02/2024
+                      </span>
+                      <span>08:02:38</span>
+                    </div>
                   </td>
                   <td>
                     <div
                       class="badge bg-opacity-10 bg-danger text-danger"
 
                     >
-                      {{ item.type }}
+                      @if ((i/2)==0) {<div class="bg-success rounded-2 px-3 py-2  text-light">Open</div>}
+                      @else{<div class="bg-danger rounded-2 px-3 py-2  text-light">Close</div>}
                     </div>
                   </td>
-                  <td>
-                   {{item.date}}
-                  </td>
+
                   <td>
                     <a type="button" data-bs-toggle="modal" data-bs-target="#invoice"><i class="{{item.invoice}}"></i></a>
                   </td>
