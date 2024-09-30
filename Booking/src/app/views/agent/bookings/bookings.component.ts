@@ -9,7 +9,7 @@ import { SelectFormInputDirective } from '@/app/components/form/select-form-inpu
   standalone: true,
   imports: [CommonModule, NgbPaginationModule, SelectFormInputDirective],
   templateUrl: './bookings.component.html',
-  styles: ``,
+  styles: ``
 })
 export class BookingsComponent {
   page = 1

@@ -10,12 +10,12 @@ type InvoiceType = {
 const invoiceHistory: InvoiceType[] = [
   {
     id: 'HXM0016',
-    
+
     amount: '3,999',
     currency: 'USD',
     type:'depit',
     date: '29 Aug 2022',
-    invoice:'fa-regular fa-eye',
+    invoice:'View',
   },
   {
     id: 'HXM0016',
@@ -24,7 +24,7 @@ const invoiceHistory: InvoiceType[] = [
     currency: 'USD',
     type:'depit',
     date: '02 Sep 2022',
-    invoice:'fa-regular fa-eye',
+    invoice:'View',
   },
   {
     id: 'HXM0016',
@@ -33,7 +33,7 @@ const invoiceHistory: InvoiceType[] = [
     currency: 'USD',
     type:'depit',
     date: '05 Sep 2022',
-    invoice:'fa-regular fa-eye',
+    invoice:'View',
   },
   {
     id: 'HXM0016',
@@ -42,7 +42,7 @@ const invoiceHistory: InvoiceType[] = [
     currency: 'USD',
     type:'depit',
     date: '07 Sep 2022',
-    invoice:'fa-regular fa-eye',
+    invoice:'View',
   },
   {
     id: 'HXM0016',
@@ -51,7 +51,7 @@ const invoiceHistory: InvoiceType[] = [
     currency: 'USD',
     type:'depit',
     date: '10 Sep 2022',
-    invoice:'fa-regular fa-eye',
+    invoice:'View',
   },
 ]
 

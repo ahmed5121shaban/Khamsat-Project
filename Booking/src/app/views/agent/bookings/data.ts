@@ -14,7 +14,7 @@ export type Booking = {
 const bookings: Booking[] = [
   {
     id: 'HXM0016',
-    name: 'Guest Name',
+    name: 'AMANI SALEMANI',
     city: 'Zell am See-Kaprun',
     date: '22/25/2024',
     status: 'Paid',
@@ -26,10 +26,10 @@ const bookings: Booking[] = [
   },
   {
     id: 'HXM0015',
-    name: 'Guest Name',
+    name: 'AMANI SALEMANI',
     city: '	Gavle',
     date: '22/25/2024',
-    status: 'UnPaid',
+    status: 'Canceled',
     booking: 'Canceled',
     Cancellation:'free cancle, 27-09-2024',
     Total:'66 USD',
@@ -38,10 +38,10 @@ const bookings: Booking[] = [
   },
   {
     id: 'HXM0010',
-    name: 'Guest Name',
+    name: 'KHALDOUN ALSALAMNAI',
     city: 'Kuala Lumpur',
     date: '22/25/2024',
-    status: 'Paid',
+    status: 'UnPaid',
     booking: 'Confirmed',
     Cancellation:'free cancle, 17-09-2024',
     Total:'100 USD',
@@ -50,7 +50,7 @@ const bookings: Booking[] = [
   },
   {
     id: 'HXM0007',
-    name: 'Guest Name',
+    name: 'KHALDOUN ALSALAMNAI',
     city: 'Dubai',
     date: '22/25/2024',
     status: 'UnPaid',

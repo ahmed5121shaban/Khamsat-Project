@@ -46,7 +46,7 @@
                   </td>
                   <td>
                     <div
-                      class="badge bg-opacity-10 bg-danger text-danger"
+                      class="badge"
 
                     >
                       @if ((i/2)==0) {<div class="bg-success rounded-2 px-3 py-2  text-light">Open</div>}
@@ -55,7 +55,11 @@
                   </td>
 
                   <td>
-                    <a type="button" data-bs-toggle="modal" data-bs-target="#invoice"><i class="{{item.invoice}}"></i></a>
+                    @if (i==0) {
+                      <a type="button" data-bs-toggle="modal" class="text-primary text-decoration-underline" data-bs-target="#invoice">Reply</a>
+                    }@else{
+                    <a type="button" data-bs-toggle="modal" class="text-primary text-decoration-underline" data-bs-target="#invoice">View</a>
+                    }
                   </td>
                 </tr>
               }
@@ -114,17 +118,17 @@
 
 <!-- Modal -->
 <div class="modal fade" id="ticket" tabindex="-1" aria-labelledby="ticket" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">ticket</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Ticket Status</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="row mt-3">
           <div class="col-6">
             <label for="Category">Category</label>
-            <select type="text" class="form-control" id="Category" placeholder="Category" aria-label="Category">
+            <select type="text" class="form-select" id="Category" placeholder="Category" aria-label="Category">
               <option value="">Select Category</option>
               <option value="special">Special Request</option>
               <option value="send">Send Into To Hotel</option>
@@ -138,7 +142,7 @@
           </div>
           <div class="col-12 mt-3">
             <label for="Message">Message</label>
-            <textarea type="" class="form-control" placeholder="Message" id="Message" aria-label="Last name"></textarea>
+            <textarea type="" class="form-control py-4" placeholder="Message" id="Message" aria-label="Last name"></textarea>
           </div>
         </div>
       </div>

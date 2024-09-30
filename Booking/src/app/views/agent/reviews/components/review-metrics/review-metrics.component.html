@@ -111,8 +111,8 @@ input:checked + .slider:before {
                     <div class="col">
                       <input type="password" class="form-control" placeholder="Password" aria-label="Password">
                     </div>
-                    <div class="col">
-                      <select type="text" class="form-control" placeholder="Status" aria-label="Status">
+                    <div class=" col ">
+                      <select type="button" class="rounded-2 py-2 pe-5 ps-2" style=" padding-right: 255px!important;" >
                         <option value="active">Active</option>
                         <option value="deactive">Deactive</option>
                       </select>
@@ -140,14 +140,16 @@ input:checked + .slider:before {
                       <input type="text" class="form-control" placeholder="Phone Number" aria-label="Phone Number">
                     </div>
                   </div>
-                  <div class="row col-md-12 mt-3">
+                  <div class="row col-md-12 mt-5">
+                    <div class="col-md-12"><h5>Permissions</h5></div>
+                    <hr class="mb-2">
                     <div class="col">
                       <input type="checkbox" class="form-check-input" id="Book">
-                      <label class="ms-2" for="Book">Book</label>
+                      <label class="ms-2" for="Book">Booking</label>
                     </div>
                     <div class="col">
                       <input type="checkbox" class="form-check-input" id="cancellation">
-                      <label class="ms-2" for="cancellation">cancellation</label>
+                      <label class="ms-2" for="cancellation">Booking Canceled</label>
                     </div>
                     <div class="col">
                       <input type="checkbox" class="form-check-input" id="PayBooking">
@@ -164,18 +166,13 @@ input:checked + .slider:before {
           </ng-template>
         </li>
         <li class="nav-item" ngbNavItem>
-          <a class="nav-link mb-0" ngbNavLink data-bs-toggle="tab" href="#tab-2"><i class="fas fa-bell fa-fw me-2"></i>Manage Sub User</a>
+          <a class="nav-link mb-0" ngbNavLink data-bs-toggle="tab" href="#tab-2"><i class="fa-regular fa-user me-2"></i>Manage Sub User</a>
           <ng-template ngbNavContent>
             <div class="tab-pane" id="tab-2">
               <div class="card border mb-4">
-<!--Table-->
 <div class="row mt-5">
   <div class="col-12">
     <div class="card border rounded-3">
-<!--       <div class="card-header border-bottom">
-        <h5 class="card-header-title">Invoice history</h5>
-      </div> -->
-
       <div class="card-body">
         <div class="row g-3 align-items-center justify-content-between mb-3">
           <div class="col-md-8">
@@ -215,9 +212,9 @@ input:checked + .slider:before {
             <thead class="table-light">
               <tr>
                 <th scope="col" class="border-0 rounded-start">User Name</th>
-                <th scope="col" class="border-0">Email</th>
+                <th scope="col" class="border-0">User Email</th>
                 <th scope="col" class="border-0">Phone Number</th>
-                <th scope="col" class="border-0 rounded-end">Permeation</th>
+                <th scope="col" class="border-0 rounded-end">Permissions</th>
                 <th scope="col" class="border-0 rounded-end">Action</th>
               </tr>
             </thead>
@@ -235,7 +232,7 @@ input:checked + .slider:before {
                     </div>
                   </td>
                   <td>
-                    Permeation
+                    Permission
                   </td>
                   <td>
                     <!-- Rounded switch -->

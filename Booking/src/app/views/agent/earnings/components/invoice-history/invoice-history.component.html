@@ -27,7 +27,7 @@
           <div class="col-md-3">
             <form>
               <select
-                class="form-select js-choice"
+                class="form-select js-choice dropdown"
                 selectFormInput
                 aria-label=".form-select-sm"
               >
@@ -118,8 +118,8 @@
                   <td>
                    {{item.date}}
                   </td>
-                  <td>
-                    <a type="button" data-bs-toggle="modal" data-bs-target="#invoice"><i class="{{item.invoice}}"></i></a>
+                  <td class="text-center">
+                    <a type="button" class="text-primary text-decoration-underline" data-bs-toggle="modal" data-bs-target="#invoice">{{item.invoice}}</a>
                   </td>
                 </tr>
               }
@@ -155,7 +155,7 @@
   </div>
 </div>
 
-
+<!--Modal-->
 <div class="modal fade" id="invoice" tabindex="-1" aria-labelledby="invoice" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

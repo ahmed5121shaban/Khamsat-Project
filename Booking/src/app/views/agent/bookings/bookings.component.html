@@ -108,8 +108,8 @@
                     <th scope="col" class="border-0">Check in date</th>
                     <th scope="col" class="border-0">City</th>
                     <th scope="col" class="border-0">Cancellation Deadline</th>
-                    <th scope="col" class="border-0">Payment</th>
                     <th scope="col" class="border-0">Status</th>
+                    <th scope="col" class="border-0">Payment</th>
                     <th scope="col" class="border-0">Total Cost</th>
                     <th scope="col" class="border-0 rounded-end">Action</th>
 
@@ -121,16 +121,16 @@
                     <tr>
                       <td>
                         <div class="d-flex flex-column">
-                          <p class="mb-0">
+                          <p class="mb-0 fw-semibold">
                             {{item.id}}
                           </p>
-                          <span class="opacity-75" style="font-size: 13px;">
+                          <span class="opacity-75 fw-semibold" style="font-size: 13px;">
                               {{item.registerDate}}
                           </span>
                         </div>
                       </td>
                       <td>
-                          <p class="mb-0">
+                          <p class="mb-0 ">
                             {{ item.name }}
                           </p>
                       </td>
@@ -146,11 +146,11 @@
                       </td>
                       <td>
                         <div
-                          class="badge text-bg-success"
+                          class="badge"
                           [ngClass]="{
                             'text-bg-success ':
                               item.status === 'Paid',
-                            'text-bg-danger ': item.status === 'UnPaid'
+                            'text-bg-danger ': item.status === 'UnPaid'||item.status === 'Canceled' ,
                           }"
                         >
                           {{ item.status }}
@@ -158,13 +158,13 @@
                       </td>
                       <td>
                         <div
-                          class="badge bg-opacity-10"
+                        class="badge"
                           [ngClass]="{
-                            'text-success text-bg-success':
+                            'bg-success':
                               item.booking === 'Completed',
-                            'text-danger text-bg-danger':
+                            'bg-danger':
                               item.booking === 'Canceled',
-                            'text-orange text-bg-orange':
+                            'bg-orange':
                               item.booking === 'Confirmed'
                           }"
                         >
