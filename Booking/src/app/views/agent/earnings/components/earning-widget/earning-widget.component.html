@@ -78,6 +78,7 @@
             <thead class="table-light">
               <tr>
                 <th scope="col" class="border-0 rounded-start">Reference</th>
+                <th scope="col" class="border-0">Guest Name</th>
                 <th scope="col" class="border-0">Amount</th>
                 <th scope="col" class="border-0">Type</th>
                 <th scope="col" class="border-0 rounded-end">Date</th>
@@ -89,6 +90,7 @@
               @for (item of invoiceHistoryData; track $index;let i = $index) {
                 <tr>
                   <td>{{ item.id }}</td>
+                  <td>Mohamed Ahmed</td>
                   <td>{{ item.amount }}</td>
                   <td>
                     <div

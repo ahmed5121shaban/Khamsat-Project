@@ -144,26 +144,13 @@
                           >{{item.Cancellation}}</p
                         >
                       </td>
-                      <td>
-                        <div
-                          class="badge"
-                          [ngClass]="{
-                            'text-bg-success ':
-                              item.status === 'Paid',
-                            'text-bg-danger ': item.status === 'UnPaid'||item.status === 'Canceled' ,
-                          }"
-                        >
-                          {{ item.status }}
-                        </div>
-                      </td>
+
                       <td>
                         <div
                         class="badge"
                           [ngClass]="{
                             'bg-success':
                               item.booking === 'Completed',
-                            'bg-danger':
-                              item.booking === 'Canceled',
                             'bg-orange':
                               item.booking === 'Confirmed'
                           }"
@@ -171,9 +158,23 @@
                           {{ item.booking }}
                         </div>
                       </td>
+
+                      <td>
+                        <div
+                          class="badge"
+                          [ngClass]="{
+                            'text-bg-success ':
+                              item.status === 'Paid',
+                            'text-bg-orange': item.status === 'UnPaid',
+                          }"
+                        >
+                          {{ item.status }}
+                        </div>
+                      </td>
+
                       <td>
                         <p
-                          class="mb-0"
+                          class="mb-0 fw-normal"
                           >{{item.Total}}</p
                         >
                       </td>
@@ -232,14 +233,178 @@
 
 <!--Eye icon modal-->
 <div class="modal fade" id="eye" tabindex="-1" aria-labelledby="eye" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+
+        <div class="card bg-light overflow-hidden px-sm-5">
+
+              <div class="card-body row justify-content-between">
+                <a class="m-0 btn btn-primary col-2 fs-6 fw-light">View Voucher</a>
+                <a class="m-0 btn btn-primary col-2 fs-6 fw-light">Cancel Booking</a>
+                <a class="m-0 btn btn-primary col-2 fs-6 fw-light">Pay Booking</a>
+                <a class="m-0 btn btn-primary col-2 fs-6 fw-light">View Invoice</a>
+                <a class="m-0 btn btn-primary col-3 fs-6 fw-light">Message Support</a>
+              </div>
+
+        </div>
+
+        <div class="row g-2 g-lg-2 mt-4">
+        <div class="card shadow col-xl-8">
+          <div class="card-header p-4 border-bottom">
+            <h5 class="mb-0">
+              <i class="fa-solid fa-hotel me-2"></i>Hotel Information
+            </h5>
+          </div>
+
+          <div class="card-body p-4">
+            <div class="card mb-4">
+              <div class="row align-items-center">
+                <div class="col-sm-6 col-md-3">
+                  <img
+                    src="assets/images/category/hotel/4by3/02.jpg"
+                    class="card-img"
+                    alt=""
+                  />
+                </div>
+
+                <div class="col-sm-6 col-md-9">
+                  <div class="card-body pt-3 pt-sm-0 p-0">
+                    <div class="mb-2">
+                      <ul class="list-inline mb-0 me-2">
+                      <li class="list-inline-item me-0 small">
+                        <i class="fa-solid fa-star text-warning me-1"></i>
+                      </li>
+                      <li class="list-inline-item me-0 small">
+                        <i class="fa-solid fa-star text-warning me-1"></i>
+                      </li>
+                      <li class="list-inline-item me-0 small">
+                        <i class="fa-solid fa-star text-warning me-1"></i>
+                      </li>
+                      <li class="list-inline-item me-0 small">
+                        <i class="fa-solid fa-star text-warning me-1"></i>
+                      </li>
+                      <li class="list-inline-item me-0 small">
+                        <i class="fa-solid fa-star-half-alt text-warning me-1"></i>
+                      </li>
+        <!--                 <li class="list-inline-item ms-2 h6 small fw-bold mb-0">
+                        4.5
+                      </li> -->
+                    </ul></div>
+                    <h5 class="card-title">
+                      <a href="javascript:void(0);">Pride moon Village Resort & Spa</a>
+                    </h5>
+                    <div class="small mb-2 d-flex">
+
+                      <div>
+                        <i class="bi bi-geo-alt me-2"></i>5855 W Century Blvd, Los Angeles
+                        - 90045
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row g-4">
+              <div class="col-lg-4">
+                <div class="bg-light py-3 px-4 rounded-3">
+                  <h6 class="fw-light small mb-1">Check-in</h6>
+                  <h5 class="mb-1">4 March 2022</h5>
+                  <small><i class="bi bi-alarm me-1"></i>02:00 pm</small>
+                </div>
+              </div>
+
+              <div class="col-lg-4">
+                <div class="bg-light py-3 px-4 rounded-3">
+                  <h6 class="fw-light small mb-1">Check out</h6>
+                  <h5 class="mb-1">8 March 2022</h5>
+                  <small><i class="bi bi-alarm me-1"></i>12:00 pm</small>
+                </div>
+              </div>
+
+              <div class="col-lg-4">
+                <div class="bg-light py-3 px-2 rounded-3">
+                  <h6 class="fw-light small mb-1">Rooms & Guests</h6>
+                  <h6 class="mb-1">1 room, 2 adults, 0 child</h6>
+                  <small
+                    ><i class="bi bi-brightness-high me-1"></i>3 Nights</small
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class=" mt-4">
+              <div
+                class="card-header d-md-flex justify-content-md-between"
+              >
+                <h6 class="card-title mb-0">Deluxe Pool View with Breakfast</h6>
+              </div>
+
+              <div class="card border card-body">
+                <h6>Price Included</h6>
+
+                <ul class="mb-0">
+                  <li class="h6 fw-light d-flex mb-0">
+                    <i class="fa-solid fa-utensils me-2 text-success"></i>Free
+                    Breakfast and Lunch/Dinner.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card border text-light card-body mt-2 bg-danger">
+                <h6 class="text-light"><i class="fa-solid fa-triangle-exclamation  me-2"></i>Cancellation Policy</h6>
+
+                <ul class="mb-0">
+                  <li class=" h6 fw-light text-light d-flex mb-0">
+                    This is a fully non-refundable booking. No cancellations, or amendments, once it is confirmed. This booking must be made immediately and paid.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="col-xl-4">
+          <div class="card shadow rounded-2 sticky-element" ng-sticky
+          data-margin-top="100"
+          data-margin-bottom="100">
+<div class="card-header border-bottom">
+  <h5 class="card-title mb-0">Price Summary</h5>
+</div>
+
+<div class="card-body">
+  <ul class="list-group list-group-borderless">
+    <li
+      class="list-group-item d-flex justify-content-between align-items-center"
+    >
+      <span class="h6 fw-light mb-0">Room Charges</span>
+      <span class="fs-5">$28,660</span>
+    </li>
+  </ul>
+</div>
+
+<div class="card-footer border-top">
+  <div class="d-flex justify-content-between align-items-center">
+    <span class="h5 mb-0">Total Price</span>
+    <div class="d-flex flex-column justify-content-between align-items-center">
+      <span>gomla here</span>
+      <span class="h5 mb-0">28,660</span>
+    </div>
+
+  </div>
+</div>
+</div>
+
+        </aside>
+
+      </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

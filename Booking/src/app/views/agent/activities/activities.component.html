@@ -20,7 +20,7 @@
             <form class="row g-1">
               <!-- Order Select -->
               <div class="col-md-6 me-2">
-                <label for="order" class="form-label">Order</label>
+                <label for="order" class="form-label fw-normal">Order</label>
                 <select class="form-select" id="order" [(ngModel)]="selectedOrder" name="order" placeholder="Select Order">
                   <option value="booking">Booking</option>
                   <option value="transaction">Transaction</option>
@@ -31,7 +31,7 @@
               <!-- Conditionally Display Type Input -->
               @if (selectedOrder=='booking') {
               <div class="col-md-5">
-                <label for="type" class="form-label">Type</label>
+                <label for="type" class="form-label fw-normal">Type</label>
                 <select type="text" class="form-control" id="type" placeholder="Enter type">
                   <option value="All">All</option>
                   <option value="Confirm/UnPaid">Confirm/UnPaid</option>
@@ -42,7 +42,7 @@
             }
             @if (selectedOrder=='transaction') {
               <div class="col-md-5">
-                <label for="type" class="form-label">Type</label>
+                <label for="type" class="form-label fw-normal">Type</label>
                 <select type="text" class="form-control" id="type" placeholder="Enter type">
                   <option value="All">All</option>
                   <option value="Debit">Debit</option>
@@ -52,7 +52,7 @@
             }
             @if (selectedOrder=='sales') {
               <div class="col-md-5">
-                <label for="type" class="form-label">Type</label>
+                <label for="type" class="form-label fw-normal">Type</label>
                 <select type="text" class="form-control" id="type" placeholder="Enter type">
                   <option value="Complete-Paid">Complete - Paid</option>
                 </select>
@@ -60,7 +60,7 @@
             }
               <!-- Date Type Select -->
               <div class="col-md-6 mt-3 me-2">
-                <label for="dateType" class="form-label">Date Type</label>
+                <label for="dateType" class="form-label fw-normal">Date Type</label>
                 <select class="form-select" id="dateType" [(ngModel)]="selectedDateType" name="dateType" placeholder="Select Date Type">
                   <option value="specific">Specific Date</option>
                   <option value="range">Date Range</option>
@@ -71,7 +71,7 @@
               <!-- Specific Date Input -->
                @if (selectedDateType === 'specific') {
               <div class="col-md-5 mt-3">
-                <label class="form-label" for="specific-date">Place Specific Date</label>
+                <label class="form-label fw-normal" for="specific-date">Place Specific Date</label>
                 <input
                   type="text"
                   mwlFlatpickr
@@ -86,7 +86,7 @@
               <!-- Date Range Input -->
                @if (selectedDateType === 'range') {
               <div class="col-md-5 mt-3">
-                <label class="form-label" for="date-range">Date Range (From - To)</label>
+                <label class="form-label fw-normal" for="date-range">Date Range (From - To)</label>
                 <input
                   type="text"
                   mwlFlatpickr
@@ -113,7 +113,7 @@
                   <div class="modal-header">
                     <div class="row justify-content-between" id="exampleModalLabel">
                       <span>Jalal travel</span>
-                       <span> jalal&#64;hotelsxml.com</span>
+                       <span>jalal&#64;hotelsxml.com</span>
                         <span>00447450004522</span>
                         <span>United Kingdom, LONDON</span>
                   </div>
@@ -153,14 +153,14 @@
                         <td>#dfbb4565</td>
                         <td>Paid</td>
                         <td>Guest Name</td>
-                        <td>100 $/td>
+                        <td>100 $</td>
                         <td>29/09/2024</td>
                       </tr>
                       <tr>
                         <td>#dfbb4565</td>
                         <td>Paid</td>
                         <td>Guest Name</td>
-                        <td>100 $/td>
+                        <td>100 $</td>
                         <td>29/09/2024</td>
                       </tr>
                     </tbody>

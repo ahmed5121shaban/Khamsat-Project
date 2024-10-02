@@ -112,7 +112,7 @@ input:checked + .slider:before {
                       <input type="password" class="form-control" placeholder="Password" aria-label="Password">
                     </div>
                     <div class=" col ">
-                      <select type="button" class="rounded-2 py-2 pe-5 ps-2" style=" padding-right: 255px!important;" >
+                      <select type="button" class="rounded-2 py-2 pe-5 ps-2 w-100"  >
                         <option value="active">Active</option>
                         <option value="deactive">Deactive</option>
                       </select>
@@ -120,24 +120,24 @@ input:checked + .slider:before {
                   </div>
                   <div class="row col-md-12 mt-3">
                     <div class="col">
-                      <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                      <input type="text" class="form-control fw-normal" placeholder="First name" aria-label="First name">
                     </div>
                     <div class="col">
-                      <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                      <input type="text" class="form-control fw-normal" placeholder="Last name" aria-label="Last name">
                     </div>
                     <div class="col">
-                      <input type="email" class="form-control" placeholder="Email" aria-label="Email">
+                      <input type="email" class="form-control fw-normal" placeholder="Email" aria-label="Email">
                     </div>
                   </div>
                   <div class="row col-md-12 mt-3">
                     <div class="col">
-                      <input type="text" class="form-control" placeholder="City" aria-label="City">
+                      <input type="text" class="form-control fw-normal" placeholder="City" aria-label="City">
                     </div>
                     <div class="col">
-                      <input type="text" class="form-control" placeholder="Country" aria-label="Country">
+                      <input type="text" class="form-control fw-normal" placeholder="Country" aria-label="Country">
                     </div>
                     <div class="col">
-                      <input type="text" class="form-control" placeholder="Phone Number" aria-label="Phone Number">
+                      <input type="text" class="form-control fw-normal" placeholder="Phone Number" aria-label="Phone Number">
                     </div>
                   </div>
                   <div class="row col-md-12 mt-5">
@@ -145,15 +145,15 @@ input:checked + .slider:before {
                     <hr class="mb-2">
                     <div class="col">
                       <input type="checkbox" class="form-check-input" id="Book">
-                      <label class="ms-2" for="Book">Booking</label>
+                      <label class="ms-2 text-dark" for="Book">Pay Booking</label>
                     </div>
                     <div class="col">
                       <input type="checkbox" class="form-check-input" id="cancellation">
-                      <label class="ms-2" for="cancellation">Booking Canceled</label>
+                      <label class="ms-2 text-dark" for="cancellation">Cancel Booking</label>
                     </div>
                     <div class="col">
                       <input type="checkbox" class="form-check-input" id="PayBooking">
-                      <label class="ms-2" for="PayBooking">Pay Booking</label>
+                      <label class="ms-2 text-dark" for="PayBooking">Pay Booking</label>
                     </div>
 
                   </div>
@@ -199,9 +199,9 @@ input:checked + .slider:before {
                 selectFormInput
                 aria-label=".form-select-sm"
               >
-                <option value="">Select By Type: </option>
-                <option>Credit</option>
-                <option>Debit</option>
+              <option value="All" selected>All</option>
+              <option value="active">Active</option>
+              <option value="deactive">Deactive</option>
               </select>
             </form>
           </div>
@@ -226,7 +226,7 @@ input:checked + .slider:before {
                   <td>Email</td>
                   <td>
                     <div
-                      class="badge bg-opacity-10 bg-danger text-danger"
+
                     >
                     Phone Number
                     </div>
@@ -235,11 +235,15 @@ input:checked + .slider:before {
                     Permission
                   </td>
                   <td>
-                    <!-- Rounded switch -->
-                    <label class="switch">
-                      <input type="checkbox">
-                      <span class="slider round"></span>
-                    </label>
+                    <button class="btn" (click)="switch(item)">
+                      <label class="switch">
+                        <input type="checkbox" [checked]="item.active" (change)="switch(item)">
+                        <span class="slider round"></span>
+                      </label>
+                    </button>
+                    <span class="fw-light ms-1 opacity-75" [ngClass]="{'text-success': item.active, 'text-danger': !item.active}">
+                      {{ item.active ? 'Active' : 'Not Active' }}
+                    </span>
                   </td>
                 </tr>
               }

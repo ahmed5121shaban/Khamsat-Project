@@ -4,7 +4,7 @@ import { NgbNavModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap'
 import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms'
 import { CommonModule } from '@angular/common'
 import { activeLogs } from '../../../settings/data'
-import { invoiceHistory } from '../../../earnings/data'
+import { invoiceHistory, InvoiceType } from '../../../earnings/data'
 
 @Component({
   selector: 'reviews-review-metrics',
@@ -101,6 +101,9 @@ export class ReviewMetricsComponent {
   submitCode() {
     this.submitedCode = true
   }
-
+  switch(item: any) {
+    item.active = !item.active;
+    console.log(item.active);
+  }
 
 }

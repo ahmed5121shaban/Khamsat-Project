@@ -1,16 +1,17 @@
-type InvoiceType = {
+export type InvoiceType = {
   id: string,
   date: string,
   amount: string,
   currency: string,
   type:string,
   invoice:string,
+  active:boolean,
 }
 
 const invoiceHistory: InvoiceType[] = [
   {
     id: 'HXM0016',
-
+    active:false,
     amount: '3,999',
     currency: 'USD',
     type:'depit',
@@ -19,7 +20,7 @@ const invoiceHistory: InvoiceType[] = [
   },
   {
     id: 'HXM0016',
-
+    active:false,
     amount: '3,000',
     currency: 'USD',
     type:'depit',
@@ -28,7 +29,7 @@ const invoiceHistory: InvoiceType[] = [
   },
   {
     id: 'HXM0016',
-
+    active:true,
     amount: '4,258',
     currency: 'USD',
     type:'depit',
@@ -37,7 +38,7 @@ const invoiceHistory: InvoiceType[] = [
   },
   {
     id: 'HXM0016',
-
+    active:false,
     amount: '1,225',
     currency: 'USD',
     type:'depit',
@@ -46,7 +47,7 @@ const invoiceHistory: InvoiceType[] = [
   },
   {
     id: 'HXM0016',
-
+    active:true,
     amount: '2,588',
     currency: 'USD',
     type:'depit',

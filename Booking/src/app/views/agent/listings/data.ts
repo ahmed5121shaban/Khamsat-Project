@@ -47,7 +47,7 @@ const statistics: StatisticType[] = [
     change: '',
     changeLabel: '',
     link: 'View Rooms',
-    variant: 'text-info',
+    variant: 'text-primary',
   },
 ]
 
