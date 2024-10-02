@@ -236,7 +236,6 @@
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -244,11 +243,11 @@
         <div class="card bg-light overflow-hidden px-sm-5">
 
               <div class="card-body row justify-content-between">
-                <a class="m-0 btn btn-primary col-2 fs-6 fw-light">View Voucher</a>
-                <a class="m-0 btn btn-primary col-2 fs-6 fw-light">Cancel Booking</a>
-                <a class="m-0 btn btn-primary col-2 fs-6 fw-light">Pay Booking</a>
-                <a class="m-0 btn btn-primary col-2 fs-6 fw-light">View Invoice</a>
-                <a class="m-0 btn btn-primary col-3 fs-6 fw-light">Message Support</a>
+                <a class="m-0 btn btn-primary mt-2 col-lg-2 col-md-6 fs-6 fw-light">View Voucher</a>
+                <a class="m-0 btn btn-primary mt-2 col-lg-2 col-md-6 fs-6 fw-light">Cancel Booking</a>
+                <a class="m-0 btn btn-primary mt-2 col-lg-2 col-md-6 fs-6 fw-light">Pay Booking</a>
+                <a class="m-0 btn btn-primary mt-2 col-lg-2 col-md-6 fs-6 fw-light">View Invoice</a>
+                <a class="m-0 btn btn-primary mt-2 col-lg-3 col-md-12 fs-6 fw-light">Message Support</a>
               </div>
 
         </div>
@@ -372,43 +371,22 @@
         </div>
 
         <aside class="col-xl-4">
-          <div class="card shadow rounded-2 sticky-element" ng-sticky
-          data-margin-top="100"
-          data-margin-bottom="100">
-<div class="card-header border-bottom">
-  <h5 class="card-title mb-0">Price Summary</h5>
-</div>
-
-<div class="card-body">
-  <ul class="list-group list-group-borderless">
-    <li
-      class="list-group-item d-flex justify-content-between align-items-center"
-    >
-      <span class="h6 fw-light mb-0">Room Charges</span>
-      <span class="fs-5">$28,660</span>
-    </li>
-  </ul>
-</div>
-
-<div class="card-footer border-top">
-  <div class="d-flex justify-content-between align-items-center">
-    <span class="h5 mb-0">Total Price</span>
-    <div class="d-flex flex-column justify-content-between align-items-center">
-      <span>gomla here</span>
-      <span class="h5 mb-0">28,660</span>
-    </div>
-
-  </div>
-</div>
-</div>
-
+          <div class="card shadow rounded-2 py-4">
+            <div class="ms-2 row g-2">
+              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Booking ID:</h6>
+              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Date on:</h6>
+              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Booking Status:</h6>
+              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Payment Status:</h6>
+              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Invoice ID:</h6>
+              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Hotel Confirmation Number:</h6>
+            </div>
+          </div>
         </aside>
 
       </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
