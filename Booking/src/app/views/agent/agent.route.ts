@@ -7,6 +7,7 @@ import { EarningsComponent } from './earnings/earnings.component'
 import { ReviewsComponent } from './reviews/reviews.component'
 import { SettingsComponent } from './settings/settings.component'
 import { MessagesComponent } from './messages/messages.component'
+import { ReportComponent } from './report/report.component'
 
 export const AGENT_ROUTES: Route[] = [
   {
@@ -49,4 +50,5 @@ export const AGENT_ROUTES: Route[] = [
     component: SettingsComponent,
     data: { title: 'Agent - Settings' },
   },
+
 ]

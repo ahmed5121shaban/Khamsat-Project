@@ -6,21 +6,6 @@
   </div>
 
   <div class="card-body p-4 pb-0">
-<!--     <div class="bg-primary bg-opacity-10 rounded-3 mb-4 p-3">
-      <div class="d-md-flex justify-content-md-between align-items-center">
-        <div class="d-sm-flex align-items-center mb-2 mb-md-0">
-          <img src="assets/images/element/16.svg" class="h-50px" alt="" />
-
-          <div class="ms-sm-3 mt-2 mt-sm-0">
-            <h5 class="card-title mb-0">Get Additional Discount</h5>
-            <p class="mb-0">Login to access saved payments and discounts!</p>
-          </div>
-        </div>
-
-        <a routerLink="/auth/sign-in" class="btn btn-primary mb-0">Login now</a>
-      </div>
-    </div>
- -->
     <div
       ngbAccordion
       [closeOthers]="true"
@@ -38,41 +23,6 @@
         <h6 class="col-10" id="heading-2">
           <span class="ms-2">By Balance available : <span class="opacity-75">1000 USD</span></span>
         </h6>
-<!--         <div
-          id="collapse-2"
-        >
-          <div >
-            <form class="row g-3 mt-1">
-              <ul class="list-inline mb-0">
-                <li class="list-inline-item">
-                  <h6 class="mb-0">available Balance:</h6>
-                </li>
-              </ul>
-
-              <p class="mb-1">
-                In order to complete your transaction, we will transfer you over
-                to Booking secure servers.
-              </p>
-              <p class="my-0">
-                Select your bank from the drop-down list and click proceed to
-                continue with your payment.
-              </p>
-
-              <div class="col-md-12">
-                <input
-                  placeholder="Balance"
-                  class="form-control js-choice"
-                >
-              </div>
-
-              <div class="d-grid">
-                <button class="btn btn-success mb-0">
-                  Pay {{ currencyType }}1800
-                </button>
-              </div>
-            </form>
-          </div>
-        </div> -->
       </div>
 
       <div ngbAccordionItem [collapsed]="false" class="accordion-item mb-3">
@@ -217,46 +167,6 @@
                   Please enter card holder name
                 </div>
               </div>
-
-<!--               <div class="col-12">
-                @if (!staticAlertClosed) {
-                  <ngb-alert
-                    (closed)="staticAlertClosed = true"
-                    [dismissible]="true"
-                    type="success"
-                    class="fade show my-3"
-                    role="alert"
-                  >
-                    <div class="d-sm-flex align-items-center mb-3">
-                      <img
-                        src="assets/images/element/12.svg"
-                        class="w-40px me-3 mb-2 mb-sm-0"
-                        alt=""
-                      />
-                      <h5 class="alert-heading mb-0">
-                        {{ currencyType }}50,000 Covid Cover & More
-                      </h5>
-                    </div>
-
-                    <p class="mb-2">
-                      Aww yeah, you successfully read this important alert
-                      message. This example text is going to run a bit longer so
-                      that you can see how spacing within an alert works with
-                      this kind of content.
-                    </p>
-
-                    <div class="d-sm-flex align-items-center">
-                      <a
-                        href="javascript:void(0);"
-                        class="btn btn-sm btn-success mb-2 mb-sm-0 me-3"
-                        ><i class="fa-regular fa-plus me-2"></i>Add</a
-                      >
-                      <h6 class="mb-0">{{ currencyType }}69 per person</h6>
-                    </div>
-                  </ngb-alert>
-                }
-              </div>
- -->
               <div class="col-12">
                 <div
                   class="d-sm-flex justify-content-sm-between align-items-center"
@@ -274,51 +184,6 @@
           </div>
         </div>
       </div>
-
-<!--       <div ngbAccordionItem class="accordion-item mb-3">
-        <h6 ngbAccordionHeader class="accordion-header" id="heading-3">
-          <button
-            ngbAccordionButton
-            class="accordion-button collapsed rounded"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapse-3"
-            aria-expanded="false"
-            aria-controls="collapse-3"
-          >
-            <i class="bi bi-paypal text-primary me-2"></i
-            ><span class="me-5">Pay with Paypal</span>
-          </button>
-        </h6>
-        <div
-          ngbAccordionCollapse
-          id="collapse-3"
-          class="accordion-collapse collapse"
-          aria-labelledby="heading-3"
-          data-bs-parent="#accordioncircle"
-        >
-          <div ngbAccordionBody class="accordion-body">
-            <div
-              class="card card-body border align-items-center text-center mt-4"
-            >
-              <img
-                src="assets/images/element/paypal.svg"
-                class="h-70px mb-3"
-                alt=""
-              />
-              <p class="mb-3">
-                <strong>Tips:</strong> Simply click on the payment button below
-                to proceed to the PayPal payment page.
-              </p>
-              <a
-                href="javascript:void(0);"
-                class="btn btn-sm btn-outline-primary mb-0"
-                >Pay with paypal</a
-              >
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 

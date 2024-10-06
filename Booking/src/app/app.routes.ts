@@ -7,6 +7,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.component'
 import { AboutComponent } from './views/about-us/about/about.component'
 import { AuthGuard } from './core/guards'
+import { ReportComponent } from './views/agent/report/report.component'
 
 export const routes: Routes = [
   {
@@ -130,5 +131,9 @@ export const routes: Routes = [
       import('./views/other-pages/other-pages.route').then(
         (mod) => mod.OTHER_PAGES_ROUTES
       ),
+  },
+  {
+    path: 'report',
+    component: ReportComponent,
   },
 ]

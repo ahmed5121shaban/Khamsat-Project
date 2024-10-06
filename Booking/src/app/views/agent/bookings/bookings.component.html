@@ -131,7 +131,7 @@
                       </td>
                       <td>
                           <p class="mb-0 ">
-                            {{ item.name }}
+                            {{ item.name }}<br>{{ item.name }}
                           </p>
                       </td>
                       <td>
@@ -174,7 +174,7 @@
 
                       <td>
                         <p
-                          class="mb-0 fw-normal"
+                          class="mb-0 fw-semibold"
                           >{{item.Total}}</p
                         >
                       </td>
@@ -189,9 +189,16 @@
                           @if (item.visaPay)
                           {
                             <a type="button" data-bs-toggle="modal" data-bs-target="#creditcard">
-                            <i class="fa-regular fa-credit-card"></i>
+                            <i class="fa-regular fa-credit-card me-1"></i>
                             </a>
                         }
+                        @if (item.booking == 'Confirmed')
+                        {
+                          <a type="button" data-bs-toggle="modal" data-bs-target="#canceled">
+                            <i class="fa-solid fa-rectangle-xmark text-danger"></i>
+                          </a>
+                      }
+
                         </div>
 
                       </td>
@@ -236,6 +243,7 @@
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
+        <h4>Booking Detail</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -243,11 +251,11 @@
         <div class="card bg-light overflow-hidden px-sm-5">
 
               <div class="card-body row justify-content-between">
-                <a class="m-0 btn btn-primary mt-2 col-lg-2 col-md-6 fs-6 fw-light">View Voucher</a>
-                <a class="m-0 btn btn-primary mt-2 col-lg-2 col-md-6 fs-6 fw-light">Cancel Booking</a>
-                <a class="m-0 btn btn-primary mt-2 col-lg-2 col-md-6 fs-6 fw-light">Pay Booking</a>
-                <a class="m-0 btn btn-primary mt-2 col-lg-2 col-md-6 fs-6 fw-light">View Invoice</a>
-                <a class="m-0 btn btn-primary mt-2 col-lg-3 col-md-12 fs-6 fw-light">Message Support</a>
+                <a class="m-0 btn btn-outline-primary mt-2 col-lg-2 col-md-6 fs-6 fw-light">View Voucher</a>
+                <a class="m-0 btn btn-outline-primary mt-2 col-lg-2 col-md-6 fs-6 fw-light">Cancel Booking</a>
+                <a class="m-0 btn btn-outline-primary mt-2 col-lg-2 col-md-6 fs-6 fw-light">Pay Booking</a>
+                <a class="m-0 btn btn-outline-primary mt-2 col-lg-2 col-md-6 fs-6 fw-light">View Invoice</a>
+                <a class="m-0 btn btn-outline-primary mt-2 col-lg-3 col-md-12 fs-6 fw-light">Message Support</a>
               </div>
 
         </div>
@@ -290,9 +298,7 @@
                       <li class="list-inline-item me-0 small">
                         <i class="fa-solid fa-star-half-alt text-warning me-1"></i>
                       </li>
-        <!--                 <li class="list-inline-item ms-2 h6 small fw-bold mb-0">
-                        4.5
-                      </li> -->
+
                     </ul></div>
                     <h5 class="card-title">
                       <a href="javascript:void(0);">Pride moon Village Resort & Spa</a>
@@ -368,19 +374,452 @@
               </div>
             </div>
           </div>
-        </div>
 
-        <aside class="col-xl-4">
-          <div class="card shadow rounded-2 py-4">
-            <div class="ms-2 row g-2">
-              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Booking ID:</h6>
-              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Date on:</h6>
-              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Booking Status:</h6>
-              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Payment Status:</h6>
-              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Invoice ID:</h6>
-              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Hotel Confirmation Number:</h6>
+          <div class="card shadow">
+            <div class="card-header border-bottom p-4">
+              <h5 class="card-title mb-0">
+                <i class="bi bi-people-fill me-2"></i>Guest Details
+              </h5>
+            </div>
+
+            <div class="card-body p-4">
+              <form class="row g-4">
+                <!-- Dynamically render guest forms -->
+                <div class="col-12">
+                  <!-- Loop through each room -->
+                   @for (room of rooms; track $index;let roomIndex = $index) {
+                  <div class="mt-3">
+                    <div class="bg-light rounded-2 px-4 py-3">
+                      <h6 class="mb-0">Room {{ roomIndex + 1 }} : <span class="opacity-75">Room Type</span></h6>
+                    </div>
+
+                    <!-- Loop through each guest in the room -->
+                     @for (guest of room.guests; track $index;let guestIndex = $index) {
+                    <div>
+                      <div class="row align-items-center mt-3">
+                        <div class="col-md-5">
+                          <label class="form-label">First Name</label>
+                          <input
+                            type="text"
+                            class="form-control form-control-lg"
+                            placeholder="Enter first name"
+                            [(ngModel)]="guest.firstName"
+                            name="firstName{{ roomIndex }}_{{ guestIndex }}"
+                          />
+                        </div>
+
+                        <div class="col-md-5">
+                          <label class="form-label">Last Name</label>
+                          <input
+                            type="text"
+                            class="form-control form-control-lg"
+                            placeholder="Enter last name"
+                            [(ngModel)]="guest.lastName"
+                            name="lastName{{ roomIndex }}_{{ guestIndex }}"
+                          />
+                        </div>
+
+                        <!-- Show delete button for guests beyond the first one -->
+
+                        @if (guestIndex > 0) {
+                          <div class="col-md-2">
+                            <i class="fa-solid fa-xmark fs-5 text-danger" (click)="deleteGuest(roomIndex, guestIndex)" style="cursor: pointer;"></i>
+                          </div>
+                        }
+                      </div>
+                    </div>
+                  }
+                    <!-- Add New Guest button for each room -->
+
+                    <!-- Delete room button -->
+                <!--   @if (rooms.length > 1) {
+
+                    <div class="col-12">
+                      <a href="javascript:void(0);" class="btn btn-link mb-0 p-0 text-danger" (click)="deleteRoom(roomIndex)">
+                        <i class="fa-solid fa-trash me-2"></i>Delete Room
+                      </a>
+                    </div>
+                  } -->
+                    <hr />
+                  </div>
+                  @if (canAddGuest(roomIndex)) {
+                    <div class="col-12">
+                      <a href="javascript:void(0);" class="btn btn-link mb-0 p-0" (click)="addGuest(roomIndex)">
+                        <i class="fa-solid fa-plus me-2"></i>Add New Guest
+                      </a>
+                    </div>
+                  }
+                }
+
+                </div>
+
+                <!-- Show "Add New Guest" button only if less than 4 guests are added -->
+
+                <div class="col-md-5">
+                  <label class="form-label">Email id</label>
+                  <input
+                    type="email"
+                    class="form-control form-control-lg"
+                    placeholder="Enter your email"
+                  />
+                  <div id="emailHelp" class="form-text">
+                    (Booking voucher will be sent to this email ID)
+                  </div>
+                </div>
+
+                <div class="col-md-5">
+                  <label class="form-label">Mobile number</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-lg"
+                    placeholder="Enter your mobile number"
+                  />
+                </div>
+              </form>
+              <div class="card border mt-4">
+                <div class="card-header border-bottom mb-0">
+                  <h5 class="card-title mb-2">Special request</h5>
+                </div>
+
+                <div class="card-body">
+                  <form class="hstack flex-wrap pb-1 gap-3">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="hotelType1"
+                      />
+                      <label class="form-check-label" for="hotelType1">Smoking room</label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="hotelType1"
+                      />
+                      <label class="form-check-label" for="hotelType1">Late check-in</label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="hotelType1"
+                      />
+                      <label class="form-check-label" for="hotelType1">Early check-in</label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="hotelType1"
+                      />
+                      <label class="form-check-label" for="hotelType1">Clients Vip</label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="hotelType1"
+                      />
+                      <label class="form-check-label" for="hotelType1">Large bed</label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="hotelType1"
+                      />
+                      <label class="form-check-label" for="hotelType1">Twin beds</label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="hotelType1"
+                      />
+                      <label class="form-check-label" for="hotelType1">Honeymoon Couple</label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="hotelType1"
+                      />
+                      <label class="form-check-label" for="hotelType1">Connecting Room</label>
+                    </div>
+
+                    <!-- Add other special requests as needed -->
+                  </form>
+                  <hr class="mb-0">
+                  <p class=" p-2 pt-3 text-danger">Note: Special Requests are not guaranteed and are subject to availability upon check-in at the hotel. Please get in touch with our Customer Support if you'd like to add guaranteed services.</p>
+                </div>
+              </div>
             </div>
           </div>
+
+
+          <div class="card shadow">
+            <div class="card-header border-bottom p-4">
+              <h5 class="card-title mb-0">
+                <i class="bi bi-wallet-fill me-2"></i>Payment Method
+              </h5>
+            </div>
+
+            <div class="card-body p-4 pb-0">
+              <div
+                ngbAccordion
+                [closeOthers]="true"
+                class="accordion accordion-icon accordion-bg-light"
+                id="accordioncircle"
+              >
+
+
+                <div class="mb-3 d-flex ms-2">
+                  <input
+                  class="form-check-input col-1 p-2"
+                  type="checkbox"
+                  value=""
+                  id="heading-2"/>
+                  <h6 class="col-10" id="heading-2">
+                    <span class="ms-2">By Balance available : <span class="opacity-75">1000 USD</span></span>
+                  </h6>
+                </div>
+
+                <div ngbAccordionItem [collapsed]="false" class="accordion-item mb-3">
+                  <h6 ngbAccordionHeader class="accordion-header" id="heading-1">
+                    <button
+                      ngbAccordionButton
+                      class="accordion-button rounded collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapse-1"
+                      aria-expanded="true"
+                      aria-controls="collapse-1"
+                    >
+                      <i class="bi bi-credit-card text-primary me-2"></i>
+                      <span class="me-5">Credit or Debit Card</span>
+                    </button>
+                  </h6>
+                  <div
+                    ngbAccordionCollapse
+                    id="collapse-1"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="heading-1"
+                    data-bs-parent="#accordioncircle"
+                  >
+                    <div class="accordion-body">
+                      <div class="d-sm-flex justify-content-sm-between my-3">
+                        <h6 class="mb-2 mb-sm-0">We Accept:</h6>
+                        <ul class="list-inline my-0">
+                          <li class="list-inline-item">
+                            <a href="javascript:void(0);"
+                              ><img
+                                src="assets/images/element/visa.svg"
+                                class="h-30px"
+                                alt=""
+                            /></a>
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="javascript:void(0);"
+                              ><img
+                                src="assets/images/element/mastercard.svg"
+                                class="h-30px"
+                                alt=""
+                            /></a>
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="javascript:void(0);"
+                              ><img
+                                src="assets/images/element/expresscard.svg"
+                                class="h-30px"
+                                alt=""
+                            /></a>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <form
+                        [formGroup]="paymentForm"
+                        (ngSubmit)="onSubmit()"
+                        class="row g-3"
+                      >
+                        <div class="col-12">
+                          <label class="form-label"
+                            ><span class="h6 fw-normal">Card Number *</span></label
+                          >
+                          <div class="position-relative">
+                            <input
+                              type="text"
+                              class="form-control"
+                              formControlName="cardnumber"
+                              mask="0000 0000 0000 0000"
+                              [ngClass]="{
+                                'is-invalid': submit && form['cardnumber'].errors
+                              }"
+                              placeholder="XXXX XXXX XXXX XXXX"
+                            />
+                            <img
+                              src="assets/images/element/visa.svg"
+                              class="w-30px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block"
+                              alt=""
+                            />
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <label class="form-label"
+                            ><span class="h6 fw-normal">Expiration date *</span></label
+                          >
+                          <div class="input-group">
+                            <input
+                              type="text"
+                              class="form-control"
+                              formControlName="month"
+                              maxlength="2"
+                              mask="00"
+                              [ngClass]="{ 'is-invalid': submit && form['month'].errors }"
+                              placeholder="Month"
+                            />
+                            <input
+                              type="text"
+                              class="form-control"
+                              formControlName="year"
+                              maxlength="4"
+                              mask="0000"
+                              [ngClass]="{ 'is-invalid': submit && form['year'].errors }"
+                              placeholder="Year"
+                            />
+                          </div>
+                        </div>
+                        <!--Cvv code  -->
+                        <div class="col-md-6">
+                          <label class="form-label"
+                            ><span class="h6 fw-normal">CVV / CVC *</span></label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            formControlName="cvv"
+                            maxlength="3"
+                            mask="000"
+                            [ngClass]="{ 'is-invalid': submit && form['cvv'].errors }"
+                            placeholder="xxx"
+                          />
+                          <div class="invalid-feedback">
+                            cvv must be a `number` type, but the final value was: `NaN`
+                            (cast from the value `""`).
+                          </div>
+                        </div>
+
+                        <div class="col-12">
+                          <label class="form-label"
+                            ><span class="h6 fw-normal">Name on Card *</span></label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            formControlName="name"
+                            aria-label="name of card holder"
+                            [ngClass]="{ 'is-invalid': submit && form['name'].errors }"
+                            placeholder="Enter card holder name"
+                          />
+                          <div class="invalid-feedback">
+                            Please enter card holder name
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div
+                            class="d-sm-flex justify-content-sm-between align-items-center"
+                          >
+                            <h6>
+                              {{ currencyType }}1800
+                              <span class="small fs-6">Due now</span>
+                            </h6>
+                            <button type="submit" class="btn btn-primary mb-0">
+                              Pay Now
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 pt-0">
+              <div class="mb-0 d-flex justify-content-evenly">
+                <input
+                class="ms-1 form-check-input p-2"
+                type="checkbox"
+                value=""
+                id="hotelType1"/>
+                <p class="m-0 text-danger ">
+                  Yes, I accept the cancellation policy, Booking notes,
+                  and Terms & Conditions of Hotelsxml.
+                </p>
+
+              </div>
+              <div class="mb-0 p-2 mt-3">
+                <a class="btn btn-success" routerLink="/booking-confirmed">Complete Booking</a>
+              </div>
+            </div>
+          </div>
+
+
+
+
+        </div>
+
+        <aside class="col-xl-4 sticky-element" ng-sticky
+        data-margin-top="100"
+        data-margin-bottom="100">
+          <div class="card shadow rounded-2 py-4">
+            <div class="ms-2 row g-2">
+              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Booking ID: HXM0016</h6>
+              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Date on: 12/5/2024</h6>
+              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Booking Status: Paid</h6>
+              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Payment Status: Complete</h6>
+              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Invoice ID: #6525541</h6>
+              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Hotel Confirmation Number: 156132</h6>
+            </div>
+          </div>
+          <div class="card shadow rounded-2 mt-3">
+              <div class="card-header border-bottom">
+                <h5 class="card-title mb-0">Price Summary</h5>
+              </div>
+
+              <div class="card-body">
+                <ul class="list-group list-group-borderless">
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center"
+                  >
+                    <span class="h6 fw-light mb-0">Room Charges</span>
+                    <span class="fs-5">$28,660</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card-footer border-top">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="h5 mb-0">Total Price</span>
+                  <div class="d-flex flex-column justify-content-between align-items-center">
+                    <span>gomla here</span>
+                    <span class="h5 mb-0">$28,660</span>
+                  </div>
+
+                </div>
+              </div>
+          </div>
+
         </aside>
 
       </div>
@@ -394,18 +833,36 @@
 
 <!--Headset icon modal-->
   <div class="modal fade" id="headset" tabindex="-1" aria-labelledby="headset" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">headset</h1>
+          <h1 class="modal-title fs-5 text-center text-primary" id="exampleModalLabel">
+            <i class="fa-regular fa-envelope me-1"></i> New Support Message
+          </h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+          <div class="d-flex flex-column align-items-center justify-content-between">
+            <p>No Messages yet, Select a Category and Type your Request</p>
+            <div class="mb-3">
+              <select class="form-select" name="" id="">
+                <option value="">Select a Category</option>
+                <option value="">Special Request</option>
+                <option value="">Clients in Hotel Support</option>
+                <option value="">Send Info To Hotel</option>
+                <option value="">Others</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" style="width: 600px;height: 150px;" name="" id="" placeholder="Message"></textarea>
+            </div>
+            <button class="btn btn-outline-primary">
+              <i class="fa-regular fa-paper-plane me-1"></i> Send
+            </button>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
@@ -413,18 +870,59 @@
 
 <!--Credit Card icon modal-->
 <div class="modal fade" id="creditcard" tabindex="-1" aria-labelledby="creditcard" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">creditcard</h1>
+        <h1 class="modal-title fs-5 text-center text-primary" id="exampleModalLabel">
+           Pay Booking
+        </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <div class="d-flex flex-column align-items-center justify-content-between">
+          <h4 class="my-4">Total Price: 200 USD</h4>
+          <div class="mb-3 d-flex">
+            <button class="btn btn-outline-primary me-2">
+              <i class="fa-solid fa-file-invoice me-1"></i> Via Balance
+            </button>
+            <button class="btn btn-outline-primary">
+              <i class="fa-regular fa-credit-card me-1"></i> Via Credit Card
+            </button>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!--Canceled modal-->
+<div class="modal fade" id="canceled" tabindex="-1" aria-labelledby="canceled" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-center text-primary text-danger" id="exampleModalLabel">
+          Cancel Booking
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex flex-column align-items-center justify-content-between">
+          <h6 class="my-4">Do you want To cancel This Booking ?</h6>
+          <p class="text-danger mb-1">if you choosed Cancel,The Action Cannot Be Rolled Back</p>
+          <p class="text-danger mb-3">Cancellation Policy: <span class="text-dark fw-semibold">0</span> Free Charge</p>
+          <div class="mb-3 d-flex">
+            <button class="btn btn-danger me-2">
+              <i class="fa-regular fa-thumbs-up me-1"></i> Yes, Cancel
+            </button>
+            <button class="btn btn-success" data-bs-dismiss="modal">
+              <i class="fa-solid fa-xmark me-1"></i> No Return
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -34,7 +34,7 @@ const bookings: Booking[] = [
     Cancellation:'free cancle, 27-09-2024',
     Total:'66 USD',
     registerDate:'22/25/2024',
-    visaPay:false,
+    visaPay:true,
   },
   {
     id: 'HXM0010',
