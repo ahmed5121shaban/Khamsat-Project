@@ -260,7 +260,7 @@
 
         </div>
 
-        <div class="row g-2 g-lg-2 mt-4">
+        <div class="row g-2 g-lg-3 mt-4">
         <div class="card shadow col-xl-8">
           <div class="card-header p-4 border-bottom">
             <h5 class="mb-0">
@@ -384,16 +384,12 @@
 
             <div class="card-body p-4">
               <form class="row g-4">
-                <!-- Dynamically render guest forms -->
                 <div class="col-12">
-                  <!-- Loop through each room -->
                    @for (room of rooms; track $index;let roomIndex = $index) {
                   <div class="mt-3">
                     <div class="bg-light rounded-2 px-4 py-3">
                       <h6 class="mb-0">Room {{ roomIndex + 1 }} : <span class="opacity-75">Room Type</span></h6>
                     </div>
-
-                    <!-- Loop through each guest in the room -->
                      @for (guest of room.guests; track $index;let guestIndex = $index) {
                     <div>
                       <div class="row align-items-center mt-3">
@@ -418,9 +414,6 @@
                             name="lastName{{ roomIndex }}_{{ guestIndex }}"
                           />
                         </div>
-
-                        <!-- Show delete button for guests beyond the first one -->
-
                         @if (guestIndex > 0) {
                           <div class="col-md-2">
                             <i class="fa-solid fa-xmark fs-5 text-danger" (click)="deleteGuest(roomIndex, guestIndex)" style="cursor: pointer;"></i>
@@ -429,17 +422,6 @@
                       </div>
                     </div>
                   }
-                    <!-- Add New Guest button for each room -->
-
-                    <!-- Delete room button -->
-                <!--   @if (rooms.length > 1) {
-
-                    <div class="col-12">
-                      <a href="javascript:void(0);" class="btn btn-link mb-0 p-0 text-danger" (click)="deleteRoom(roomIndex)">
-                        <i class="fa-solid fa-trash me-2"></i>Delete Room
-                      </a>
-                    </div>
-                  } -->
                     <hr />
                   </div>
                   @if (canAddGuest(roomIndex)) {
@@ -452,8 +434,6 @@
                 }
 
                 </div>
-
-                <!-- Show "Add New Guest" button only if less than 4 guests are added -->
 
                 <div class="col-md-5">
                   <label class="form-label">Email id</label>
@@ -784,12 +764,13 @@
         data-margin-bottom="100">
           <div class="card shadow rounded-2 py-4">
             <div class="ms-2 row g-2">
-              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Booking ID: HXM0016</h6>
-              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Date on: 12/5/2024</h6>
-              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Booking Status: Paid</h6>
-              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Payment Status: Complete</h6>
-              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Invoice ID: #6525541</h6>
-              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-12 text-light">Hotel Confirmation Number: 156132</h6>
+              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-11 text-light">Booking ID: HXM0016</h6>
+              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-11 text-light">Date on: 12/5/2024</h6>
+              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-11 text-light">Booking Status: Paid</h6>
+              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-11 text-light">Payment Status: Complete</h6>
+              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-11 text-light">Invoice ID: #6525541</h6>
+              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-11 text-light">Hotel Confirmation Number: 156132</h6>
+              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-11 text-light">Guest Nationality: Nationality</h6>
             </div>
           </div>
           <div class="card shadow rounded-2 mt-3">

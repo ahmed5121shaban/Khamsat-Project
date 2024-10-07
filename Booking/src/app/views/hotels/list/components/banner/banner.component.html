@@ -1,6 +1,19 @@
+<style>
+  @media (max-width:991px){
+    .button-edit-search{
+      width:100% !important;
+    }
+  }
+
+  @media (max-width:991px){
+    .flex-bannar{
+      flex-direction: column !important;
+    }
+  }
 
 
 
+</style>
 <section class="pt-0">
 
     <div
@@ -16,9 +29,9 @@
 
     <form class="card shadow rounded-3 position-relative p-4 pe-md-5 pb-5 pb-md-4">
 
-      <div class="d-flex align-items-center justify-content-between">
+      <div class="flex-bannar d-flex flex-lg-row flex-sm-column align-items-center justify-content-between">
 
-      <div class="col-md-6 col-lg-3">
+      <div class="button-edit-search col-lg-3 col-md-12 col-sm-12">
         <div class="form-size-lg form-fs-md">
           <label class="form-label">Location</label>
           <select
@@ -33,7 +46,7 @@
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-2">
+      <div class="button-edit-search col-lg-2 col-md-12 col-sm-12">
         <div class="form-fs-md">
           <label class="form-label">Check in - out</label>
           <input
@@ -48,7 +61,7 @@
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-3">
+      <div class="button-edit-search col-lg-3 col-md-12 col-sm-12">
         <div class="form-fs-md">
           <div class="w-100">
             <label class="form-label">Guests & rooms</label>
@@ -151,7 +164,7 @@
         </div>
       </div>
 
-        <div class="col-md-6 col-lg-2">
+        <div class="button-edit-search col-lg-2 col-md-12 col-sm-12">
           <div class="form-fs-md">
             <label class="form-label">Nationality</label>
             <input
@@ -165,7 +178,7 @@
       </div>
 
 
-        <div class="col-md-6 col-lg-1" style="width: 12%;">
+        <div class="button-edit-search col-lg-1 col-md-12 col-sm-12" style="width: 12%;">
           <button type="button" class="btn btn-primary mt-5  rounded-0 w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Edit Search
           </button>
@@ -177,10 +190,12 @@
 
 
 
-    </div> <!-- End modal -->
+    </div>
 
 
 </section>
+
+<!-- Start modal -->
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  data-bs-keyboard="false">
   <div class="modal-dialog modal-dialog-centered modal-xl">
