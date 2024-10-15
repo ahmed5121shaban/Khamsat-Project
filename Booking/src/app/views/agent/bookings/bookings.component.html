@@ -1,6 +1,6 @@
 <section class="pt-0">
   <div class="container-fluid vstack gap-4">
-    <div class="row m-auto" style="width:90%">
+    <div class="row m-auto container">
       <div class="col-12">
         <h1 class="fs-4 mb-0">
           <i class="bi bi-bookmark-heart fa-fw me-1"></i>My Bookings - Manage your booking with advance filters!
@@ -8,9 +8,9 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row ">
       <div class="col-12">
-        <div class="card border  m-auto mb-5" style="width:90%">
+        <div class="card border m-auto container  mb-5">
           <div class="card-header border-bottom">
             <h5 class="card-header-title">
               <span
@@ -140,14 +140,20 @@
                       <td>{{ item.city }}</td>
                       <td>
                         <p
-                          class="mb-0"
+                          class="mb-0 fw-semibold"
+                          [ngClass]="{'text-success':item.Cancellation=='Free Cancellation till 7 Jan 2022',
+                            'text-danger':item.Cancellation=='Non Refundable'
+                          }"
                           >{{item.Cancellation}}</p
                         >
                       </td>
 
+
+
+
                       <td>
                         <div
-                        class="badge"
+                        class="badge fw-semibold"
                           [ngClass]="{
                             'bg-success':
                               item.booking === 'Completed',
@@ -161,21 +167,22 @@
 
                       <td>
                         <div
-                          class="badge"
+                          class="badge bg-opacity-10 fw-semibold"
                           [ngClass]="{
-                            'text-bg-success ':
+                            'bg-success text-success':
                               item.status === 'Paid',
-                            'text-bg-orange': item.status === 'UnPaid',
+                            'bg-orange text-orange': item.status === 'UnPaid',
                           }"
                         >
                           {{ item.status }}
                         </div>
                       </td>
 
+
                       <td>
                         <p
                           class="mb-0 fw-semibold"
-                          >{{item.Total}}</p
+                          >{{item.Total}} <span class="fw-normal" style="font-size: .9rem;">USD</span></p
                         >
                       </td>
                       <td>
@@ -546,7 +553,7 @@
           </div>
 
 
-          <div class="card shadow">
+          <!-- <div class="card shadow">
             <div class="card-header border-bottom p-4">
               <h5 class="card-title mb-0">
                 <i class="bi bi-wallet-fill me-2"></i>Payment Method
@@ -573,7 +580,7 @@
                   </h6>
                 </div>
 
-                <div ngbAccordionItem [collapsed]="false" class="accordion-item mb-3">
+                <div ngbAccordionItem [collapsed]="true" class="accordion-item mb-3">
                   <h6 ngbAccordionHeader class="accordion-header" id="heading-1">
                     <button
                       ngbAccordionButton
@@ -679,7 +686,7 @@
                             />
                           </div>
                         </div>
-                        <!--Cvv code  -->
+
                         <div class="col-md-6">
                           <label class="form-label"
                             ><span class="h6 fw-normal">CVV / CVC *</span></label
@@ -752,7 +759,7 @@
                 <a class="btn btn-success" routerLink="/booking-confirmed">Complete Booking</a>
               </div>
             </div>
-          </div>
+          </div> -->
 
 
 
@@ -764,13 +771,14 @@
         data-margin-bottom="100">
           <div class="card shadow rounded-2 py-4">
             <div class="ms-2 row g-2">
-              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-11 text-light">Booking ID: HXM0016</h6>
-              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-11 text-light">Date on: 12/5/2024</h6>
-              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-11 text-light">Booking Status: Paid</h6>
-              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-11 text-light">Payment Status: Complete</h6>
-              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-11 text-light">Invoice ID: #6525541</h6>
-              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-11 text-light">Hotel Confirmation Number: 156132</h6>
-              <h6 class=" mb-0 p-2 bg-primary rounded-2 col-lg-11 text-light">Guest Nationality: Nationality</h6>
+              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1">Booking ID: HXM0016</h6>
+              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1">Date on: 12/5/2024</h6>
+              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1">Booking Status: <span class="text-success">Paid</span></h6>
+              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1">Payment Status: <span class="text-success">Complete</span></h6>
+              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1">Invoice ID: #6525541</h6>
+              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1">Hotel Confirmation Number: 156132</h6>
+              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1">Guest Nationality: Nationality</h6>
+              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1">Rewards Points: 100</h6>
             </div>
           </div>
           <div class="card shadow rounded-2 mt-3">
@@ -801,6 +809,9 @@
               </div>
           </div>
 
+
+
+
         </aside>
 
       </div>
@@ -814,7 +825,7 @@
 
 <!--Headset icon modal-->
   <div class="modal fade" id="headset" tabindex="-1" aria-labelledby="headset" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5 text-center text-primary" id="exampleModalLabel">
@@ -851,7 +862,7 @@
 
 <!--Credit Card icon modal-->
 <div class="modal fade" id="creditcard" tabindex="-1" aria-labelledby="creditcard" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5 text-center text-primary" id="exampleModalLabel">
@@ -862,12 +873,12 @@
       <div class="modal-body">
         <div class="d-flex flex-column align-items-center justify-content-between">
           <h4 class="my-4">Total Price: 200 USD</h4>
-          <div class="mb-3 d-flex">
-            <button class="btn btn-outline-primary me-2">
-              <i class="fa-solid fa-file-invoice me-1"></i> Via Balance
+          <div class="mb-3 d-flex flex-column">
+            <button class="btn btn-outline-primary">
+              <i class="fa-solid fa-file-invoice me-1"></i> By Available Balance : 1000 USD
             </button>
             <button class="btn btn-outline-primary">
-              <i class="fa-regular fa-credit-card me-1"></i> Via Credit Card
+              <i class="fa-regular fa-credit-card me-1"></i> By Credit Card
             </button>
           </div>
         </div>
@@ -882,7 +893,7 @@
 
 <!--Canceled modal-->
 <div class="modal fade" id="canceled" tabindex="-1" aria-labelledby="canceled" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5 text-center text-primary text-danger" id="exampleModalLabel">
@@ -894,7 +905,7 @@
         <div class="d-flex flex-column align-items-center justify-content-between">
           <h6 class="my-4">Do you want To cancel This Booking ?</h6>
           <p class="text-danger mb-1">if you choosed Cancel,The Action Cannot Be Rolled Back</p>
-          <p class="text-danger mb-3">Cancellation Policy: <span class="text-dark fw-semibold">0</span> Free Charge</p>
+          <p class="text-danger mb-3">Cancellation Policy:  Free Charge</p>
           <div class="mb-3 d-flex">
             <button class="btn btn-danger me-2">
               <i class="fa-regular fa-thumbs-up me-1"></i> Yes, Cancel

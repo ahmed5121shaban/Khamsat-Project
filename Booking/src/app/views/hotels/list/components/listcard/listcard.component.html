@@ -67,27 +67,12 @@
             <p class="text-decoration-underline" style="font-size: 15px;" type="button" data-bs-toggle="modal" data-bs-target="#miniMap">
               <i class="fa-solid fa-eye me-1"></i>View On Map
             </p>
-
-<!--             <ul class="nav nav-divider mt-3">
-              @for (feature of item.features; track $index) {
-                @if ($index < 3) {
-                  <li class="nav-item">{{ feature }}</li>
-                } @else {
-                  <li class="nav-item">
-                    <a href="javascript:void(0);" class="mb-0 text-primary"
-                      >More+</a
-                    >
-                  </li>
-                }
-              }
-            </ul> -->
-
             <ul class="list-group list-group-borderless small mb-0 mt-1">
               @if (item.schemes) {
                 <li class="list-group-item d-flex text-dark p-0 pb-1">
                   <i class="fa-solid fa-bed me-2"></i>Deluxe Room
                 </li>
-                <li class="list-group-item d-flex text-dark p-0 pb-1">
+                <li class="list-group-item d-flex text-success p-0 pb-1">
                   <i class="fa-solid fa-utensils me-2"></i>Free Breakfast
                 </li>
 
