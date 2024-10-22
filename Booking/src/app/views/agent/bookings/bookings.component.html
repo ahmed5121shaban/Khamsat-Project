@@ -84,13 +84,13 @@
               </div>
 
               <!-- Reset Button -->
-              <div class="col-md-1 col-12">
-                <button class="btn btn-warning">Reset</button>
+              <div class=" col-lg-1">
+                <button class="reset-button btn btn-warning">Reset</button>
               </div>
 
               <!-- Search Button -->
-              <div class="col-md-1 col-12">
-                <button class="btn btn-primary">Search</button>
+              <div class="col-lg-1">
+                <button class="search-button btn btn-primary">Search</button>
               </div>
             </div>
           </div>
@@ -188,21 +188,37 @@
                       <td>
                         <div class="d-flex">
                           <a type="button" data-bs-toggle="modal" data-bs-target="#eye">
-                            <i class="fa-regular fa-eye me-1"></i>
+                            <i class="fa-regular fa-eye me-1 position-relative" id="trophy-icon">
+                              <span class="popover-box mb-1 shadow bg-primary text-light border rounded p-1" style="font-size: 13px;">
+                                Booking Detail
+                              </span>
+                            </i>
                           </a>
                           <a type="button" data-bs-toggle="modal" data-bs-target="#headset"
-                          ><i class="fa-solid fa-headset me-1"></i>
+                          ><i class="fa-solid fa-headset me-1 position-relative" id="message-icon">
+                            <span class="message-box mb-1 shadow bg-primary text-light border rounded p-1" style="font-size: 13px;">
+                              Support Message
+                            </span>
+                          </i>
                         </a>
                           @if (item.visaPay)
                           {
                             <a type="button" data-bs-toggle="modal" data-bs-target="#creditcard">
-                            <i class="fa-regular fa-credit-card me-1"></i>
+                            <i class="fa-regular fa-credit-card me-1 position-relative" id="visa-icon">
+                              <span class="visa-box mb-1 shadow bg-primary text-light border rounded p-1" style="font-size: 13px;">
+                                Pay Booking
+                              </span>
+                            </i>
                             </a>
                         }
                         @if (item.booking == 'Confirmed')
                         {
                           <a type="button" data-bs-toggle="modal" data-bs-target="#canceled">
-                            <i class="fa-solid fa-rectangle-xmark text-danger"></i>
+                            <i class="fa-solid fa-rectangle-xmark text-danger position-relative" id="cancel-icon">
+                              <span class="cancel-box mb-1 shadow bg-danger text-light border rounded p-1" style="font-size: 13px;">
+                                Cancel Booking
+                              </span>
+                            </i>
                           </a>
                       }
 
@@ -921,3 +937,62 @@
 
 </div>
 
+
+<style>
+  .popover-box {
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    display: none;
+    z-index: 10;
+    white-space: nowrap;
+  }
+
+  #trophy-icon:hover .popover-box {
+    display: block;
+  }
+  #cancel-icon:hover .cancel-box{
+    display: block;
+  }
+  .cancel-box {
+    position: absolute;
+    top: -40px;
+    left: -100px;
+    display: none;
+    z-index: 10;
+    white-space: nowrap;
+  }
+  #visa-icon:hover .visa-box{
+    display: block;
+  }
+  .visa-box {
+    position: absolute;
+    top: -40px;
+    left: -70px;
+    display: none;
+    z-index: 10;
+    white-space: nowrap;
+  }
+
+  #message-icon:hover .message-box{
+    display: block;
+  }
+  .message-box {
+    position: absolute;
+    top: -40px;
+    left: -70px;
+    display: none;
+    z-index: 10;
+    white-space: nowrap;
+  }
+
+  @media (max-width:970px) {
+    .search-button{
+      width: 100%;
+    }
+    .reset-button{
+      width: 100%;
+    }
+  }
+
+</style>
