@@ -13,11 +13,10 @@ import { Component } from '@angular/core'
 })
 export class PoliciesComponent {
   policies = [
-    'Check-in: 1:00 pm - 9:00 pm',
-    'Check out: 11:00 am',
-    'Self-check-in with building staff',
-    'No pets',
-    'No parties or events',
-    'Smoking is allowed',
+    'Check-in: After 2:00 pm',
+    'Check out: Before 12:00 am',
+    'Self-check-in or by a reception with hotel staff',
+    'No pets in most hotels',
+    'Many hotels are non-smoking; designated smoking areas may be available',
   ]
 }

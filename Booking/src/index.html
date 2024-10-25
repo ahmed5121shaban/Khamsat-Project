@@ -55,11 +55,23 @@
       />
     </div>
     <script>
-      document
-        .querySelector('app-root')
-        ?.addEventListener('DOMNodeInserted', () => {
-          document.querySelector('#splash-screen')?.classList.add('remove')
-        })
+      // Target the app-root element
+      const targetNode = document.querySelector('app-root');
+
+      if (targetNode) {
+        // Create a MutationObserver instance to watch for DOM changes
+        const observer = new MutationObserver((mutationsList) => {
+          for (const mutation of mutationsList) {
+            if (mutation.type === 'childList') {
+              document.querySelector('#splash-screen')?.classList.add('remove');
+              observer.disconnect(); // Stop observing after splash screen is hidden
+            }
+          }
+        });
+
+        // Start observing app-root for child elements being added
+        observer.observe(targetNode, { childList: true });
+      }
     </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
   </body>

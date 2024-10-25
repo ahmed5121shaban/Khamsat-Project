@@ -1,9 +1,31 @@
+
+<style>
+  @media(max-width:1200px){
+    .font-size{
+      font-size: 15px;
+    }
+    .font-size-tow{
+      font-size: 13px;
+    }
+  }
+  @media(max-width:700px){
+    .width-size{
+      width: 50%;
+    }
+  } 
+  @media(max-width:870px){
+    .width-size{
+      width: 50%;
+    }
+  }
+</style>
+
 @if (isLoading) {
   <div class="loader-container">
      <div class="container d-flex flex-column align-items-center mb-5 shadow py-3 pt-5 rounded-1 w-50" style="margin-top: 100px;">
-        <h4>Please Wait before We Complete your Booking</h4>
-        <p>Please Wait, We are processing the booking -- it can take a few minutes</p>
-      <div class="loader text-primary"></div>
+        <h4 class="font-size text-center">Please Wait before We Complete your Booking</h4>
+        <p class="mb-3 font-size-tow text-center">Please Wait, We are processing the booking -- it can take a few minutes</p>
+      <div class="loader text-primary width-size"></div>
       <p class="mb-4">Connecting To Hotel</p>
     </div>
   </div>
@@ -28,13 +50,13 @@
 
 
             <div class="row justify-content-between text-start mb-4">
-              <div class="col-lg-5">
+              <div class="col-lg-6">
                 <ul class="list-group list-group-borderless">
                   <li
                     class="list-group-item d-sm-flex justify-content-between align-items-center"
                   >
                     <span class="mb-0"
-                      ><i class="bi bi-vr fa-fw me-2"></i>Booking ID:</span
+                      ><i class="bi bi-vr fa-fw "></i>Booking ID:</span
                     >
                     <span class="h6 fw-normal mb-0"> HXM-1000</span>
                   </li>
@@ -42,7 +64,7 @@
                     class="list-group-item d-sm-flex justify-content-between align-items-center"
                   >
                     <span class="mb-0"
-                      ><i class="bi bi-calendar fa-fw me-2"></i>Check-in Date:</span
+                      ><i class="bi bi-calendar fa-fw "></i>Check-in Date:</span
                     >
                     <span class="h6 fw-normal mb-0"> 15 Aug 2022</span>
                   </li>
@@ -52,7 +74,7 @@
                 class="list-group-item d-sm-flex justify-content-between align-items-center"
               >
                 <span class="mb-0"
-                  ><i class="bi bi-person fa-fw me-2"></i>Guest Name:</span
+                  ><i class="bi bi-person fa-fw "></i>Guest Name:</span
                 >
                 <span class="h6 fw-normal mb-0"> Frances Guerrero</span>
               </li>
@@ -63,7 +85,7 @@
                   class="list-group-item d-sm-flex justify-content-between align-items-center"
                 >
                   <span class="mb-0"
-                    ><i class="bi bi-wallet2 fa-fw me-2"></i>Payment
+                    ><i class="bi bi-wallet2 fa-fw "></i>Payment
                     Method:</span
                   >
                   <span class="h6 fw-normal mb-0"> Agent Balance</span>
@@ -77,7 +99,7 @@
                     class="list-group-item d-sm-flex justify-content-between align-items-center"
                   >
                     <span class="mb-0"
-                      ><i class="bi bi-calendar fa-fw me-2"></i>Booking Date:</span
+                      ><i class="bi bi-calendar fa-fw "></i>Booking Date:</span
                     >
                     <span class="h6 fw-normal mb-0"> 29 July 2022</span>
                   </li>
@@ -85,7 +107,7 @@
                   class="list-group-item d-sm-flex justify-content-between align-items-center"
                 >
                   <span class="mb-0"
-                    ><i class="fa-solid fa-hotel me-2"></i>Hotel Name:</span
+                    ><i class="fa-solid fa-hotel "></i>Hotel Name:</span
                   >
                   <span class="h6 fw-normal mb-0"> hotel name</span>
                 </li>
@@ -93,7 +115,7 @@
                     class="list-group-item d-sm-flex justify-content-between align-items-center"
                   >
                     <span class="mb-0"
-                      ><i class="bi bi-people fa-fw me-2"></i>Guests:</span
+                      ><i class="bi bi-people fa-fw "></i>Guests:</span
                     >
                     <span class="h6 fw-normal mb-0"> 2 Adult, 0 Child</span>
                   </li>
@@ -101,7 +123,7 @@
                   class="list-group-item d-sm-flex justify-content-between align-items-center"
                 >
                   <span class="mb-0"
-                    ><i class="fa-regular fa-credit-card me-2"></i>Total
+                    ><i class="fa-regular fa-credit-card "></i>Total
                     Price:</span
                   >
                   <span class="h6 fw-normal mb-0">
@@ -132,7 +154,7 @@
                 </a>
               </div>
               <a href="javascript:void(0);" class="btn btn-primary mb-0"
-                ><i class="bi bi-file-pdf me-2"></i>Voucher pdf</a
+                ><i class="bi bi-file-pdf "></i>Voucher pdf</a
               >
             </div>
           </div>
