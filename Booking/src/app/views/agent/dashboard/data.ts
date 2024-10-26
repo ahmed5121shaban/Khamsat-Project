@@ -30,13 +30,13 @@ const statistics: StatisticType[] = [
     variant: 'bg-info',
   },
   {
-    title: 'Amount UnPaid',
+    title: 'Amounts UnPaid',
     state: '$15K',
     icon: 'bi-bar-chart-line-fill',
     variant: 'bg-warning',
   },
   {
-    title: 'Total Booking',
+    title: 'Total Bookings',
     state: '12K',
     icon: 'bi-star',
     variant: 'bg-primary',

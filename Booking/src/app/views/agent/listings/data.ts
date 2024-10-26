@@ -37,7 +37,7 @@ const statistics: StatisticType[] = [
     title: 'Total Debits',
     state: '$58',
     change: '',
-    changeLabel: 'Confirmed Booking Amount',
+    changeLabel: 'Completed Booking Amounts',
     link: 'View Bookings',
     variant: 'text-info',
   },

@@ -8,10 +8,24 @@
           </div>
           <div class="ms-3">
             <h4>{{ item.state }}</h4>
-            <span>{{ item.title }}</span>
+            <span class="font-size">{{ item.title }}</span>
           </div>
         </div>
       </div>
     </div>
   }
 </div>
+<style>
+  @media(max-width:1400px){
+    .font-size{
+      font-size:14px;
+      font-weight: 600;
+    }
+  }
+  @media(min-width:1200px){
+    .font-size{
+      font-size:14px;
+      font-weight: 600;
+    }
+  }
+</style>

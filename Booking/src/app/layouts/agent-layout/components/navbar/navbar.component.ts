@@ -21,7 +21,7 @@ import { filter } from 'rxjs'
                   ($index === 0 && currentPath === null)
                 "
                 [routerLink]="item.url"
-                ><i class="{{ item.icon }} fa-fw me-1"></i>{{ item.label }}</a
+                ><i class="{{ item.icon }} fa-fw me-1 font-size"></i>{{ item.label }}</a
               >
             </li>
           }
@@ -29,7 +29,17 @@ import { filter } from 'rxjs'
       </div>
     </div>
   `,
-  styles: ``,
+  styles: `
+  @media(max-width:1400px){
+    .font-size{
+      font-size:15px;
+    }
+  }
+  @media(min-width:1200px){
+    .font-size{
+      font-size:15px;
+    }
+  }`,
 })
 export class NavbarComponent implements OnInit {
   agentMenuItems = AGENT_MENU_ITEMS

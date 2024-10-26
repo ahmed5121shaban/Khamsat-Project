@@ -97,21 +97,21 @@
 
         </div>
 
-            <div class="table-responsive border-0 m-auto" style="width:95%">
+            <div class="table-responsive border-0 m-auto" style="width:100%">
               <table
                 class="table align-middle p-4 mb-0 table-hover table-shrink"
               >
-                <thead class="table-light">
+                <thead class="table-ligh">
                   <tr>
-                    <th scope="col" class="border-0 rounded-start">Booking Id</th>
-                    <th scope="col" class="border-0">Guest Name</th>
-                    <th scope="col" class="border-0">Check in date</th>
-                    <th scope="col" class="border-0">City</th>
-                    <th scope="col" class="border-0">Cancellation Deadline</th>
-                    <th scope="col" class="border-0">Status</th>
-                    <th scope="col" class="border-0">Payment</th>
-                    <th scope="col" class="border-0">Total Cost</th>
-                    <th scope="col" class="border-0 rounded-end">Action</th>
+                    <th scope="col" class="font-size border-0 rounded-start text-center">Booking Id</th>
+                    <th scope="col" class="font-size border-0 text-center">Guest Name</th>
+                    <th scope="col" class="font-size border-0 text-center">Check in date</th>
+                    <th scope="col" class="font-size border-0 text-center">City</th>
+                    <th scope="col" class="font-size border-0 text-center">Cancellation Deadline</th>
+                    <th scope="col" class="font-size border-0 text-center">Status</th>
+                    <th scope="col" class="font-size border-0 text-center">Payment</th>
+                    <th scope="col" class="font-size border-0 text-center">Total Cost</th>
+                    <th scope="col" class="font-size border-0 text-center rounded-end">Action</th>
 
                   </tr>
                 </thead>
@@ -120,7 +120,7 @@
                   @for (item of bookingsData; track $index) {
                     <tr>
                       <td>
-                        <div class="d-flex flex-column">
+                        <div class="d-flex flex-column align-items-center text-center">
                           <p class="mb-0 fw-semibold">
                             {{item.id}}
                           </p>
@@ -130,7 +130,7 @@
                         </div>
                       </td>
                       <td>
-                          <p class="mb-0 ">
+                          <p class="mb-0 font-size-name ">
                             {{ item.name }}<br>{{ item.name }}
                           </p>
                       </td>
@@ -189,14 +189,14 @@
                         <div class="d-flex">
                           <a type="button" data-bs-toggle="modal" data-bs-target="#eye">
                             <i class="fa-regular fa-eye me-1 position-relative" id="trophy-icon">
-                              <span class="popover-box mb-1 shadow bg-primary text-light border rounded p-1" style="font-size: 13px;">
+                              <span class="popover-box mb-1 shadow bg-primary text-light border rounded p-1" style="font-size: 14px;font-family: 'Courier New', Courier, monospace;">
                                 Booking Detail
                               </span>
                             </i>
                           </a>
                           <a type="button" data-bs-toggle="modal" data-bs-target="#headset"
                           ><i class="fa-solid fa-headset me-1 position-relative" id="message-icon">
-                            <span class="message-box mb-1 shadow bg-primary text-light border rounded p-1" style="font-size: 13px;">
+                            <span class="message-box mb-1 shadow bg-primary text-light border rounded p-1" style="font-size: 14px;font-family: 'Courier New', Courier, monospace;">
                               Support Message
                             </span>
                           </i>
@@ -205,7 +205,7 @@
                           {
                             <a type="button" data-bs-toggle="modal" data-bs-target="#creditcard">
                             <i class="fa-regular fa-credit-card me-1 position-relative" id="visa-icon">
-                              <span class="visa-box mb-1 shadow bg-primary text-light border rounded p-1" style="font-size: 13px;">
+                              <span class="visa-box mb-1 shadow bg-primary text-light border rounded p-1" style="font-size: 14px;font-family: 'Courier New', Courier, monospace;">
                                 Pay Booking
                               </span>
                             </i>
@@ -215,7 +215,7 @@
                         {
                           <a type="button" data-bs-toggle="modal" data-bs-target="#canceled">
                             <i class="fa-solid fa-rectangle-xmark text-danger position-relative" id="cancel-icon">
-                              <span class="cancel-box mb-1 shadow bg-danger text-light border rounded p-1" style="font-size: 13px;">
+                              <span class="cancel-box mb-1 shadow bg-danger text-light border rounded p-1" style="font-size: 14px;font-family: 'Courier New', Courier, monospace;">
                                 Cancel Booking
                               </span>
                             </i>
@@ -275,8 +275,8 @@
 
               <div class="card-body row justify-content-between">
                 <a class="m-0 btn btn-outline-primary mt-2 col-lg-2 col-md-6 fs-6 fw-light">View Voucher</a>
-                <a class="m-0 btn btn-outline-primary mt-2 col-lg-2 col-md-6 fs-6 fw-light">Cancel Booking</a>
-                <a class="m-0 btn btn-outline-primary mt-2 col-lg-2 col-md-6 fs-6 fw-light">Pay Booking</a>
+                <a class="m-0 btn btn-outline-danger mt-2 col-lg-2 col-md-6 fs-6 fw-light">Cancel Booking</a>
+                <a class="m-0 btn btn-outline-success mt-2 col-lg-2 col-md-6 fs-6 fw-light">Pay Booking</a>
                 <a class="m-0 btn btn-outline-primary mt-2 col-lg-2 col-md-6 fs-6 fw-light">View Invoice</a>
                 <a class="m-0 btn btn-outline-primary mt-2 col-lg-3 col-md-12 fs-6 fw-light">Message Support</a>
               </div>
@@ -776,10 +776,6 @@
               </div>
             </div>
           </div> -->
-
-
-
-
         </div>
 
         <aside class="col-xl-4 sticky-element" ng-sticky
@@ -787,14 +783,14 @@
         data-margin-bottom="100">
           <div class="card shadow rounded-2 py-4">
             <div class="ms-2 row g-2">
-              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1">Booking ID: HXM0016</h6>
-              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1">Date on: 12/5/2024</h6>
-              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1">Booking Status: <span class="text-success">Paid</span></h6>
-              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1">Payment Status: <span class="text-success">Complete</span></h6>
-              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1">Invoice ID: #6525541</h6>
-              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1">Hotel Confirmation Number: 156132</h6>
-              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1">Guest Nationality: Nationality</h6>
-              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1">Rewards Points: 100</h6>
+              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1"><span class="fw-light me-1 opacity-75">Booking ID:</span> HXM0016</h6>
+              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1"><span class="fw-light me-1 opacity-75">Date on:</span> 12/5/2024</h6>
+              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1"><span class="fw-light me-1 opacity-75">Booking Status:</span> <span  class="text-success">Paid</span></h6>
+              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1"><span class="fw-light me-1 opacity-75">Payment Status:</span> <span class="text-success">Complete</span></h6>
+              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1"><span class="fw-light me-1 opacity-75">Invoice ID:</span> #6525541</h6>
+              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1"><span class="fw-light me-1 opacity-75">Hotel Confirmation Number:</span> 156132</h6>
+              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1"><span class="fw-light me-1 opacity-75">Guest Nationality:</span> Nationality</h6>
+              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1"><span class="fw-light me-1 opacity-75">Rewards Points:</span> 100</h6>
             </div>
           </div>
           <div class="card shadow rounded-2 mt-3">
@@ -942,7 +938,7 @@
   .popover-box {
     position: absolute;
     top: -40px;
-    left: -40px;
+    left: -50px;
     display: none;
     z-index: 10;
     white-space: nowrap;
@@ -957,7 +953,7 @@
   .cancel-box {
     position: absolute;
     top: -40px;
-    left: -100px;
+    left: -120px;
     display: none;
     z-index: 10;
     white-space: nowrap;
@@ -980,7 +976,7 @@
   .message-box {
     position: absolute;
     top: -40px;
-    left: -70px;
+    left: -80px;
     display: none;
     z-index: 10;
     white-space: nowrap;
@@ -994,5 +990,26 @@
       width: 100%;
     }
   }
+  @media(max-width:1400px){
+    .font-size{
+      font-size:14px;
+    }
+  }
+  @media(min-width:1200px){
+    .font-size{
+      font-size:14px;
+    }
+  }
 
+
+
+  @media (max-width: 1399px) {
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+  }
+  .table {
+    min-width: 1200px; /* Set a minimum width for the table to trigger horizontal scrolling */
+  }
+}
 </style>
