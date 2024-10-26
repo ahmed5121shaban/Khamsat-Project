@@ -1,0 +1,1 @@
+import{Y as a}from"./chunk-IK2DFJRD.js";var n=(()=>{let t=class t{constructor(){this.toasts=[]}show(e){this.toasts.push(e)}remove(e){this.toasts=this.toasts.filter(o=>o!==e)}};t.\u0275fac=function(o){return new(o||t)},t.\u0275prov=a({token:t,factory:t.\u0275fac,providedIn:"root"});let i=t;return i})();export{n as a};
