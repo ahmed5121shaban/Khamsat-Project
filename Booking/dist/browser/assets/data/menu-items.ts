@@ -89,7 +89,7 @@ export const AGENT_MENU_ITEMS: MenuItemType[] = [
   },
   {
     key: 'acc-agent-bookings',
-    label: 'Booking List',
+    label: 'Bookings List',
     url: '/agent/bookings',
     parentKey: 'acc-agent',
     icon: 'bi bi-bookmark-heart',
@@ -296,14 +296,14 @@ export const APP_MENU_ITEMS: MenuItemType[] = [
   {
     key: 'Search',
     label: 'Search',
-    url: '/hotels/list',
+    url: '/hotels/home',
     parentKey: 'hotels',
 
   },
   {
     key: 'Manage Order',
     label: 'Manage Order',
-    url: '/agent/dashboard',
+    url: '/agent/bookings',
     parentKey: 'hotels',
   },
   {

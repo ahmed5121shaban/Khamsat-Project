@@ -15,7 +15,7 @@
             <h5 class="card-header-title">
               <span
                 class="badge bg-primary bg-opacity-10 text-primary ms-2"
-                >20 Booking</span
+                >20 Bookings</span
               >
             </h5>
           </div>
@@ -103,15 +103,15 @@
               >
                 <thead class="table-ligh">
                   <tr>
-                    <th scope="col" class="font-size border-0 rounded-start text-center">Booking Id</th>
-                    <th scope="col" class="font-size border-0 text-center">Guest Name</th>
-                    <th scope="col" class="font-size border-0 text-center">Check in date</th>
-                    <th scope="col" class="font-size border-0 text-center">City</th>
-                    <th scope="col" class="font-size border-0 text-center">Cancellation Deadline</th>
-                    <th scope="col" class="font-size border-0 text-center">Status</th>
-                    <th scope="col" class="font-size border-0 text-center">Payment</th>
-                    <th scope="col" class="font-size border-0 text-center">Total Cost</th>
-                    <th scope="col" class="font-size border-0 text-center rounded-end">Action</th>
+                    <th scope="col" class="font-size border-0 rounded-start">Booking Id</th>
+                    <th scope="col" class="font-size border-0">Guest Name</th>
+                    <th scope="col" class="font-size border-0">Check in date</th>
+                    <th scope="col" class="font-size border-0">City</th>
+                    <th scope="col" class="font-size border-0">Cancellation Deadline</th>
+                    <th scope="col" class="font-size border-0">Status</th>
+                    <th scope="col" class="font-size border-0">Payment</th>
+                    <th scope="col" class="font-size border-0">Total Cost</th>
+                    <th scope="col" class="font-size border-0 rounded-end">Action</th>
 
                   </tr>
                 </thead>
@@ -278,7 +278,8 @@
                 <a class="m-0 btn btn-outline-danger mt-2 col-lg-2 col-md-6 fs-6 fw-light">Cancel Booking</a>
                 <a class="m-0 btn btn-outline-success mt-2 col-lg-2 col-md-6 fs-6 fw-light">Pay Booking</a>
                 <a class="m-0 btn btn-outline-primary mt-2 col-lg-2 col-md-6 fs-6 fw-light">View Invoice</a>
-                <a class="m-0 btn btn-outline-primary mt-2 col-lg-3 col-md-12 fs-6 fw-light">Message Support</a>
+                <a class="m-0 btn btn-outline-primary mt-2 col-lg-3 col-md-12 fs-6 fw-light"
+                type="button" data-bs-toggle="modal" data-bs-target="#headset">Message Support</a>
               </div>
 
         </div>
@@ -568,214 +569,6 @@
             </div>
           </div>
 
-
-          <!-- <div class="card shadow">
-            <div class="card-header border-bottom p-4">
-              <h5 class="card-title mb-0">
-                <i class="bi bi-wallet-fill me-2"></i>Payment Method
-              </h5>
-            </div>
-
-            <div class="card-body p-4 pb-0">
-              <div
-                ngbAccordion
-                [closeOthers]="true"
-                class="accordion accordion-icon accordion-bg-light"
-                id="accordioncircle"
-              >
-
-
-                <div class="mb-3 d-flex ms-2">
-                  <input
-                  class="form-check-input col-1 p-2"
-                  type="checkbox"
-                  value=""
-                  id="heading-2"/>
-                  <h6 class="col-10" id="heading-2">
-                    <span class="ms-2">By Balance available : <span class="opacity-75">1000 USD</span></span>
-                  </h6>
-                </div>
-
-                <div ngbAccordionItem [collapsed]="true" class="accordion-item mb-3">
-                  <h6 ngbAccordionHeader class="accordion-header" id="heading-1">
-                    <button
-                      ngbAccordionButton
-                      class="accordion-button rounded collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapse-1"
-                      aria-expanded="true"
-                      aria-controls="collapse-1"
-                    >
-                      <i class="bi bi-credit-card text-primary me-2"></i>
-                      <span class="me-5">Credit or Debit Card</span>
-                    </button>
-                  </h6>
-                  <div
-                    ngbAccordionCollapse
-                    id="collapse-1"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="heading-1"
-                    data-bs-parent="#accordioncircle"
-                  >
-                    <div class="accordion-body">
-                      <div class="d-sm-flex justify-content-sm-between my-3">
-                        <h6 class="mb-2 mb-sm-0">We Accept:</h6>
-                        <ul class="list-inline my-0">
-                          <li class="list-inline-item">
-                            <a href="javascript:void(0);"
-                              ><img
-                                src="assets/images/element/visa.svg"
-                                class="h-30px"
-                                alt=""
-                            /></a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="javascript:void(0);"
-                              ><img
-                                src="assets/images/element/mastercard.svg"
-                                class="h-30px"
-                                alt=""
-                            /></a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="javascript:void(0);"
-                              ><img
-                                src="assets/images/element/expresscard.svg"
-                                class="h-30px"
-                                alt=""
-                            /></a>
-                          </li>
-                        </ul>
-                      </div>
-
-                      <form
-                        [formGroup]="paymentForm"
-                        (ngSubmit)="onSubmit()"
-                        class="row g-3"
-                      >
-                        <div class="col-12">
-                          <label class="form-label"
-                            ><span class="h6 fw-normal">Card Number *</span></label
-                          >
-                          <div class="position-relative">
-                            <input
-                              type="text"
-                              class="form-control"
-                              formControlName="cardnumber"
-                              mask="0000 0000 0000 0000"
-                              [ngClass]="{
-                                'is-invalid': submit && form['cardnumber'].errors
-                              }"
-                              placeholder="XXXX XXXX XXXX XXXX"
-                            />
-                            <img
-                              src="assets/images/element/visa.svg"
-                              class="w-30px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block"
-                              alt=""
-                            />
-                          </div>
-                        </div>
-
-                        <div class="col-md-6">
-                          <label class="form-label"
-                            ><span class="h6 fw-normal">Expiration date *</span></label
-                          >
-                          <div class="input-group">
-                            <input
-                              type="text"
-                              class="form-control"
-                              formControlName="month"
-                              maxlength="2"
-                              mask="00"
-                              [ngClass]="{ 'is-invalid': submit && form['month'].errors }"
-                              placeholder="Month"
-                            />
-                            <input
-                              type="text"
-                              class="form-control"
-                              formControlName="year"
-                              maxlength="4"
-                              mask="0000"
-                              [ngClass]="{ 'is-invalid': submit && form['year'].errors }"
-                              placeholder="Year"
-                            />
-                          </div>
-                        </div>
-
-                        <div class="col-md-6">
-                          <label class="form-label"
-                            ><span class="h6 fw-normal">CVV / CVC *</span></label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            formControlName="cvv"
-                            maxlength="3"
-                            mask="000"
-                            [ngClass]="{ 'is-invalid': submit && form['cvv'].errors }"
-                            placeholder="xxx"
-                          />
-                          <div class="invalid-feedback">
-                            cvv must be a `number` type, but the final value was: `NaN`
-                            (cast from the value `""`).
-                          </div>
-                        </div>
-
-                        <div class="col-12">
-                          <label class="form-label"
-                            ><span class="h6 fw-normal">Name on Card *</span></label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            formControlName="name"
-                            aria-label="name of card holder"
-                            [ngClass]="{ 'is-invalid': submit && form['name'].errors }"
-                            placeholder="Enter card holder name"
-                          />
-                          <div class="invalid-feedback">
-                            Please enter card holder name
-                          </div>
-                        </div>
-                        <div class="col-12">
-                          <div
-                            class="d-sm-flex justify-content-sm-between align-items-center"
-                          >
-                            <h6>
-                              {{ currencyType }}1800
-                              <span class="small fs-6">Due now</span>
-                            </h6>
-                            <button type="submit" class="btn btn-primary mb-0">
-                              Pay Now
-                            </button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="p-4 pt-0">
-              <div class="mb-0 d-flex justify-content-evenly">
-                <input
-                class="ms-1 form-check-input p-2"
-                type="checkbox"
-                value=""
-                id="hotelType1"/>
-                <p class="m-0 text-danger ">
-                  Yes, I accept the cancellation policy, Booking notes,
-                  and Terms & Conditions of Hotelsxml.
-                </p>
-
-              </div>
-              <div class="mb-0 p-2 mt-3">
-                <a class="btn btn-success" routerLink="/booking-confirmed">Complete Booking</a>
-              </div>
-            </div>
-          </div> -->
         </div>
 
         <aside class="col-xl-4 sticky-element" ng-sticky
@@ -785,8 +578,8 @@
             <div class="ms-2 row g-2">
               <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1"><span class="fw-light me-1 opacity-75">Booking ID:</span> HXM0016</h6>
               <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1"><span class="fw-light me-1 opacity-75">Date on:</span> 12/5/2024</h6>
-              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1"><span class="fw-light me-1 opacity-75">Booking Status:</span> <span  class="text-success">Paid</span></h6>
-              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1"><span class="fw-light me-1 opacity-75">Payment Status:</span> <span class="text-success">Complete</span></h6>
+              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1"><span class="fw-light me-1 opacity-75">Booking Status:</span> <span  class="text-success">Complete</span></h6>
+              <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1"><span class="fw-light me-1 opacity-75">Payment Status:</span> <span class="text-success">Paid</span></h6>
               <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1"><span class="fw-light me-1 opacity-75">Invoice ID:</span> #6525541</h6>
               <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1"><span class="fw-light me-1 opacity-75">Hotel Confirmation Number:</span> 156132</h6>
               <h6 class=" mb-0 p-2 bg-light rounded-2 col-lg-11 border border-1"><span class="fw-light me-1 opacity-75">Guest Nationality:</span> Nationality</h6>
@@ -813,7 +606,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <span class="h5 mb-0">Total Price</span>
                   <div class="d-flex flex-column justify-content-between align-items-center">
-                    <span>gomla here</span>
+                    <span>Total Charges</span>
                     <span class="h5 mb-0">$28,660</span>
                   </div>
 
@@ -1002,7 +795,9 @@
   }
 
 
-
+.font-size-name{
+  font-size: 15px;
+}
   @media (max-width: 1399px) {
   .table-responsive {
     overflow-x: auto;

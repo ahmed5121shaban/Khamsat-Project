@@ -3,11 +3,12 @@ import { Component } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { NgbDropdownModule, NgbPaginationModule, NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap'
 import { invoiceHistory } from '../../data'
+import { CommonModule } from '@angular/common'
 
 @Component({
   selector: 'earning-widget',
   standalone: true,
-  imports: [NgbDropdownModule, NgbPopoverModule,RouterModule,NgbPaginationModule],
+  imports: [NgbDropdownModule, NgbPopoverModule,RouterModule,NgbPaginationModule,CommonModule],
   templateUrl: './earning-widget.component.html',
   styles: ``,
 })

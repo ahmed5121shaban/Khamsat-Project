@@ -1,10 +1,6 @@
 <div class="row">
   <div class="col-12">
     <div class="card border rounded-3">
-<!--       <div class="card-header border-bottom">
-        <h5 class="card-header-title">Invoice history</h5>
-      </div> -->
-
       <div class="card-body">
         <div class="row g-3 align-items-center justify-content-between mb-3">
           <div class="col-md-6">
@@ -64,58 +60,12 @@
                   <td>{{ item.amount }}</td>
                   <td ngbDropdown>
                     {{ item.currency}}
-
-<!--                     <a
-                      href="javascript:void(0);"
-                      ngbDropdownToggle
-                      class="h6 mb-0 arrow-none"
-                      role="button"
-                      id="dropdownShare1"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      <i class="bi bi-info-circle-fill"></i>
-                    </a>
-
-                    <ul
-                      ngbDropdownMenu
-                      class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded"
-                      aria-labelledby="dropdownShare1"
-                    >
-                      <li>
-                        <div class="d-flex justify-content-between">
-                          <span class="small">Commission</span>
-                          <span class="h6 mb-0 small"
-                            >{{ currencyType }}86</span
-                          >
-                        </div>
-                        <hr class="my-1" />
-                      </li>
-
-                      <li>
-                        <div class="d-flex justify-content-between">
-                          <span class="me-4 small">Us royalty withholding</span>
-                          <span class="text-danger small"
-                            >-{{ currencyType }}0.00</span
-                          >
-                        </div>
-                        <hr class="my-1" />
-                      </li>
-
-                      <li>
-                        <div class="d-flex justify-content-between">
-                          <span class="small">Earning</span>
-                          <span class="h6 mb-0 small"
-                            >{{ currencyType }}86</span
-                          >
-                        </div>
-                      </li>
-                    </ul> -->
                   </td>
                   <td>
                     <div
-                      class="badge bg-opacity-10 bg-danger text-danger"
-
+                      class="badge bg-opacity-10"
+                      [ngClass]="{' bg-danger text-danger':item.type=='Debit',
+                      ' bg-success text-success':item.type=='Completed'}"
                     >
                       {{ item.type }}
                     </div>

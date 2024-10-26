@@ -32,12 +32,12 @@ import { filter } from 'rxjs'
   styles: `
   @media(max-width:1400px){
     .font-size{
-      font-size:15px;
+      font-size:14px;
     }
   }
   @media(min-width:1200px){
     .font-size{
-      font-size:15px;
+      font-size:14px;
     }
   }`,
 })
