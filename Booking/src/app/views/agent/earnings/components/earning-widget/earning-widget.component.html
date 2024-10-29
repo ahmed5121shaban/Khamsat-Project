@@ -87,7 +87,7 @@
                 <th scope="col" class="border-0">Guest Name</th>
                 <th scope="col" class="border-0">Amount</th>
                 <th scope="col" class="border-0">Status</th>
-                <th scope="col" class="border-0 rounded-end">Date</th>
+                <th scope="col" class="border-0 rounded-end">Invoice Date</th>
                 <th scope="col" class="border-0 rounded-end">Point</th>
               </tr>
             </thead>
@@ -100,11 +100,9 @@
                   <td>{{ item.amount }}</td>
                   <td>
                     <div
-                      class="badge bg-opacity-10"
-                      [ngClass]="{' bg-danger text-danger':item.type=='Debit',
-                      ' bg-success text-success':item.type=='Completed'}"
+                      class="badge bg-opacity-10 bg-success text-success"
                     >
-                      {{ item.type }}
+                      Completed
                     </div>
                   </td>
                   <td>

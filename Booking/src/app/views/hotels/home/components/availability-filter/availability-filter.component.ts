@@ -77,7 +77,7 @@ export class AvailabilityFilterComponent {
       .map((room, index) => {
         const adults = room.adults || 0;
         const childrenCount = room.children.length || 0;
-        return `Room ${index + 1}: ${adults} Adult${adults > 1 ? 's' : ''}, ${childrenCount} Child${childrenCount > 1 ? 'ren' : ''}`;
+        return `${index + 1} Room, ${adults} Adult${adults > 1 ? 's' : ''}, ${childrenCount} Child${childrenCount > 1 ? 'ren' : ''}`;
       })
       .join(', ');
   }
