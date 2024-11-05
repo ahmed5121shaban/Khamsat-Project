@@ -92,7 +92,7 @@ export const AGENT_MENU_ITEMS: MenuItemType[] = [
     label: 'Bookings List',
     url: '/agent/bookings',
     parentKey: 'acc-agent',
-    icon: 'bi bi-bookmark-heart',
+    icon: 'fa-regular fa-file-lines',
   },
   {
     key: 'acc-agent-listings',
@@ -107,14 +107,14 @@ export const AGENT_MENU_ITEMS: MenuItemType[] = [
     label: 'Reports',
     url: '/agent/activities',
     parentKey: 'acc-agent',
-    icon: 'fa-regular fa-file-lines',
+    icon: 'bi bi-graph-up-arrow',
   },
   {
     key: 'acc-agent-earnings',
     label: 'Rewards',
     url: '/agent/earnings',
     parentKey: 'acc-agent',
-    icon: 'bi bi-graph-up-arrow',
+    icon: 'bi bi-trophy',
   },
   {
     key: 'acc-agent-reviews',

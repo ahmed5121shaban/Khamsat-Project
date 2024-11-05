@@ -3,7 +3,7 @@
     <div class="row m-auto container">
       <div class="col-12">
         <h1 class="fs-4 mb-0">
-          <i class="bi bi-bookmark-heart fa-fw me-1"></i>My Bookings - Manage your booking with advance filters!
+          <i class="fa-regular fa-file-lines fa-fw me-1"></i>My Bookings - Manage your booking with advance filters!
         </h1>
       </div>
     </div>
@@ -275,8 +275,10 @@
 
               <div class="card-body row justify-content-between">
                 <a class="m-0 btn btn-outline-primary mt-2 col-lg-2 col-md-6 fs-6 fw-light">View Voucher</a>
-                <a class="m-0 btn btn-outline-danger mt-2 col-lg-2 col-md-6 fs-6 fw-light">Cancel Booking</a>
-                <a class="m-0 btn btn-outline-success mt-2 col-lg-2 col-md-6 fs-6 fw-light">Pay Booking</a>
+                <a class="m-0 btn btn-outline-danger mt-2 col-lg-2 col-md-6 fs-6 fw-light"
+                type="button" data-bs-toggle="modal" data-bs-target="#canceled">Cancel Booking</a>
+                <a class="m-0 btn btn-outline-success mt-2 col-lg-2 col-md-6 fs-6 fw-light"
+                type="button" data-bs-toggle="modal" data-bs-target="#creditcard">Pay Booking</a>
                 <a class="m-0 btn btn-outline-primary mt-2 col-lg-2 col-md-6 fs-6 fw-light">View Invoice</a>
                 <a class="m-0 btn btn-outline-primary mt-2 col-lg-3 col-md-12 fs-6 fw-light"
                 type="button" data-bs-toggle="modal" data-bs-target="#headset">Message Support</a>
@@ -712,9 +714,6 @@
           <p class="text-danger mb-1">if you choosed Cancel,The Action Cannot Be Rolled Back</p>
           <p class="text-danger mb-3">Cancellation Policy:  Free Charge</p>
           <div class="mb-3 d-flex">
-            <button class="btn btn-danger me-2">
-              <i class="fa-regular fa-thumbs-up me-1"></i> Yes, Cancel
-            </button>
             <button class="btn btn-success" data-bs-dismiss="modal">
               <i class="fa-solid fa-xmark me-1"></i> No Return
             </button>
