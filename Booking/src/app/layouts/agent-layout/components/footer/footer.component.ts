@@ -20,7 +20,7 @@ import { RouterModule } from '@angular/router'
 
       <div class="col-md-4">
         <div class="text-body-secondary text-primary-hover">
-          Copyrights ©{{ currentYear }} HotelsXml Itd .
+          Copyrights ©2025 HotelsXml Itd .
           <!-- <a href="{{ creditsBy.website }}" class="text-body-secondary">{{
             creditsBy.name
           }}</a

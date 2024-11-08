@@ -301,8 +301,8 @@ export const APP_MENU_ITEMS: MenuItemType[] = [
 
   },
   {
-    key: 'Manage Order',
-    label: 'Manage Order',
+    key: 'Manage Orders',
+    label: 'Manage Orders',
     url: '/agent/bookings',
     parentKey: 'hotels',
   },
