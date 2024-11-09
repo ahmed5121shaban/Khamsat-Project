@@ -1,8 +1,30 @@
+<style>
+
+/*      @media(max-width:1200px){
+    .font-size{
+      font-size: 15px;
+    }
+    .font-size-tow{
+      font-size: 13px;
+    }
+  } */
+</style>
+@if (isLoading) {
+  <div class="pb-5">
+     <div class="d-flex flex-column align-items-center mb-5 shadow py-5 pt-5 rounded-1">
+        <h5 class="font-size text-center">Searching ....</h5>
+      <div class="loader text-primary width-size"></div>
+    </div>
+  </div>
+  }
+
+@if (!isLoading) {
+
 <div class="vstack gap-4">
   @for (item of hotelList; track $index) {
     <div class="card shadow p-2">
       <div class="row g-0">
-        <div class="col-md-5 position-relative">
+        <div class="col-md-3 col-lg-3 col-sm-3 position-relative">
           <div class="position-absolute top-0 start-0 z-index-1 m-2">
             <div class="badge text-bg-danger">{{ item.sale }}</div>
           </div>
@@ -28,7 +50,7 @@
           </div>
         </div>
 
-        <div class="col-md-7">
+        <div class="col-md-9 col-lg-9 col-sm-9">
           <div
             class="card-body py-md-2 d-flex flex-column h-100 position-relative"
           >
@@ -49,56 +71,51 @@
                 }
               </ng-template>
 
-              <ngb-rating
-                [(rate)]="item.rating"
-                [starTemplate]="t"
-                [readonly]="true"
-                [max]="5"
-              />
+
 
 
 
             </div>
 
-            <h5 class="mb-1">
-              <a routerLink="/hotels/detail" class="mb-1 fs-6">{{ item.name }} </a>
+            <h5 class="mb-1 d-flex justify-content-between align-items-center">
+              <a routerLink="/hotels/detail" class="col-8 mb-1 fs-6">{{ item.name }} </a>
+              <ngb-rating
+              class="col-2 float-end"
+              [(rate)]="item.rating"
+              [starTemplate]="t"
+              [readonly]="true"
+              [max]="5"
+            />
             </h5>
-            <small><i class="bi bi-geo-alt me-2"></i>{{ item.address }}</small>
-            <p class="text-decoration-underline" style="font-size: 15px;" type="button" data-bs-toggle="modal" data-bs-target="#miniMap">
-              <i class="fa-solid fa-eye me-1"></i>View On Map
-            </p>
-            <ul class="list-group list-group-borderless small mb-0 mt-1">
+            <div class="d-flex justify-content-between responsive-text">
+              <small><i class="bi bi-geo-alt me-2"></i>{{ item.address }}</small>
+              <p class="text-decoration-underline" style="font-size: 14px;" type="button" data-bs-toggle="modal" data-bs-target="#miniMap">
+                <i class="fa-solid fa-eye me-1"></i>View On Map
+              </p>
+            </div>
+            <ul class="list-group list-group-borderless small mb-0 d-flex flex-row flex-wrap">
               @if (item.schemes) {
-                <li class="list-group-item d-flex p-0 pb-1">
-                  <i class="fa-solid fa-bed me-2"></i>Deluxe Room
-                </li>
-                <li class="list-group-item d-flex text-success p-0 pb-1">
-                  <i class="fa-solid fa-utensils me-2"></i>Free Breakfast
-                </li>
-
                 @for (scheme of item.schemes; track $index) {
-                  <li class="list-group-item d-flex text-success p-0 pb-1">
-                    <i class="bi bi-patch-check-fill me-2"></i>{{ scheme }}
+                  <li class="list-group-item d-flex p-0 pb-1 "
+                  [ngClass]="{'text-success':scheme=='Pay Later'||scheme=='Free Cancellation'||scheme=='Free Breakfast',
+                    'text-danger':scheme=='Non Refundable'||scheme=='Pay Now',
+                    'col-12':scheme=='Deluxe Room','col-4':scheme!='Deluxe Room'
+                  }">
+                    <i class=" me-2 "
+                    [ngClass]="{'fa-solid fa-utensils':scheme=='Free Breakfast'||scheme=='Room Only',
+                    'fa-solid fa-bed':scheme=='Deluxe Room',
+                    'bi bi-patch-check-fill': scheme=='Pay Later'||scheme=='Free Cancellation'||scheme=='Non Refundable'||scheme=='Pay Now',
+
+
+                    }"
+                    ></i>{{ scheme }}
                   </li>
                 }
-              } @else {
-                <li class="list-group-item d-flexp-0 pb-1">
-                  <i class="fa-solid fa-bed me-2"></i>Deluxe Room
-                </li>
-                <li class="list-group-item d-flex p-0 pb-1">
-                  <i class="fa-solid fa-utensils me-2"></i>Room Only
-                </li>
-                <li class="list-group-item d-flex text-danger p-0 pb-1">
-                  <i class="bi bi-patch-check-fill me-2"></i>Non Refundable
-                </li>
-                <li class="list-group-item d-flex text-danger p-0">
-                  <i class="bi bi-patch-check-fill me-2"></i>Pay Now
-                </li>
               }
             </ul>
 
             <div
-              class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto"
+              class="d-sm-flex justify-content-sm-between align-items-center mt-1 mt-md-auto"
             >
               <div class="d-flex align-items-center">
                 <h5 class="fw-bold mb-0 me-1">
@@ -161,3 +178,4 @@
     </div>
   </div>
 </div>
+}

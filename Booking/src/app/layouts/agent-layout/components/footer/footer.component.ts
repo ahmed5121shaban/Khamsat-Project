@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router'
       <div class="col-md-4">
         <div class="text-center text-md-start mb-3 mb-md-0">
           <a routerLink="/">
-            <img class="h-30px" src="assets/images/logo.jpg" alt="logo" />
+            <img class="h-50px" src="assets/images/logo.jpg" alt="logo" />
           </a>
         </div>
       </div>

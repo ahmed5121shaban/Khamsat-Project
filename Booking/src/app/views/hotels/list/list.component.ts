@@ -23,7 +23,8 @@ import * as L from 'leaflet';
     RouterModule,
   ],
   templateUrl: './list.component.html',
-  styles: ``,
+  styles: `
+   `,
 })
 export class ListComponent implements AfterViewInit {
 

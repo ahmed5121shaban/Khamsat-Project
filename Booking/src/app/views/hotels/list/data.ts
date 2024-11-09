@@ -28,7 +28,7 @@ const hotels: HotelsListType[] = [
     price: 750,
     features: ['Air Conditioning', 'Wifi', 'Kitchen', 'Pool'],
     rating: 4.5,
-    schemes: ['Free Cancellation till 7 Jan 2022','Pay Later'],
+    schemes: ['Deluxe Room','Free Breakfast','Free Cancellation','Pay Later'],
     sale: '30% Off',
   },
   {
@@ -38,6 +38,7 @@ const hotels: HotelsListType[] = [
     images: [hotel10,hotel3, hotel2, hotel1],
     price: 980,
     features: ['Air Conditioning', 'Wifi', 'Kitchen', 'Pool'],
+    schemes: ['Deluxe Room','Room Only','Non Refundable','Pay Now'],
     rating: 3.5,
   },
 /*   {

@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router'
           [class]="'navbar-brand-item'"
           src="assets/images/logo.jpg"
           alt="logo"
-          style="width: 150px !important;"
+          style="width: 190px !important;height:50px !important"
         />
       } @else {
         <img
@@ -23,13 +23,13 @@ import { RouterModule } from '@angular/router'
           "
           src="assets/images/logo.jpg"
           alt="logo"
-        style="width: 150px !important;"
+        style="width: 190px !important;height:50px !important"
         />
         <img
           [class]="'dark-mode-item navbar-brand-item ' + imgClassName"
           src="assets/images/logo.jpg"
           alt="logo"
-         style="width: 150px !important;"
+         style="width: 190px !important;height:50px !important"
         />
       }
     </a>
