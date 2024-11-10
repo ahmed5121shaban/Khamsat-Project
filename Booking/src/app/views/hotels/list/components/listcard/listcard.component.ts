@@ -24,9 +24,6 @@ import { CommonModule } from '@angular/common'
   ],
   templateUrl: './listcard.component.html',
   styles: `
-  .responsive-text {
-    width: 100%;
-  }
 
   @media (min-width: 576px) {
     .responsive-text {
@@ -37,8 +34,11 @@ import { CommonModule } from '@angular/common'
 
   @media (min-width: 768px) {
     .responsive-text {
-      width: auto;
-      font-size: 1rem;
+      width: 100%;
+      font-size: 14px;
+    }
+    .view-map{
+      font-size:13px;
     }
   }
     .loader {

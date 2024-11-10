@@ -2,19 +2,16 @@
   @media(max-width:963px){
     .view-map-button{
       margin-top: 7px;
-
     }
   }
   @media(min-width:963px){
     .view-map-button{
       margin-left: 7px;
-
     }
   }
   @media(max-width:530px){
     .hstack{
      flex-direction: column !important;
-
     }
     .view-map-button{
       margin-left: 7px;
@@ -23,14 +20,22 @@
     }
 
   }
-
-
-
   @media(max-width:1300px)and (min-width:1200px){
     .hotel-title{
       margin-left: 80px;
   }
   }
+  @media(max-width:1200px){
+    .title-font-size{
+      font-size: 20px;
+  }
+  }
+  @media(max-width:875px){
+    .title-font-size{
+      font-size: 18px;
+  }
+  }
+
 </style>
 
 
@@ -48,17 +53,22 @@ Hotel list START -->
     <div class="container">
       <div class="row mb-1">
         <div class="col-12">
-          <div class="hstack justify-content-between align-items-center">
-            <div class="htele-section mt-4 row align-items-center g-3">
-<!--               <div class="nav-item">
-                <a class="nav-link rounded-1 mb-0 " data-bs-toggle="modal" data-bs-target="#fullMapModal"
-                  >View Map</a>
-              </div> -->
-             <h4 class="">150 Hotels in New York</h4>
+          <div class="hstack flex-lg-row flex-md-column flex-sm-column justify-content-between align-items-center">
+            <div class="col-7 htele-section mt-4 d-flex justify-content-between align-items-center g-3">
+
+              <div class="col-3 modal-body p-0 rounded-2" role="button" data-bs-toggle="modal" data-bs-target="#fullMapModal">
+                <!-- Embed OpenStreetMap using an iframe -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6045.868797210194!2d-74.00338700000002!3d40.741469!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bf5c1654f3%3A0xc80f9cfce5383d5d!2sGoogle%20NYC%20-%209th%20Avenue!5e0!3m2!1sen!2sin!4v1727110804969!5m2!1sen!2sin"
+                width="80%"  height="100px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+
+                </iframe>
+
+              </div>
+             <h4 class="col-6 title-font-size">150 Hotels in New York</h4>
             </div>
 
               <ul
-              class=" nav nav-pills nav-pills-dark d-flex flex-lg-row flex-sm-row"
+              class="nav nav-pills nav-pills-dark d-flex flex-lg-row flex-sm-row"
               id="tour-pills-tab"
               role="tablist"
             >
@@ -69,21 +79,21 @@ Hotel list START -->
                   class="nav-link rounded-2 rounded-0 mb-0 me-1"
                   style="font-size:small"
                   role="button"
-                  >Rate<i class="fa-solid fa-arrow-up ms-1"></i></a>
+                  >Rate<i class="fa-solid fa-arrow-down ms-1"></i></a>
               </li>
               <li class="nav-item">
                 <a
                   class="nav-link rounded-2 rounded-0 mb-0 me-1"
                   style="font-size:small"
                   role="button"
-                  >Price<i class="fa-solid fa-arrow-up ms-1"></i></a>
+                  >Price<i class="fa-solid fa-arrow-down ms-1"></i></a>
               </li>
               <li class="nav-item">
                 <a
                   class="nav-link rounded-2 rounded-0 mb-0"
                   style="font-size:small"
                   role="button"
-                  >A-Z<i class="fa-solid fa-arrow-up ms-1"></i></a>
+                  >A-Z<i class="fa-solid fa-arrow-down ms-1"></i></a>
               </li>
 
 
