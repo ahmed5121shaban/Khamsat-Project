@@ -24,6 +24,17 @@ import { CommonModule } from '@angular/common'
   ],
   templateUrl: './listcard.component.html',
   styles: `
+@media (max-width: 780px) {
+  .responsive-text{
+      flex-direction: column;
+    }
+    .responsive-text i{
+      margin: 0 !important;
+    }
+    .adress{
+      width:100%;
+    }
+  }
 
   @media (min-width: 576px) {
     .responsive-text {
