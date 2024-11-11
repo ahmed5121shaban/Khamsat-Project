@@ -46,7 +46,15 @@
     <list-banner />
   </div>
 
-
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMap" aria-labelledby="offcanvasMapLabel" style="width: 70%;">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasMapLabel">Map</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div id="map" style="height: 100%; width: 100%;"></div>
+    </div>
+  </div>
   <!-- =======================
 Hotel list START -->
   <section class="pt-0">
@@ -55,8 +63,8 @@ Hotel list START -->
         <div class="col-12">
           <div class="hstack flex-lg-row flex-md-column flex-sm-column justify-content-between align-items-center">
             <div class="col-7 htele-section mt-4 d-flex justify-content-between align-items-center">
-                 <div class="col-3 modal-body p-0 rounded-2" role="button" data-bs-toggle="modal" data-bs-target="#fullMapModal">
-                    <div class="text-center">view map</div>
+                 <div class="col-3 modal-body p-0 rounded-2" role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMap" aria-controls="offcanvasMap">
+                  <div id="smallMap" style="height: 100px; width: 95%;"></div>
                   </div>
                   <h4 class="col-7 title-font-size ps-3">150 Hotels in New York</h4>
               </div>

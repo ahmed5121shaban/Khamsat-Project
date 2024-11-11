@@ -1,4 +1,4 @@
-import { Component,AfterViewInit  } from '@angular/core'
+import { Component,AfterViewInit, Renderer2  } from '@angular/core'
 import { TopbarComponent } from './components/topbar/topbar.component'
 import { BannerComponent } from './components/banner/banner.component'
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap'
@@ -30,6 +30,7 @@ export class ListComponent implements AfterViewInit {
 
   staticAlertClosed = false;
   private map!: L.Map
+  private smallMap!: L.Map;
 
   private initMap(): void {
     if (this.map) {
@@ -79,18 +80,40 @@ export class ListComponent implements AfterViewInit {
 
 }
   }
-  constructor() { }
+  constructor(private renderer: Renderer2) { }
 
-/* ngAfterViewInit(): void {
-    const fullMapModal = document.getElementById('fullMapModal');
-    fullMapModal?.addEventListener('shown.bs.modal', () => {
-      this.initMap();
-    });
-  }
- */
   ngAfterViewInit(): void {
     this.initMap();
+    this.initializeInlineMap();
+    const offcanvasMap = document.getElementById('offcanvasMap');
+  if (offcanvasMap) {
+    this.renderer.listen(offcanvasMap, 'shown.bs.offcanvas', () => {
+      this.map.invalidateSize(); // Refreshes the map size when the offcanvas is opened
+    });
   }
+  }
+  initializeMap(): void {
+    this.map = L.map('map').setView([30.0444, 31.2357], 10); // Set to Cairo, Egypt, adjust as needed
 
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+    }).addTo(this.map);
+
+    // Optional: Add a marker
+    L.marker([30.0444, 31.2357]).addTo(this.map)
+      .bindPopup('Cairo, Egypt')
+      .openPopup();
+  }
+  private initializeInlineMap(): void {
+    this.smallMap = L.map('smallMap', {
+      zoomControl: false,   // Remove zoom controls to keep it minimal
+      attributionControl: false // Hide attribution for a cleaner look
+    }).setView([40.7128, -74.0060], 12); // Set to New York, adjust as needed
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+    }).addTo(this.smallMap);
+  }
 
 }
