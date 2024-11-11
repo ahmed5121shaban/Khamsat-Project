@@ -86,14 +86,14 @@
                     'text-danger':scheme=='Non Refundable'||scheme=='Pay Now',
                     'col-12':scheme=='Deluxe Room','col-4':scheme!='Deluxe Room'
                   }">
-                    <i class=" me-2 "
-                    [ngClass]="{'fa-solid fa-utensils':scheme=='Free Breakfast'||scheme=='Room Only',
-                    'fa-solid fa-bed':scheme=='Deluxe Room',
-                    'bi bi-patch-check-fill': scheme=='Pay Later'||scheme=='Free Cancellation'||scheme=='Non Refundable'||scheme=='Pay Now',
-
-
-                    }"
-                    ></i>{{ scheme }}
+                    <i
+                    class="me-2"
+                    [class.fa-solid]="scheme === 'Free Breakfast' || scheme === 'Room Only' || scheme === 'Deluxe Room'"
+                    [class.fa-bed]="scheme === 'Deluxe Room'"
+                    [class.fa-utensils]="scheme === 'Free Breakfast' || scheme === 'Room Only'"
+                    [class.bi]="scheme === 'Pay Later' || scheme === 'Free Cancellation' || scheme === 'Non Refundable' || scheme === 'Pay Now'"
+                    [class.bi-patch-check-fill]="scheme === 'Pay Later' || scheme === 'Free Cancellation' || scheme === 'Non Refundable' || scheme === 'Pay Now'"
+                  ></i>{{ scheme }}
                   </li>
                 }
               }
