@@ -72,16 +72,16 @@
               <a routerLink="/hotels/detail" class=" mb-0 fs-6">{{ item.name }} </a>
 
             </h5>
-            <div class="d-flex responsive-text mb-0">
+            <div class="d-flex responsive-text mb-1">
               <div class="adress"><i class="bi bi-geo-alt"></i>{{ item.address }}</div>
               <div class="text-decoration-underline mb-0" type="button" data-bs-toggle="modal" data-bs-target="#miniMap">
-                <i class="fa-solid fa-eye me-1 ms-3 "></i><span class="view-map">View On Map</span>
+                <i class="fa-solid fa-eye me-1 ms-3" style="font-size: 11px;"></i><span class="view-map">View On Map</span>
               </div>
             </div>
             <ul class="list-group list-group-borderless small mb-0 d-flex flex-row flex-wrap">
               @if (item.schemes) {
                 @for (scheme of item.schemes; track $index) {
-                  <li class="list-group-item d-flex p-0 pb-1 "
+                  <li class="list-group-item d-flex p-0 mb-1 "
                   [ngClass]="{'text-success':scheme=='Pay Later'||scheme=='Free Cancellation'||scheme=='Free Breakfast',
                     'text-danger':scheme=='Non Refundable'||scheme=='Pay Now',
                     'col-12':scheme=='Deluxe Room','col-4':scheme!='Deluxe Room'

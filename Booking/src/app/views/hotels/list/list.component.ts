@@ -38,13 +38,13 @@ export class ListComponent implements AfterViewInit {
     } else {
       this.map = L.map('map', {
         center: [20, 0],
-        zoom: 2,
+        zoom: 4,
+        attributionControl: false
       });
 
   const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18,
     minZoom: 3,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   });
 
   tiles.addTo(this.map);
@@ -91,19 +91,6 @@ export class ListComponent implements AfterViewInit {
       this.map.invalidateSize(); // Refreshes the map size when the offcanvas is opened
     });
   }
-  }
-  initializeMap(): void {
-    this.map = L.map('map').setView([30.0444, 31.2357], 10); // Set to Cairo, Egypt, adjust as needed
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '© OpenStreetMap'
-    }).addTo(this.map);
-
-    // Optional: Add a marker
-    L.marker([30.0444, 31.2357]).addTo(this.map)
-      .bindPopup('Cairo, Egypt')
-      .openPopup();
   }
   private initializeInlineMap(): void {
     this.smallMap = L.map('smallMap', {
