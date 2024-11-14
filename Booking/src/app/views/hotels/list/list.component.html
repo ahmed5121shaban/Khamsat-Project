@@ -1,5 +1,14 @@
 <style>
-
+@media(max-width:405px){
+  .list-filter{
+    width: 90% !important;
+    margin-bottom: 5px;
+    margin-left: 50px;
+  }
+  #tour-pills-tab{
+    margin-left: 50px;
+  }
+}
   @media(max-width:478px){
     .view-map-mobile{
       display: none;
@@ -81,7 +90,7 @@ Hotel list START -->
               id="tour-pills-tab"
               role="tablist"
             >
-            <li class="col-md-12 col-sm-12 me-1 w-auto" ><list-filter-offcanvas /></li>
+            <li class="list-filter col-md-12 col-sm-12 me-1 w-auto" ><list-filter-offcanvas /></li>
               <li class="nav-item">
                 <a
                   class="nav-link rounded-2 rounded-0 mb-0 me-1"
