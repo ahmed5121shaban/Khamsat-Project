@@ -54,8 +54,8 @@ import { CommonModule } from '@angular/common'
     }
     .loader {
       width: 400px;
-      height: 16px;
-      border-radius: 20px;
+      height: 25px;
+      border-radius: 10px;
       border: 2px solid;
       position: relative;
     }
