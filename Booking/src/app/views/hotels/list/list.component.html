@@ -9,7 +9,7 @@
     margin-left: 50px;
   }
 }
-  @media(max-width:478px){
+  @media(max-width:616px){
     .view-map-mobile{
       display: none;
 }
@@ -24,9 +24,12 @@
       margin-left: 7px;
     }
   }
-  @media(max-width:530px){
+  @media(max-width:580px){
     .hstack{
      flex-direction: column !important;
+    }
+    .title-font-size{
+      width: 100%;
     }
     .view-map-button{
       margin-left: 7px;
@@ -61,7 +64,7 @@
     <list-banner />
   </div>
 
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMap" aria-labelledby="offcanvasMapLabel" style="width: 70%;">
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMap" aria-labelledby="offcanvasMapLabel" style="width: 90%;">
     <div class="offcanvas-header mb-0 pb-0">
       <h5 class="offcanvas-title" id="offcanvasMapLabel">Map</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -72,65 +75,77 @@
   </div>
   <!-- =======================
 Hotel list START -->
-  <section class="pt-0">
-    <div class="container">
-      <div class="row mb-1">
-        <div class="col-12">
-          <div class="hstack flex-lg-row flex-md-column flex-sm-column justify-content-between align-items-center">
-            <div class="col-7 htele-section mt-4 d-flex justify-content-between align-items-center">
-                 <div class="col-3 modal-body p-0 rounded-2 position-relative" role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMap" aria-controls="offcanvasMap">
-                  <div class="text-center rounded-2" style="background-image: url('assets/images/map-cover.jpg');height: 45px;width: 95%;">
-                    <span class="btn btn-light" style="font-size: 13px; margin-top: 3px;"><span class="view-map-mobile">View</span> Map</span>
-                  </div>
-                  </div>
-                  <h4 class="col-7 title-font-size ps-3">150 Hotels in New York</h4>
-              </div>
-              <ul
-              class="nav nav-pills nav-pills-dark d-flex flex-lg-row flex-sm-row"
-              id="tour-pills-tab"
-              role="tablist"
-            >
-            <li class="list-filter col-md-12 col-sm-12 me-1 w-auto" ><list-filter-offcanvas /></li>
-              <li class="nav-item">
-                <a
-                  class="nav-link rounded-2 rounded-0 mb-0 me-1"
-                  style="font-size:small"
-                  role="button"
-                  >Stars<i class="fa-solid fa-arrow-down ms-1"></i></a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link rounded-2 rounded-0 mb-0 me-1"
-                  style="font-size:small"
-                  role="button"
-                  >Price<i class="fa-solid fa-arrow-down ms-1"></i></a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link rounded-2 rounded-0 mb-0"
-                  style="font-size:small"
-                  role="button"
-                  >A-Z<i class="fa-solid fa-arrow-down ms-1"></i></a>
-              </li>
+@if (isLoading) {
+  <div class="container">
+  <div class="pb-5 pt-4" style="height: 90vh;">
+     <div class="d-flex flex-column align-items-center mb-5 shadow py-5 pt-5 rounded-1">
+        <h5 class="font-size text-center">Searching for Hotels in New York ....</h5>
+      <div class="loader text-primary width-size"></div>
+    </div>
+  </div>
+</div>
+  }@else{
+    <section class="pt-0">
+      <div class="container">
+        <div class="row mb-1">
+          <div class="col-12">
+            <div class="hstack flex-lg-row flex-md-column flex-sm-column justify-content-between align-items-center">
+              <div class="col-lg-7 col-md-7 col-sm-7 htele-section mt-4 mb-md-2 mb-sm-2 d-flex justify-content-between align-items-center">
+                   <div class="col-3 modal-body p-0 rounded-2 position-relative" role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMap" aria-controls="offcanvasMap">
+                    <div class="text-center rounded-2" style="background-image: url('assets/images/map-cover.jpg');height: 45px;width: 95%;">
+                      <span class="btn btn-light" style="font-size: 13px; margin-top: 3px;"><span class="view-map-mobile">View</span> Map</span>
+                    </div>
+                    </div>
+                    <h4 class="col-lg-7 title-font-size ps-3">150 Hotels in New York</h4>
+                </div>
+                <ul
+                class="nav nav-pills nav-pills-dark d-flex flex-lg-row flex-sm-row"
+                id="tour-pills-tab"
+                role="tablist"
+              >
+              <li class="list-filter col-md-12 col-sm-12 me-1 w-auto" ><list-filter-offcanvas /></li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link rounded-2 rounded-0 mb-0 me-1"
+                    style="font-size:small"
+                    role="button"
+                    >Stars<i class="fa-solid fa-arrow-down ms-1"></i></a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link rounded-2 rounded-0 mb-0 me-1"
+                    style="font-size:small"
+                    role="button"
+                    >Price<i class="fa-solid fa-arrow-down ms-1"></i></a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link rounded-2 rounded-0 mb-0"
+                    style="font-size:small"
+                    role="button"
+                    >A-Z<i class="fa-solid fa-arrow-down ms-1"></i></a>
+                </li>
 
 
-              </ul>
+                </ul>
 
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <aside class="col-xl-3 col-xxl-3">
+            <list-filterbar />
+          </aside>
+
+          <div class="col-xl-9 col-xxl-9">
+            <list-card />
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="row">
-        <aside class="col-xl-3 col-xxl-3">
-          <list-filterbar />
-        </aside>
-
-        <div class="col-xl-9 col-xxl-9">
-          <list-card />
-        </div>
-      </div>
-    </div>
-  </section>
+  }
 
   <!-- =======================
     Hotel list END -->

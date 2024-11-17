@@ -10,6 +10,10 @@ import type { MenuItemType } from 'src/app/core/models'
     :host(horizontal-menu-item-link) {
       display: contents;
     }
+    a:hover{
+      border-bottom:3px solid;
+      padding-bottom:3px;
+    }
   `,
   template: `
     <a

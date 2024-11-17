@@ -24,6 +24,27 @@ import * as L from 'leaflet';
   ],
   templateUrl: './list.component.html',
   styles: `
+   .loader {
+      width: 400px;
+      height: 25px;
+      border-radius: 10px;
+      border: 2px solid;
+      position: relative;
+    }
+    .loader::before {
+      content: '';
+      position: absolute;
+      margin: 2px;
+      inset: 0 100% 0 0;
+      border-radius: inherit;
+      background: currentColor;
+      animation: l6 2s;
+    }
+    @keyframes l6 {
+      100% {
+        inset: 0;
+      }
+    }
    `,
 })
 export class ListComponent implements AfterViewInit {
@@ -31,7 +52,12 @@ export class ListComponent implements AfterViewInit {
   staticAlertClosed = false;
   private map!: L.Map
   private smallMap!: L.Map;
-
+  isLoading:boolean=true
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false
+    }, 2000)
+  }
   private initMap(): void {
     if (this.map) {
       this.map.invalidateSize(); // Adjust map size if it's already initialized
