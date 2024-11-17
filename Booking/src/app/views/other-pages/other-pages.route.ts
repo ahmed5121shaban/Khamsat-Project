@@ -5,16 +5,14 @@ import { NotFoundComponent } from './not-found/not-found.component'
 import { ComingSoonComponent } from './coming-soon/coming-soon.component'
 
 export const OTHER_PAGES_ROUTES: Route[] = [
-  { path: 'pricing', component: PricingComponent, data: { title: 'Pricing' } },
-  { path: 'faqs', component: FaqsComponent, data: { title: 'FAQs' } },
+  { path: 'pricing', component: PricingComponent},
+  { path: 'faqs', component: FaqsComponent },
   {
     path: 'not-found',
-    component: NotFoundComponent,
-    data: { title: 'Not Found' },
+    component: NotFoundComponent
   },
   {
     path: 'coming-soon',
-    component: ComingSoonComponent,
-    data: { title: 'Coming Soon' },
+    component: ComingSoonComponent
   },
 ]

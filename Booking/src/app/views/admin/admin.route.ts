@@ -13,52 +13,42 @@ import { SettingsComponent } from './settings/settings.component'
 export const ADMIN_ROUTES: Route[] = [
   {
     path: 'dashboard',
-    component: DashboardComponent,
-    data: { title: 'Admin Dashboard' },
+    component: DashboardComponent
   },
   {
     path: 'bookings/list',
-    component: ListComponent,
-    data: { title: 'Admin Booking List' },
+    component: ListComponent
   },
   {
     path: 'bookings/detail',
-    component: DetailComponent,
-    data: { title: 'Admin Booking Detail' },
+    component: DetailComponent
   },
   {
     path: 'guests/list',
-    component: ListsComponent,
-    data: { title: 'Admin Guests List' },
+    component: ListsComponent
   },
   {
     path: 'guests/detail',
-    component: DetailsComponent,
-    data: { title: 'Admin Guests Detail' },
+    component: DetailsComponent
   },
   {
     path: 'agents/list',
-    component: AgentListComponent,
-    data: { title: 'Admin Agents List' },
+    component: AgentListComponent
   },
   {
     path: 'agents/detail',
-    component: AgentDetailComponent,
-    data: { title: 'Admin Agents Detail' },
+    component: AgentDetailComponent
   },
   {
     path: 'reviews',
-    component: ReviewsComponent,
-    data: { title: 'Admin Reviews' },
+    component: ReviewsComponent
   },
   {
     path: 'earnings',
-    component: EarningsComponent,
-    data: { title: 'Admin Earnings' },
+    component: EarningsComponent
   },
   {
     path: 'settings',
-    component: SettingsComponent,
-    data: { title: 'Admin Settings' },
+    component: SettingsComponent
   },
 ]

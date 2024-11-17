@@ -3,10 +3,9 @@ import { AboutComponent } from './about/about.component'
 import { OurTeamComponent } from './our-team/our-team.component'
 
 export const ABOUT_US_ROUTES: Route[] = [
-  { path: 'about', component: AboutComponent, data: { title: 'About us' } },
+  { path: 'about', component: AboutComponent },
   {
     path: 'our-team',
-    component: OurTeamComponent,
-    data: { title: 'Our Team' },
+    component: OurTeamComponent
   },
 ]

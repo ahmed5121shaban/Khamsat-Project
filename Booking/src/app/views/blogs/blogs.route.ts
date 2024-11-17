@@ -4,10 +4,9 @@ import { DetailComponent } from './detail/detail.component'
 // import { HomeComponent } from './home/home.component'
 
 export const BLOGS_ROUTES: Route[] = [
-  { path: 'blog', component: BlogComponent, data: { title: 'Blog' } },
+  { path: 'blog', component: BlogComponent},
   {
     path: 'detail',
-    component: DetailComponent,
-    data: { title: 'Blog Details' },
+    component: DetailComponent
   },
 ]

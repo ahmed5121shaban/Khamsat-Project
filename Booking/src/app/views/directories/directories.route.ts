@@ -5,12 +5,10 @@ import { DetailComponent } from './detail/detail.component'
 export const DIRECTORIES_ROUTES: Route[] = [
   {
     path: 'home',
-    component: HomeComponent,
-    data: { title: 'Directories  - Home' },
+    component: HomeComponent
   },
   {
     path: 'detail',
-    component: DetailComponent,
-    data: { title: 'Directories  - Detail' },
+    component: DetailComponent
   },
 ]

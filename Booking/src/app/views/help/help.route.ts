@@ -7,22 +7,18 @@ import { ServiceComponent } from './service/service.component'
 export const HELP_ROUTES: Route[] = [
   {
     path: 'center',
-    component: CenterComponent,
-    data: { title: 'Help Center' },
+    component: CenterComponent
   },
   {
     path: 'detail',
-    component: DetailComponent,
-    data: { title: 'Help Detail' },
+    component: DetailComponent
   },
   {
     path: 'privacy-policy',
-    component: PrivacyPolicyComponent,
-    data: { title: 'Privacy Policy' },
+    component: PrivacyPolicyComponent
   },
   {
     path: 'service',
-    component: ServiceComponent,
-    data: { title: 'Terms of Service' },
+    component: ServiceComponent
   },
 ]

@@ -10,37 +10,30 @@ import { DeleteProfileComponent } from './delete-profile/delete-profile.componen
 export const USER_PAGES_ROUTES: Route[] = [
   {
     path: 'profile',
-    component: ProfileComponent,
-    data: { title: 'User - Profile' },
+    component: ProfileComponent
   },
   {
     path: 'bookings',
-    component: BookingsComponent,
-    data: { title: 'User - Bookings' },
+    component: BookingsComponent
   },
   {
     path: 'settings',
-    component: SettingsComponent,
-    data: { title: 'User - Settings' },
+    component: SettingsComponent
   },
   {
     path: 'travelers',
-    component: TravelersComponent,
-    data: { title: 'User - Travelers' },
+    component: TravelersComponent
   },
   {
     path: 'wishlist',
-    component: WishlistComponent,
-    data: { title: 'User - Wishlist' },
+    component: WishlistComponent
   },
   {
     path: 'payment-details',
-    component: PaymentDetailsComponent,
-    data: { title: 'User - Payment Details' },
+    component: PaymentDetailsComponent
   },
   {
     path: 'delete-profile',
-    component: DeleteProfileComponent,
-    data: { title: 'User - Delete Profile' },
+    component: DeleteProfileComponent
   },
 ]

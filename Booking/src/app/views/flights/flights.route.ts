@@ -5,16 +5,14 @@ import { DetailComponent } from './detail/detail.component'
 import { BookingComponent } from './booking/booking.component'
 
 export const FLIGHT_ROUTES: Route[] = [
-  { path: 'home', component: HomeComponent, data: { title: 'Flight - Home' } },
-  { path: 'list', component: ListComponent, data: { title: 'Flight - List' } },
+  { path: 'home', component: HomeComponent},
+  { path: 'list', component: ListComponent},
   {
     path: 'detail',
-    component: DetailComponent,
-    data: { title: 'Flight - Detail' },
+    component: DetailComponent
   },
   {
     path: 'booking',
-    component: BookingComponent,
-    data: { title: 'Flight - Booking' },
+    component: BookingComponent
   },
 ]

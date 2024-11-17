@@ -7,22 +7,18 @@ import { SplitComponent } from './split/split.component'
 export const HEROES_ROUTES: Route[] = [
   {
     path: 'inline-form',
-    component: InlineFormComponent,
-    data: { title: 'Hero - Inline Form' },
+    component: InlineFormComponent
   },
   {
     path: 'multiple-search',
-    component: MultipleSearchComponent,
-    data: { title: 'Hero - Multiple Search' },
+    component: MultipleSearchComponent
   },
   {
     path: 'image-gallery',
-    component: ImageGalleryComponent,
-    data: { title: 'Hero - Image Gallery' },
+    component: ImageGalleryComponent
   },
   {
     path: 'split',
-    component: SplitComponent,
-    data: { title: 'Hero - Split' },
+    component: SplitComponent
   },
 ]

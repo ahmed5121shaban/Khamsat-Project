@@ -7,22 +7,18 @@ import { AddedComponent } from './added/added.component'
 export const LISTINGS_ROUTES: Route[] = [
   {
     path: 'join-us',
-    component: JoinUsComponent,
-    data: { title: 'Listings - Join Us' },
+    component: JoinUsComponent
   },
   {
     path: 'add',
-    component: AddComponent,
-    data: { title: 'Listings - Add Listing' },
+    component: AddComponent
   },
   {
     path: 'add-minimal',
-    component: AddMinimalComponent,
-    data: { title: 'Listings - Add Listing Minimal' },
+    component: AddMinimalComponent
   },
   {
     path: 'added',
-    component: AddedComponent,
-    data: { title: 'Listings - Added' },
+    component: AddedComponent
   },
 ]

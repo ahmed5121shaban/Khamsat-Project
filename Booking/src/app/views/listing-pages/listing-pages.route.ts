@@ -6,17 +6,14 @@ import { OfferDetailComponent } from './offer-detail/offer-detail.component'
 export const LISTING_PAGES_ROUTES: Route[] = [
   {
     path: 'booking-confirmed',
-    component: BookingConfirmedComponent,
-    data: { title: 'Booking Confirmed' },
+    component: BookingConfirmedComponent
   },
   {
     path: 'compare-listing',
-    component: CompareListingComponent,
-    data: { title: 'Compare Listing' },
+    component: CompareListingComponent
   },
   {
     path: 'offer-detail',
-    component: OfferDetailComponent,
-    data: { title: 'Offer Detail' },
+    component: OfferDetailComponent
   },
 ]

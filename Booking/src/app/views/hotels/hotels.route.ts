@@ -9,32 +9,27 @@ import { RoomDetailComponent } from './room-detail/room-detail.component'
 import { BookingComponent } from './booking/booking.component'
 
 export const HOTEL_ROUTES: Route[] = [
-  { path: 'home', component: HomeComponent, data: { title: 'Hotel - Home' } },
+  { path: 'home', component: HomeComponent },
   {
     path: 'chain',
-    component: ChainComponent,
-    data: { title: 'Hotel - Chain' },
+    component: ChainComponent
   },
   {
     path: 'resort',
-    component: ResortComponent,
-    data: { title: 'Hotel - Resort' },
+    component: ResortComponent
   },
-  { path: 'grid', component: GridComponent, data: { title: 'Hotel - Grid' } },
-  { path: 'list', component: ListComponent, data: { title: 'Hotel - List' } },
+  { path: 'grid', component: GridComponent},
+  { path: 'list', component: ListComponent},
   {
     path: 'detail',
-    component: DetailComponent,
-    data: { title: 'Hotel - Detail' },
+    component: DetailComponent
   },
   {
     path: 'room-detail',
-    component: RoomDetailComponent,
-    data: { title: 'Hotel - Room Detail' },
+    component: RoomDetailComponent
   },
   {
     path: 'booking',
-    component: BookingComponent,
-    data: { title: 'Hotel - Booking' },
+    component: BookingComponent
   },
 ]

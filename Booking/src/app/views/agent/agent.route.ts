@@ -12,43 +12,35 @@ import { ReportComponent } from './report/report.component'
 export const AGENT_ROUTES: Route[] = [
   {
     path: 'dashboard',
-    component: DashboardComponent,
-    data: { title: 'Agent - Dashboard' },
+    component: DashboardComponent
   },
   {
     path: 'message',
-    component: MessagesComponent,
-    data: { title: 'Agent - Message' },
+    component: MessagesComponent
   },
   {
     path: 'listings',
-    component: ListingsComponent,
-    data: { title: 'Agent - Listings' },
+    component: ListingsComponent
   },
   {
     path: 'bookings',
-    component: BookingsComponent,
-    data: { title: 'Agent - Booking' },
+    component: BookingsComponent
   },
   {
     path: 'activities',
-    component: ActivitiesComponent,
-    data: { title: 'Agent - Activities' },
+    component: ActivitiesComponent
   },
   {
     path: 'earnings',
-    component: EarningsComponent,
-    data: { title: 'Agent - Earnings' },
+    component: EarningsComponent
   },
   {
     path: 'reviews',
-    component: ReviewsComponent,
-    data: { title: 'Agent - Review' },
+    component: ReviewsComponent
   },
   {
     path: 'settings',
-    component: SettingsComponent,
-    data: { title: 'Agent - Settings' },
+    component: SettingsComponent
   },
 
 ]
