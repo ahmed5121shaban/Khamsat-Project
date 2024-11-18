@@ -26,7 +26,7 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap'
   inset: 0 100% 0 0;
   border-radius: inherit;
   background: currentColor;
-  animation: l6 10s;
+  animation: l6 1s;
 }
 @keyframes l6 {
     100% {inset:0}
@@ -40,6 +40,6 @@ export class ConfirmTicketComponent {
   ngOnInit(): void {
     setTimeout(() => {
       this.isLoading = false;
-    }, 10000);
+    }, 1000);
   }
 }
